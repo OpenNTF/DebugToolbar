@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config>
+  <faces-config-extension>
+    <namespace-uri>http://www.openntf.org/xsp/debugtoolbar</namespace-uri>
+    <default-prefix>openntf</default-prefix>
+    <designer-extension>
+      		<control-subpackage-name>dbar</control-subpackage-name>
+    	</designer-extension>
+  </faces-config-extension>
+  
+  <composite-component>
+    <component-type>debugToolbar</component-type>
+    <composite-name>debugToolbar</composite-name>
+    <composite-file>/org/openntf/xsp/debugtoolbar/components/DebugToolbar</composite-file>
+    <composite-extension>
+     <tag-name>debugToolbar</tag-name>
+      <designer-extension>
+        <in-palette>true</in-palette>
+        <render-markup>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&#xd;
+&lt;xp:view xmlns:xp="http://www.ibm.com/xsp/core"&#xd;
+  xmlns:xc="http://www.ibm.com/xsp/custom"&gt;&#xd;
+&lt;xp:div style="background-color:#38375B; padding:3px; color:#ffffff;"&gt;&lt;b&gt;XPage Debug Toolbar&lt;/b&gt; (by Mark Leusink)&lt;/xp:div&gt;&#xd;
+&lt;/xp:view&gt;&#xd;
+</render-markup>
+        <category>Debugging</category>
+      </designer-extension>
+    </composite-extension>
+    <property>
+      <property-name>defaultCollapsed</property-name>
+      <property-class>boolean</property-class>
+      <property-extension>
+        <designer-extension>
+          <editor>com.ibm.std.Boolean</editor>
+          <default-value>false</default-value>
+        </designer-extension>
+        <required>true</required>
+      </property-extension>
+      <description>Controls the initial state of the toolbar: collapsed or expanded (default).</description>
+    </property>
+    <property>
+      <property-name>collapseTo</property-name>
+      <property-class>string</property-class>
+      <property-extension>
+        <designer-extension>
+          <editor>com.ibm.workplace.designer.property.editors.comboParameterEditor</editor>
+          <editor-parameter>left&#xd;
+right</editor-parameter>
+          <default-value>left</default-value>
+        </designer-extension>
+      </property-extension>
+      <description>Set the toolbar to collapse to the left (default) or right of the screen.</description>
+    </property>
+    <description>XPages Debug Toolbar (by Mark Leusink)</description>
+    <icon>
+      <small-icon>/icons/bug16.png</small-icon>
+      <large-icon>/icons/bug32.png</large-icon>
+    </icon>
+    <property>
+      <property-name>toolbarColor</property-name>
+      <property-class>string</property-class>
+      <description>Change the color of the toolbar. This setting is eventually added to the toolbar's CSS code, so you can use either HTML color codes (red, pink, black) or Hex values (#ff0000, #00ff00, #000000).</description>
+      <property-extension>
+        <designer-extension>
+          <editor>com.ibm.std.String</editor>
+        </designer-extension>
+      </property-extension>
+    </property>
+  </composite-component>
+</faces-config>
