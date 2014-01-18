@@ -1,10 +1,9 @@
-package org.openntf.xsp.debugtoolbar.components;
-
 /*
  * Generated file. 
  * 
  * DebugToolbar.java
  */
+package org.openntf.xsp.debugtoolbar.components;
 
 import com.ibm.xsp.page.compiled.AbstractCompiledPage;
 import com.ibm.xsp.page.compiled.AbstractCompiledPageDispatcher;
@@ -19,13 +18,13 @@ import javax.faces.el.MethodBinding;
 import com.ibm.xsp.component.FacesPageProvider;
 import com.ibm.xsp.resource.ScriptResource;
 import com.ibm.xsp.component.UIViewRootEx2;
-import java.lang.Boolean;
 import com.ibm.xsp.component.UIPanelEx;
 import javax.faces.el.ValueBinding;
 import com.ibm.xsp.component.UIPassThroughTag;
 import com.ibm.xsp.component.UIPassThroughText;
 import com.ibm.xsp.component.xp.XspOutputText;
 import java.util.Map;
+import java.lang.Boolean;
 import com.ibm.xsp.component.xp.XspDiv;
 import com.ibm.xsp.component.xp.XspOutputLink;
 import com.ibm.xsp.component.xp.XspEventHandler;
@@ -472,13 +471,11 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             new ComponentInfo(false, new int[]{391}), // 392 div26
             new ComponentInfo(false, new int[]{8, 45, 385, 392}), // 393 "debugtoolbar"
             new ComponentInfo(false, new int[]{0, 2, 3, 393}), // 394 panel
-            ComponentInfo.EMPTY_NORMAL, // 395 "computedfield1"
-            new ComponentInfo(false, new int[]{395}), // 396 div27
-            new ComponentInfo(false, new int[]{394, 396}), // 397 view
+            new ComponentInfo(false, new int[]{394}), // 395 view
         };
         
         public DebugToolbarPage() {
-            super(397, s_infos );
+            super(395, s_infos );
         }
         
         public int getComponentForId(String id) throws NoSuchComponentException { 
@@ -652,8 +649,6 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
                 return 386;
             if( "link4".equals(id) )
                 return 389;
-            if( "computedfield1".equals(id) )
-                return 395;
             return -1;
         }
         
@@ -661,7 +656,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
                 UIComponent parent, PageExpressionEvaluator evaluator)
                 throws NoSuchComponentException { 
             switch (id) {
-            case 397:
+            case 395:
                 return createView(context, parent, evaluator);
             case 394:
                 return createPanel(context, parent, evaluator);
@@ -1453,10 +1448,6 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
                 return createLink4(context, parent, evaluator);
             case 388:
                 return createEventHandler47(context, parent, evaluator);
-            case 396:
-                return createDiv27(context, parent, evaluator);
-            case 395:
-                return createComputedfield1(context, parent, evaluator);
             }
             throw new NoSuchComponentException(id);
         }
@@ -1472,17 +1463,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             if( null != asPageProvider ){
                 asPageProvider.setBeforePageLoad(beforePageLoad);
             }
-         /*
-          * TODO   ScriptResource resources = new ScriptResource();
-          
-            resources.setComponent(root);
-            resources.setClientSide(false);
-            resources.setSrc("/xpDebugToolbar.jss");
-          
-            if( null != asPageProvider ){
-                asPageProvider.addResource(resources);
-            }
-            */
+           
             String sourceId2 = "/xp:view[1]/xp:this.beforeRenderResponse[1]/text()";
             MethodBinding beforeRenderResponse = evaluator.createMethodBinding(root,
                     "#{javascript:if( typeof dBar != \"undefined\" && dBar.getActiveTab().equals(\"inspector\") ) {\n\tdBarHelper.renderInspectorContents();\n}}",
@@ -1520,19 +1501,11 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
 
         private UIComponent createPanel(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
-            // loaded=??
-            String loadedBnd = "#{javascript:typeof dBar != \"undefined\"}";
-            String sourceId = "/xp:view[1]/xp:panel[1]/xp:this.loaded[1]/text()";
-            String loaded = evaluator.evaluateAsString(null, loadedBnd, sourceId, boolean.class);
-            if ( null != loaded && loaded.length() > 0 &&
-                    ! Boolean.parseBoolean(loaded) ) {
-                return null;
-            } // else loaded was true
             UIPanelEx result = new UIPanelEx();
             result.setStyle("visibility:visible;");
-            String sourceId2 = "/xp:view[1]/xp:panel[1]/@rendered";
+            String sourceId = "/xp:view[1]/xp:panel[1]/@rendered";
             String renderedExpr = "#{dBar.toolbarVisible}";
-            ValueBinding rendered = evaluator.createValueBinding(result, renderedExpr, sourceId2,boolean.class);
+            ValueBinding rendered = evaluator.createValueBinding(result, renderedExpr, sourceId,boolean.class);
             result.setValueBinding("rendered", rendered);
             return result;
         }
@@ -2997,7 +2970,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             String sourceId = "repeatScope/tr[1]/td[2]/xp:text[1]/xp:this.value[1]/text()";
-            String valueExpr = "#{javascript:dBarHelper.getScopeEntry(scopeEntry)}";
+            String valueExpr = "#{javascript:dBar.getScopeEntry(scopeEntry)}";
             ValueBinding value = evaluator.createValueBinding(result, valueExpr, sourceId,Object.class);
             result.setValueBinding("value", value);
             result.setEscape(false);
@@ -5457,7 +5430,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
 
         private UIComponent createText83(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
-            String text = "The XPage Debug Toolbar is created and maintained by Mark Leusink. Download the latest release\n\t\t\t\t\t\t\t\t\t\t\tfrom\u00a0";
+            String text = "The XPages Debug Toolbar is created and maintained by Mark Leusink. Download the latest release\n\t\t\t\t\t\t\t\t\t\t\tfrom\u00a0";
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText(text);
             return textComp;
@@ -5484,8 +5457,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
         private UIComponent createLink48(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputLink result = new XspOutputLink();
-            String value = "https://github.com/markleusink/XpageDebugToolbar";
-            result.setValue(value);
+            result.setValue("https://www.github.com/openntf/DebugToolbar");
             result.setTarget("_blank");
             result.setText("GitHub");
             return result;
@@ -5682,7 +5654,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
 
         private UIComponent createText97(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
-            String text = "(the XPage Debug Toolbar features parts of Tommy Valand\'s\u00a0";
+            String text = "(the XPages Debug Toolbar features parts of Tommy Valand\'s\u00a0";
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText(text);
             return textComp;
@@ -5777,36 +5749,5 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createDiv27(FacesContext context, 
-                UIComponent parent, PageExpressionEvaluator evaluator) {
-            // loaded=??
-            String loadedBnd = "#{javascript:typeof dBar == \"undefined\"}";
-            String sourceId = "/xp:view[1]/xp:div[1]/xp:this.loaded[1]/text()";
-            String loaded = evaluator.evaluateAsString(null, loadedBnd, sourceId, boolean.class);
-            if ( null != loaded && loaded.length() > 0 &&
-                    ! Boolean.parseBoolean(loaded) ) {
-                return null;
-            } // else loaded was true
-            XspDiv result = new XspDiv();
-            String style = "position: absolute; z-index: 10000; color: #ffffff; background: #161E7A; font-size: 11px; width: 100%; top: 0; left:0; padding: 10px;";
-            result.setStyle(style);
-            return result;
-        }
-
-        private UIComponent createComputedfield1(FacesContext context, 
-                UIComponent parent, PageExpressionEvaluator evaluator) {
-            XspOutputText result = new XspOutputText();
-            String sourceId = "computedField1/xp:this.value[1]/text()";
-            String valueExpr = "#{javascript:\"<div style=\\\"margin: 0 0 10px 0; color: red; font-weight: bold;\\\">XPage Debug Toolbar NOT loaded</div><p>The XPage Debug Toolbar requires a managed bean to function. Add the following definition to the <b>faces-config.xml</b> file in the WebContent/WEB-INF folder of this database and reload this page:<br /><br />\" +\n\"&lt;managed-bean id=\\\"dBar\\\"&gt;<br />\" +\n\"&nbsp;&lt;managed-bean-name&gt;dBar&lt;/managed-bean-name&gt;<br />\" +\n\"&nbsp;&lt;managed-bean-class&gt;eu.linqed.debugtoolbar.DebugToolbar&lt;/managed-bean-class&gt;<br />\" +\n\"&nbsp;&lt;managed-bean-scope&gt;session&lt;/managed-bean-scope&gt;<br />\" +\n\"&lt;/managed-bean&gt;</p>\"}";
-            ValueBinding value = evaluator.createValueBinding(result, valueExpr, sourceId,Object.class);
-            result.setValueBinding("value", value);
-            result.setEscape(false);
-            Map<String,Object> attrs = getAttributes(result);
-            attrs.put("disableTheme", Boolean.valueOf("true"));
-            setId(result, "computedField1");
-            return result;
-        }
-
     }
 }
-

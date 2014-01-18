@@ -9,11 +9,5 @@
             type="com.ibm.xsp.Library">
       </service>
    </extension>
-   
-   <extension point="com.ibm.commons.Extension">
-         <service 
-         type="com.ibm.xsp.JavaScriptLibFactory" 
-         class="org.openntf.xsp.debugtoolbar.ssjs.DebugToolbarFactory" />
-   </extension>
 
 </plugin>

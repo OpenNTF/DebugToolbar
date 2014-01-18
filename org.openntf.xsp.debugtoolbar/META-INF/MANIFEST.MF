@@ -9,6 +9,7 @@ Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Import-Package: com.ibm.commons.util,
  com.ibm.commons.vfs,
  com.ibm.designer.runtime,
+ com.ibm.designer.runtime.directory,
  com.ibm.designer.runtime.domino.adapter,
  com.ibm.designer.runtime.domino.bootstrap.adapter,
  com.ibm.domino.xsp.module.nsf,

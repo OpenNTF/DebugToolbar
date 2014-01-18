@@ -1,7 +1,5 @@
 - copied class into here
 - commented out loading of the .jss
-- in source: rename eu.linqed... to dBar.
-- in source: help text when bean not available not needed
 
 
 TODO:

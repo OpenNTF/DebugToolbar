@@ -36,7 +36,10 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.SortedSet;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.Vector;
 import java.util.Map.Entry;
 
@@ -58,6 +61,7 @@ import lotus.domino.Session;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+
 import java.util.Date;
 import java.util.logging.Level;
 
@@ -66,7 +70,7 @@ import lotus.domino.Document;
 import lotus.domino.NotesException;
 
 import com.ibm.commons.util.StringUtil;
-//TODO import com.ibm.designer.runtime.directory.DirectoryUser;
+import com.ibm.designer.runtime.directory.DirectoryUser;
 import com.ibm.xsp.designer.context.XSPContext;
 
 public class DebugToolbarBean implements Serializable {
@@ -80,6 +84,7 @@ public class DebugToolbarBean implements Serializable {
 	
 	private static final int 		MAX_MESSAGES 			= 2000;		//maximum number of message held in this class
 	private static final long  		LOG_FILE_SIZE_LIMIT_MB 	= 2;		//log file size limit (in MB)
+	private static final int 		MAX_DATASET_SAMPLE 		= 50;		//maximum number of samples from a list that are shown by default
 	
 	private static final String TEMP_VAR_NAME = "dBarTemp";
 	
@@ -203,23 +208,7 @@ public class DebugToolbarBean implements Serializable {
 	
 	//dump the contents of any object to the toolbar
 	public void dump(Object dumpObject) {
-		
-		try { 
-			
-			this.dumpObject = dumpObject;
-			ValueBinding vb = FacesContext.getCurrentInstance().getApplication().createValueBinding("#{javascript:dBarHelper.dumpObject()}");
-			String dumpedContents = vb.getValue(FacesContext.getCurrentInstance()).toString();
-			this.info( dumpedContents, "dumped");
-						
-		} catch (Exception e) {
-			
-			this.error("could not dump object (" + dumpObject.getClass().toString() + ")", "dumped" );
-			
-		} finally {
-			
-			this.dumpObject = null;
-		}
-		
+		this.info( this.dumpIt(dumpObject), "dumped");
 	}
 	
 	//dump a list of all signers to the messages tab
@@ -367,7 +356,6 @@ public class DebugToolbarBean implements Serializable {
 	@SuppressWarnings("unchecked")
 	public void readScopeKeys() {
 		
-		@SuppressWarnings("rawtypes")
 		Map map = (Map) resolveVariable(activeTab);
 	
 		sortedScopeKeys = new ArrayList<Object>(map.keySet());
@@ -399,10 +387,140 @@ public class DebugToolbarBean implements Serializable {
 		}
 	}
 	
+	/*
+	 * Returns the dumped contents of an entry from the current scope.
+	 * The key of entry is defined as an Object, because it doesn't have to be a string (can be a number too for instance)
+	 */
+	public String getScopeEntry( Object entryName ) {
+		
+		//entry name
+	
+		if (StringUtil.isEmpty( (String)entryName )) {
+			return "invalid input";
+		}
+		
+		//don't render variables related to the debug toolbar
+		if (DebugToolbarBean.hideDetails( entryName.toString() )) {
+			return 	"(skipped - debugToolbar variable)";
+		}
+		
+		Map map = (Map) this.resolveVariable(this.getActiveTab() );
+		
+		return this.dumpIt( map.get(entryName));
+	}
+	
+	//dumpObject : function() {
+	//	return this.dump( dBar.getDumpObject() );
+	//},
+		
+	//dump the contents of an object
+	private String dumpIt( Object o) {
+		
+		StringBuilder dumped = new StringBuilder();;
+		
+		try { 
+			
+			if (o==null ) { 
+				return "&lt;null&gt;";
+			} else if ( o instanceof String  ||
+					o instanceof Number ||
+					o instanceof Boolean) {
+				return o.toString();
+			} else if ( o instanceof List) {		//ArrayList, Vector
+				
+				if (!this.isShowLists()) {
+					return "span class=\"highlight\">(hidden list/ map)</span>";
+				}
+				
+				List list = (List) o;
+				
+				if (list.size()==0) {
+					
+					dumped.append("(empty list)");
+					
+				} else {
+					
+			    	Iterator it = list.iterator();
+			 
+			    	dumped.append("<table class=\"dumped\"><tbody>");
+			    	
+			    	boolean first = true;
+			    	int counter = 0;
+			    	
+			    	while( it.hasNext() )  {
+			    		
+			    		if (counter >= DebugToolbarBean.MAX_DATASET_SAMPLE) {
+		    		    	dumped.append("<tr><td colspan=\"2\"><span class=\"highlight\">More items available...</span></td></tr>");
+		    		    	break;
+		        		}
+			    		
+			    		dumped.append( "<tr><td" +
+			    				(first ? " class=\"first\"" : "") +
+			    				">[" + counter + "]</td><td" + 
+			    				(first ? " class=\"first\"" : "") + ">");
+			    		dumped.append( this.dumpIt(it.next()));
+			    		dumped.append( "</td></tr>");
+			    		first = false;
+			    		counter++;
+			    	}
+			    	
+			    	dumped.append( "</tbody></table>");
+		    	}
+				
+			} else if ( o instanceof Map ) {
+				
+				Map map = (Map ) o;
+				
+				dumped.append("<table class=\"dumped\"><tbody>");
+				
+				SortedSet<Object> keys = new TreeSet<Object>(map.keySet());
+				
+				int counter = 0;
+				boolean first = true;
+				
+				for (Object key : keys) { 
+					
+					if (counter >= DebugToolbarBean.MAX_DATASET_SAMPLE) {
+	    		    	dumped.append("<tr><td colspan=\"2\"><span class=\"highlight\">More items available...</span></td></tr>");
+	    		    	break;
+	        		}
+					
+					Object value = map.get(key);
+					dumped.append(
+							"<tr><td" + (first ? " class=\"first\"" : "") + ">" + key + "</td>" +
+							"<td" + (first ? " class=\"first\"" : "") + ">" + this.dumpIt( map.get(key) ) +
+							"</td></tr>");
+					
+					first = false;
+					counter++;
+		
+				}
+				
+				dumped.append( "</tbody></table>");
+				
+			} else  {
+			    dumped.append( o.toString() );
+				
+			}
+			
+					
+		} catch (Exception e) {
+			
+			this.error("could not dump object (" + dumpObject.getClass().toString() + ")", "dumped" );
+			
+		} finally {
+			
+			this.dumpObject = null;
+		}
+		
+		return dumped.toString();
+		
+	}
+
 	// clear the contents of the sessionScope
+	@SuppressWarnings("unchecked")
 	public void clearSessionScope() {
 		
-		@SuppressWarnings("rawtypes")
 		Map sessionScope = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 		
 		Iterator it = sessionScope.keySet().iterator();
@@ -539,8 +657,8 @@ public class DebugToolbarBean implements Serializable {
 		} catch (Exception e) {
 			
 			//error while logging to the toolbar: log to console
-			System.err.println("(DebugToolbar) error while logging: " + e.getMessage());
-			System.out.println("(DebugToolbar) " + message.getText() );
+			System.err.println("(DebugToolbarBean) error while logging: " + e.getMessage());
+			System.out.println("(DebugToolbarBean) " + message.getText() );
 		}
 	}
 	
@@ -917,11 +1035,10 @@ public class DebugToolbarBean implements Serializable {
 
 			if (type.equals("user")) {
 				
-//TODO				DirectoryUser currentUser = context.getUser();
+				DirectoryUser currentUser = context.getUser();
 				
 				Name n = getSession().createName(effectiveUserName);
-				Vector<String> groups = new Vector<String>();
-	//TODO				groups = currentUser.getGroups();
+				Vector<String> groups = new Vector(currentUser.getGroups());
 				groups.remove(effectiveUserName);
 				groups.remove(n.getCommon());
 			
@@ -1685,4 +1802,3 @@ public class DebugToolbarBean implements Serializable {
 	}
 		
 }
-
