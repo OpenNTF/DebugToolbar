@@ -1466,7 +1466,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
            
             String sourceId2 = "/xp:view[1]/xp:this.beforeRenderResponse[1]/text()";
             MethodBinding beforeRenderResponse = evaluator.createMethodBinding(root,
-                    "#{javascript:if( typeof dBar != \"undefined\" && dBar.getActiveTab().equals(\"inspector\") ) {\n\tdBarHelper.renderInspectorContents();\n}}",
+                    "#{javascript:if( typeof dBar != \"undefined\" && dBar.getActiveTab().equals(\"inspector\") ) {\n\tdBar.executeInspector();\n}}",
                     null,null, sourceId2);
             if( null != asPageProvider ){
                 asPageProvider.setBeforeRenderResponse(beforeRenderResponse);
@@ -1492,7 +1492,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             result.addResource(resources);
             String sourceId2 = "/xp:view[1]/xp:this.beforeRenderResponse[1]/text()";
             MethodBinding beforeRenderResponse = evaluator.createMethodBinding(result,
-                    "#{javascript:if( typeof dBar != \"undefined\" && dBar.getActiveTab().equals(\"inspector\") ) {\n\tdBarHelper.renderInspectorContents();\n}}",
+                    "#{javascript:if( typeof dBar != \"undefined\" && dBar.getActiveTab().equals(\"inspector\") ) {\n\tdBar.executeInspector();\n}}",
                     null,null, sourceId2);
             result.setBeforeRenderResponse(beforeRenderResponse);
             result.setDojoTheme(true);
@@ -4692,7 +4692,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             result.setValue("Invalid expression");
             result.setStyle("color:red");
             String sourceId = "inspector/div[1]/xp:text[1]/xp:this.rendered[1]/text()";
-            String renderedExpr = "#{javascript:( viewScope.expressionInfo == \'\' && !facesContext.getMessages( \'inspectorMessages\' ).hasNext() );}";
+            String renderedExpr = "#{javascript:( !dBar.hasInspectorResult() && !facesContext.getMessages( \'inspectorMessages\' ).hasNext() );}";
             ValueBinding rendered = evaluator.createValueBinding(result, renderedExpr, sourceId,boolean.class);
             result.setValueBinding("rendered", rendered);
             return result;
@@ -4709,12 +4709,12 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             String sourceId = "inspector/div[2]/xp:text[1]/@value";
-            String valueExpr = "#{javascript:\'Exception:\' + viewScope.exception}";
+            String valueExpr = "#{javascript:\'Exception:\' + dBar.getInspectorExexpressionInfoceptionOutput()}";
             ValueBinding value = evaluator.createValueBinding(result, valueExpr, sourceId,Object.class);
             result.setValueBinding("value", value);
             result.setStyle("color:red");
             String sourceId2 = "inspector/div[2]/xp:text[1]/@rendered";
-            String renderedExpr = "#{javascript:viewScope.exception}";
+            String renderedExpr = "#{javascript:dBar.hasInspectorException()}";
             ValueBinding rendered = evaluator.createValueBinding(result, renderedExpr, sourceId2,boolean.class);
             result.setValueBinding("rendered", rendered);
             return result;
@@ -4739,7 +4739,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPanelEx result = new UIPanelEx();
             String sourceId = "expressionInfo/@rendered";
-            String renderedExpr = "#{javascript:viewScope.expressionInfo}";
+            String renderedExpr = "#{javascript:dBar.hasInspectorResult();}";
             ValueBinding rendered = evaluator.createValueBinding(result, renderedExpr, sourceId,boolean.class);
             result.setValueBinding("rendered", rendered);
             setId(result, "expressionInfo");
@@ -4750,7 +4750,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspDiv result = new XspDiv();
             String sourceId = "expressionInfo/xp:div[1]/@rendered";
-            String renderedExpr = "#{viewScope.expressionInfo}";
+            String renderedExpr = "#{javascript:dBar.hasInspectorResult();}";
             ValueBinding rendered = evaluator.createValueBinding(result, renderedExpr, sourceId,boolean.class);
             result.setValueBinding("rendered", rendered);
             result.setStyleClass("className");
@@ -4768,18 +4768,18 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputLink result = new XspOutputLink();
             String sourceId = "link44/@value";
-            String valueExpr = "#{javascript:dBar.getInspectorLink(viewScope.expressionInfo.className)}";
+            String valueExpr = "#{javascript:dBar.getInspectorLink(dBar.getInspectorResultClassName())}";
             ValueBinding value = evaluator.createValueBinding(result, valueExpr, sourceId,Object.class);
             result.setValueBinding("value", value);
             result.setTarget("_blank");
             result.setEscape(true);
             String sourceId2 = "link44/xp:this.rendered[1]/text()";
-            String renderedExpr = "#{javascript:!viewScope.expressionInfo.className.equals(\"void\")}";
+            String renderedExpr = "#{javascript:!dBar.getInspectorResultClassName().equals(\"void\")}";
             ValueBinding rendered = evaluator.createValueBinding(result, renderedExpr, sourceId2,boolean.class);
             result.setValueBinding("rendered", rendered);
             setId(result, "link44");
             String sourceId3 = "link44/@text";
-            String textExpr = "#{javascript:viewScope.expressionInfo.className}";
+            String textExpr = "#{javascript:dBar.getInspectorResultClassName();}";
             ValueBinding text = evaluator.createValueBinding(result, textExpr, sourceId3,String.class);
             result.setValueBinding("text", text);
             return result;
@@ -4796,14 +4796,14 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             String sourceId = "expressionValue/xp:this.value[1]/text()";
-            String valueExpr = "#{javascript:\"toString: <b>\" + viewScope.expressionInfo.value + \"</b>\";}";
+            String valueExpr = "#{javascript:\"toString: <b>\" + dBar.getInspectorResultValue() + \"</b>\";}";
             ValueBinding value = evaluator.createValueBinding(result, valueExpr, sourceId,Object.class);
             result.setValueBinding("value", value);
             result.setEscape(false);
             Map<String,Object> attrs = getAttributes(result);
             attrs.put("disableTheme", Boolean.valueOf("true"));
             String sourceId2 = "expressionValue/@rendered";
-            String renderedExpr = "#{javascript:viewScope.expressionInfo.value}";
+            String renderedExpr = "#{javascript:dBar.getInspectorResultValue();}";
             ValueBinding rendered = evaluator.createValueBinding(result, renderedExpr, sourceId2,boolean.class);
             result.setValueBinding("rendered", rendered);
             setId(result, "expressionValue");
@@ -4928,7 +4928,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspTable result = new XspTable();
             String sourceId = "expressionInfo/xp:table[1]/xp:this.rendered[1]/text()";
-            String renderedExpr = "#{javascript:var expressionInfo = viewScope.expressionInfo;\n\t\t\t\t\t\t\tif (!expressionInfo) { return false; }\n\t\t\t\t\t\t\tif (dBar.inspectorHideMethods) { return false; }\n\t\t\t\t\t\t\treturn true;}";
+            String renderedExpr = "#{javascript:var expressionInfo = dBar.hasInspectorResult();\n\t\t\t\t\t\t\tif (!expressionInfo) { return false; }\n\t\t\t\t\t\t\tif (dBar.inspectorHideMethods) { return false; }\n\t\t\t\t\t\t\treturn true;}";
             ValueBinding rendered = evaluator.createValueBinding(result, renderedExpr, sourceId,boolean.class);
             result.setValueBinding("rendered", rendered);
             result.setStyleClass("grid striped inspect");
@@ -4939,12 +4939,12 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspDataIterator result = new XspDataIterator();
             String sourceId = "repeatMethods/@value";
-            String valueExpr = "#{javascript:dBarHelper.getClassItems(viewScope.expressionInfo.className, \'methods\')}";
+            String valueExpr = "#{javascript:dBar.getInspectorMethodList()}";
             ValueBinding value = evaluator.createValueBinding(result, valueExpr, sourceId,Object.class);
             result.setValueBinding("value", value);
             result.setDisableOutputTag(true);
             String sourceId2 = "repeatMethods/xp:this.rendered[1]/text()";
-            String renderedExpr = "#{javascript:viewScope.expressionInfo;}";
+            String renderedExpr = "#{javascript:dBar.hasInspectorResult();}";
             ValueBinding rendered = evaluator.createValueBinding(result, renderedExpr, sourceId2,boolean.class);
             result.setValueBinding("rendered", rendered);
             result.setVar("method");
@@ -5149,7 +5149,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             Map<String,Object> attrs = getAttributes(result);
             attrs.put("disableTheme", Boolean.valueOf("true"));
             String sourceId = "repeatMethods/tr[1]/td[3]/xp:text[1]/@rendered";
-            String renderedExpr = "#{javascript:method.getDeclaringClass().getCanonicalName().equals(viewScope.expressionInfo.className)}";
+            String renderedExpr = "#{javascript:method.getDeclaringClass().getCanonicalName().equals(dBar.getInspectorResultClassName()}";
             ValueBinding rendered = evaluator.createValueBinding(result, renderedExpr, sourceId,boolean.class);
             result.setValueBinding("rendered", rendered);
             return result;
@@ -5165,7 +5165,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             result.setTarget("_blank");
             result.setEscape(true);
             String sourceId2 = "linkDeclClass/@rendered";
-            String renderedExpr = "#{javascript:!method.getDeclaringClass().getCanonicalName().equals(viewScope.expressionInfo.className)}";
+            String renderedExpr = "#{javascript:!method.getDeclaringClass().getCanonicalName().equals(dBar.getInspectorResultClassName())}";
             ValueBinding rendered = evaluator.createValueBinding(result, renderedExpr, sourceId2,boolean.class);
             result.setValueBinding("rendered", rendered);
             setId(result, "linkDeclClass");
@@ -5191,12 +5191,12 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspDataIterator result = new XspDataIterator();
             String sourceId = "repeatFields/@value";
-            String valueExpr = "#{javascript:dBarHelper.getClassItems(viewScope.expressionInfo.className, \'fields\')}";
+            String valueExpr = "#{javascript:dBar.getInspectorFielsList()}";
             ValueBinding value = evaluator.createValueBinding(result, valueExpr, sourceId,Object.class);
             result.setValueBinding("value", value);
             result.setDisableOutputTag(true);
             String sourceId2 = "repeatFields/xp:this.rendered[1]/text()";
-            String renderedExpr = "#{javascript:viewScope.expressionInfo;}";
+            String renderedExpr = "#{javascript:dBar.hasInspectorResult();}";
             ValueBinding rendered = evaluator.createValueBinding(result, renderedExpr, sourceId2,boolean.class);
             result.setValueBinding("rendered", rendered);
             result.setVar("field");
@@ -5321,7 +5321,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             result.setTarget("_blank");
             result.setEscape(true);
             String sourceId2 = "repeatFields/tr[1]/td[3]/xp:link[1]/@rendered";
-            String renderedExpr = "#{javascript:!field.getDeclaringClass().getCanonicalName().equals(viewScope.expressionInfo.className)}";
+            String renderedExpr = "#{javascript:!field.getDeclaringClass().getCanonicalName().equals(dBar.getInspectorResultClassName())}";
             ValueBinding rendered = evaluator.createValueBinding(result, renderedExpr, sourceId2,boolean.class);
             result.setValueBinding("rendered", rendered);
             String sourceId3 = "repeatFields/tr[1]/td[3]/xp:link[1]/@text";
@@ -5339,7 +5339,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             Map<String,Object> attrs = getAttributes(result);
             attrs.put("disableTheme", Boolean.valueOf("true"));
             String sourceId = "repeatFields/tr[1]/td[3]/xp:text[1]/@rendered";
-            String renderedExpr = "#{javascript:field.getDeclaringClass().getCanonicalName().equals(viewScope.expressionInfo.className)}";
+            String renderedExpr = "#{javascript:field.getDeclaringClass().getCanonicalName().equals(dBar.getInspectorResultClassName())}";
             ValueBinding rendered = evaluator.createValueBinding(result, renderedExpr, sourceId,boolean.class);
             result.setValueBinding("rendered", rendered);
             return result;
