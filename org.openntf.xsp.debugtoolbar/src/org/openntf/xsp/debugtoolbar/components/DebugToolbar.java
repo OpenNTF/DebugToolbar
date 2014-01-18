@@ -4709,7 +4709,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             String sourceId = "inspector/div[2]/xp:text[1]/@value";
-            String valueExpr = "#{javascript:\'Exception:\' + dBar.getInspectorExexpressionInfoceptionOutput()}";
+            String valueExpr = "#{javascript:\'Exception:\' + dBar.getInspectorExceptionOutput()}";
             ValueBinding value = evaluator.createValueBinding(result, valueExpr, sourceId,Object.class);
             result.setValueBinding("value", value);
             result.setStyle("color:red");

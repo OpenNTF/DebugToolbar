@@ -10,7 +10,7 @@ tmp/
 *.swp
 *~.nib
 local.properties
-org.openntf.xsp.debugtoolbar.updatesite/features/
-org.openntf.xsp.debugtoolbar.updatesite/plugins/
+org.openntf.xsp.debugtoolbar.updatesite/features/*.jar
+org.openntf.xsp.debugtoolbar.updatesite/plugins/*.jar
 org.openntf.xsp.debugtoolbar.updatesite/artifacts.jar
 org.openntf.xsp.debugtoolbar.updatesite/content.jar
