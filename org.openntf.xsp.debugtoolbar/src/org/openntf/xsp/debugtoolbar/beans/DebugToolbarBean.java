@@ -3,7 +3,7 @@ package org.openntf.xsp.debugtoolbar.beans;
 /*
  * <<
  * 
- * XPage Debug Toolbar
+ * XPages Debug Toolbar
  * Copyright 2012,2013,2014 Mark Leusink http://linqed.eu
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this 
@@ -36,7 +36,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -47,7 +46,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.component.UIComponent;
-import javax.faces.el.ValueBinding;
 import javax.faces.model.SelectItem;
 import javax.faces.model.SelectItemGroup;
 import javax.servlet.http.Cookie;
@@ -71,6 +69,9 @@ import lotus.domino.NotesException;
 
 import com.ibm.commons.util.StringUtil;
 import com.ibm.designer.runtime.directory.DirectoryUser;
+import com.ibm.jscript.types.FBSNumber;
+import com.ibm.jscript.types.FBSString;
+import com.ibm.jscript.types.FBSValue.IValues;
 import com.ibm.xsp.designer.context.XSPContext;
 
 public class DebugToolbarBean implements Serializable {
@@ -102,8 +103,6 @@ public class DebugToolbarBean implements Serializable {
 	private String consolePath;
 	private boolean showLists;
 	private String toolbarColor;
-	
-	private Object dumpObject;
 	
 	private ArrayList<SelectItemGroup> logFileOptions;
 	
@@ -275,10 +274,6 @@ public class DebugToolbarBean implements Serializable {
 
 	}
 	
-	public Object getDumpObject() {
-		return dumpObject;
-	}
-	
 	public void init(boolean defaultCollapsed, String color) {
 
 		toolbarVisible = true;
@@ -391,6 +386,7 @@ public class DebugToolbarBean implements Serializable {
 	 * Returns the dumped contents of an entry from the current scope.
 	 * The key of entry is defined as an Object, because it doesn't have to be a string (can be a number too for instance)
 	 */
+	@SuppressWarnings("unchecked")
 	public String getScopeEntry( Object entryName ) {
 		
 		//entry name
@@ -404,25 +400,24 @@ public class DebugToolbarBean implements Serializable {
 			return 	"(skipped - debugToolbar variable)";
 		}
 		
-		Map map = (Map) this.resolveVariable(this.getActiveTab() );
+		Map map = (Map) DebugToolbarBean.resolveVariable(this.getActiveTab() );
 		
 		return this.dumpIt( map.get(entryName));
 	}
 	
-	//dumpObject : function() {
-	//	return this.dump( dBar.getDumpObject() );
-	//},
-		
 	//dump the contents of an object
-	private String dumpIt( Object o) {
+	@SuppressWarnings("unchecked")
+	private String dumpIt( Object o ) {
 		
-		StringBuilder dumped = new StringBuilder();;
+		StringBuilder dumped = new StringBuilder();
 		
 		try { 
 			
 			if (o==null ) { 
 				return "&lt;null&gt;";
 			} else if ( o instanceof String  ||
+					o instanceof FBSString ||
+					o instanceof FBSNumber ||
 					o instanceof Number ||
 					o instanceof Boolean) {
 				return o.toString();
@@ -469,11 +464,10 @@ public class DebugToolbarBean implements Serializable {
 				
 			} else if ( o instanceof Map ) {
 				
-				Map map = (Map ) o;
+				Map map = (Map) o;
+				SortedSet<Object> keys = new TreeSet<Object>(map.keySet());
 				
 				dumped.append("<table class=\"dumped\"><tbody>");
-				
-				SortedSet<Object> keys = new TreeSet<Object>(map.keySet());
 				
 				int counter = 0;
 				boolean first = true;
@@ -485,7 +479,6 @@ public class DebugToolbarBean implements Serializable {
 	    		    	break;
 	        		}
 					
-					Object value = map.get(key);
 					dumped.append(
 							"<tr><td" + (first ? " class=\"first\"" : "") + ">" + key + "</td>" +
 							"<td" + (first ? " class=\"first\"" : "") + ">" + this.dumpIt( map.get(key) ) +
@@ -498,6 +491,36 @@ public class DebugToolbarBean implements Serializable {
 				
 				dumped.append( "</tbody></table>");
 				
+			} else if (o instanceof com.ibm.jscript.std.ObjectObject ) {
+				
+				com.ibm.jscript.std.ObjectObject oo = (com.ibm.jscript.std.ObjectObject) o;
+				
+				IValues ivalues = oo.getValues();
+				
+				dumped.append("<table class=\"dumped\"><tbody>");
+		    	
+		    	boolean first = true;
+		    	int counter = 0;
+		    	
+		    	while( ivalues.hasNext() )  {
+		    		
+		    		if (counter >= DebugToolbarBean.MAX_DATASET_SAMPLE) {
+	    		    	dumped.append("<tr><td colspan=\"2\"><span class=\"highlight\">More items available...</span></td></tr>");
+	    		    	break;
+	        		}
+		    		
+		    		dumped.append( "<tr><td" +
+		    				(first ? " class=\"first\"" : "") +
+		    				">[" + counter + "]</td><td" + 
+		    				(first ? " class=\"first\"" : "") + ">");
+		    		dumped.append( this.dumpIt(ivalues.next()));
+		    		dumped.append( "</td></tr>");
+		    		first = false;
+		    		counter++;
+		    	}
+		    	
+		    	dumped.append( "</tbody></table>");
+					
 			} else  {
 			    dumped.append( o.toString() );
 				
@@ -506,11 +529,8 @@ public class DebugToolbarBean implements Serializable {
 					
 		} catch (Exception e) {
 			
-			this.error("could not dump object (" + dumpObject.getClass().toString() + ")", "dumped" );
+			this.error("could not dump object (" + o.getClass().toString() + ")", "dumped" );
 			
-		} finally {
-			
-			this.dumpObject = null;
 		}
 		
 		return dumped.toString();
