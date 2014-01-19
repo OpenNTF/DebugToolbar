@@ -1,8 +1,0 @@
-- copied class into here
-- commented out loading of the .jss
-
-
-TODO:
-- search for todo in this lib
-- externalize CSS
-- test :-)
