@@ -4,7 +4,7 @@
     <namespace-uri>http://www.openntf.org/xsp/debugtoolbar</namespace-uri>
     <default-prefix>openntf</default-prefix>
     <designer-extension>
-      		<control-subpackage-name>dbar</control-subpackage-name>
+      		<control-subpackage-name>debugToolbar</control-subpackage-name>
     	</designer-extension>
   </faces-config-extension>
   
@@ -12,6 +12,11 @@
     <component-type>debugToolbar</component-type>
     <composite-name>debugToolbar</composite-name>
     <composite-file>/org/openntf/xsp/debugtoolbar/components/DebugToolbar</composite-file>
+    <description>XPages Debug Toolbar (by Mark Leusink)</description>
+    <icon>
+      <small-icon>/icons/bug16.png</small-icon>
+      <large-icon>/icons/bug32.png</large-icon>
+    </icon>
     <composite-extension>
      <tag-name>debugToolbar</tag-name>
       <designer-extension>
@@ -19,7 +24,7 @@
         <render-markup>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&#xd;
 &lt;xp:view xmlns:xp="http://www.ibm.com/xsp/core"&#xd;
   xmlns:xc="http://www.ibm.com/xsp/custom"&gt;&#xd;
-&lt;xp:div style="background-color:#38375B; padding:3px; color:#ffffff;"&gt;&lt;b&gt;XPage Debug Toolbar&lt;/b&gt; (by Mark Leusink)&lt;/xp:div&gt;&#xd;
+&lt;xp:div style="background-color:#38375B; padding:3px; color:#ffffff;"&gt;&lt;b&gt;XPages Debug Toolbar&lt;/b&gt; (by Mark Leusink)&lt;/xp:div&gt;&#xd;
 &lt;/xp:view&gt;&#xd;
 </render-markup>
         <category>Debugging</category>
@@ -50,11 +55,6 @@ right</editor-parameter>
       </property-extension>
       <description>Set the toolbar to collapse to the left (default) or right of the screen.</description>
     </property>
-    <description>XPages Debug Toolbar (by Mark Leusink)</description>
-    <icon>
-      <small-icon>/icons/bug16.png</small-icon>
-      <large-icon>/icons/bug32.png</large-icon>
-    </icon>
     <property>
       <property-name>toolbarColor</property-name>
       <property-class>string</property-class>
