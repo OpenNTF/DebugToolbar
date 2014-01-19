@@ -30,6 +30,5 @@ Export-Package: org.openntf.xsp.debugtoolbar,
  org.openntf.xsp.debugtoolbar.context,
  org.openntf.xsp.debugtoolbar.inspector,
  org.openntf.xsp.debugtoolbar.library,
- org.openntf.xsp.debugtoolbar.ssjs,
  org.openntf.xsp.debugtoolbar.util
 Require-Bundle: com.ibm.xsp.designer;bundle-version="8.5.2"
