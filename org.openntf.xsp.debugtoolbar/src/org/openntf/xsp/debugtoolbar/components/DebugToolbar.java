@@ -16,7 +16,6 @@ import java.lang.Object;
 import java.lang.Integer;
 import javax.faces.el.MethodBinding;
 import com.ibm.xsp.component.FacesPageProvider;
-import com.ibm.xsp.resource.ScriptResource;
 import com.ibm.xsp.component.UIViewRootEx2;
 import com.ibm.xsp.component.UIPanelEx;
 import javax.faces.el.ValueBinding;
@@ -1485,11 +1484,6 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
                     "#{javascript:if (typeof dBar != \"undefined\") {\n\tdBar.init(compositeData.defaultCollapsed, compositeData.toolbarColor);\n}}",
                     null,null, sourceId);
             result.setBeforePageLoad(beforePageLoad);
-            ScriptResource resources = new ScriptResource();
-            resources.setComponent(result);
-            resources.setClientSide(false);
-            resources.setSrc("/xpDebugToolbar.jss");
-            result.addResource(resources);
             String sourceId2 = "/xp:view[1]/xp:this.beforeRenderResponse[1]/text()";
             MethodBinding beforeRenderResponse = evaluator.createMethodBinding(result,
                     "#{javascript:if( typeof dBar != \"undefined\" && dBar.getActiveTab().equals(\"inspector\") ) {\n\tdBar.executeInspector();\n}}",

@@ -73,9 +73,10 @@ import lotus.domino.NotesException;
 
 import com.ibm.commons.util.StringUtil;
 import com.ibm.designer.runtime.directory.DirectoryUser;
+import com.ibm.jscript.types.FBSBoolean;
 import com.ibm.jscript.types.FBSNumber;
+import com.ibm.jscript.types.FBSObject;
 import com.ibm.jscript.types.FBSString;
-import com.ibm.jscript.types.FBSValue.IValues;
 import com.ibm.xsp.designer.context.XSPContext;
 
 public class DebugToolbarBean implements Serializable {
@@ -374,7 +375,7 @@ public class DebugToolbarBean implements Serializable {
 		return sortedScopeKeys;
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void readScopeKeys() {
 
 		Map map = (Map) resolveVariable(activeTab);
@@ -412,7 +413,7 @@ public class DebugToolbarBean implements Serializable {
 	 * of entry is defined as an Object, because it doesn't have to be a string
 	 * (can be a number too for instance)
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "rawtypes" })
 	public String getScopeEntry(Object entryName) {
 
 		// entry name
@@ -428,11 +429,12 @@ public class DebugToolbarBean implements Serializable {
 
 		Map map = (Map) DebugToolbarBean.resolveVariable(this.getActiveTab());
 
-		return this.dumpIt(map.get(entryName));
+		return this.dumpIt( map.get(entryName));
+
 	}
 
 	// dump the contents of an object
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private String dumpIt(Object o) {
 
 		StringBuilder dumped = new StringBuilder();
@@ -441,9 +443,22 @@ public class DebugToolbarBean implements Serializable {
 
 			if (o == null) {
 				return "&lt;null&gt;";
-			} else if (o instanceof String || o instanceof FBSString || o instanceof FBSNumber || o instanceof Number || o instanceof Boolean) {
+				
+			} else if (o instanceof String || 					
+					o instanceof Number ||
+					o instanceof Boolean
+					) {
+				
 				return o.toString();
-			} else if (o instanceof List) { // ArrayList, Vector
+			
+			} else if (o instanceof FBSString) {
+				return ( (FBSString)o ).toJavaObject().toString();
+			} else if (o instanceof FBSNumber) {
+				return ( (FBSNumber)o ).toJavaObject().toString();
+			} else if (o instanceof FBSBoolean) {
+				return ( (FBSBoolean)o ).toJavaObject().toString();
+			
+			} else if (o instanceof List) { // e.g. ArrayList, Vector
 
 				if (!this.isShowLists()) {
 					return "span class=\"highlight\">(hidden list/ map)</span>";
@@ -465,6 +480,8 @@ public class DebugToolbarBean implements Serializable {
 					int counter = 0;
 
 					while (it.hasNext()) {
+						
+						Object itObject = it.next();
 
 						if (counter >= DebugToolbarBean.MAX_DATASET_SAMPLE) {
 							dumped.append("<tr><td colspan=\"2\"><span class=\"highlight\">More items available...</span></td></tr>");
@@ -472,7 +489,7 @@ public class DebugToolbarBean implements Serializable {
 						}
 
 						dumped.append("<tr><td" + (first ? " class=\"first\"" : "") + ">[" + counter + "]</td><td" + (first ? " class=\"first\"" : "") + ">");
-						dumped.append(this.dumpIt(it.next()));
+						dumped.append(this.dumpIt( itObject ));
 						dumped.append("</td></tr>");
 						first = false;
 						counter++;
@@ -508,27 +525,32 @@ public class DebugToolbarBean implements Serializable {
 
 				dumped.append("</tbody></table>");
 
-			} else if (o instanceof com.ibm.jscript.std.ObjectObject) {
+			} else if (o instanceof FBSObject) {
 
-				com.ibm.jscript.std.ObjectObject oo = (com.ibm.jscript.std.ObjectObject) o;
-
-				IValues ivalues = oo.getValues();
-
+				FBSObject fbso = (FBSObject) o;
+		
+				Iterator it = fbso.getPropertyKeys();
+				
 				dumped.append("<table class=\"dumped\"><tbody>");
-
+				
 				boolean first = true;
 				int counter = 0;
 
-				while (ivalues.hasNext()) {
-
+				while (it.hasNext()) {
+					
+					String key = (String) it.next();
+					Object val = fbso.get(key);
+				
 					if (counter >= DebugToolbarBean.MAX_DATASET_SAMPLE) {
 						dumped.append("<tr><td colspan=\"2\"><span class=\"highlight\">More items available...</span></td></tr>");
 						break;
 					}
 
-					dumped.append("<tr><td" + (first ? " class=\"first\"" : "") + ">[" + counter + "]</td><td" + (first ? " class=\"first\"" : "") + ">");
-					dumped.append(this.dumpIt(ivalues.next()));
-					dumped.append("</td></tr>");
+					String dumpedVal = this.dumpIt(val);
+					
+					dumped.append("<tr><td" + (first ? " class=\"first\"" : "") + ">" + key + "</td>" + "<td" + (first ? " class=\"first\"" : "") + ">"
+							+ dumpedVal + "</td></tr>");
+					
 					first = false;
 					counter++;
 				}
@@ -549,9 +571,9 @@ public class DebugToolbarBean implements Serializable {
 		return dumped.toString();
 
 	}
-
+	
 	// clear the contents of the sessionScope
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
 	public void clearSessionScope() {
 
 		Map sessionScope = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
@@ -571,7 +593,7 @@ public class DebugToolbarBean implements Serializable {
 	}
 
 	// clear the contents of the applicationScope
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
 	public void clearApplicationScope() {
 		try {
 
@@ -589,7 +611,7 @@ public class DebugToolbarBean implements Serializable {
 	}
 
 	// remove a specific entry from a scope
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
 	public void clearScopeEntry(String name) {
 
 		if (StringUtil.isNotEmpty(name)) {
@@ -829,7 +851,7 @@ public class DebugToolbarBean implements Serializable {
 	}
 
 	// retrieve a list of sorted methods for a class
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public ArrayList<Method> getSortedMethods(Class in) {
 
 		ArrayList<Method> methods = null;
@@ -878,7 +900,7 @@ public class DebugToolbarBean implements Serializable {
 	}
 
 	// retrieve a list of sorted fields for a class
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public ArrayList<Field> getSortedFields(Class in) {
 
 		ArrayList<Field> fields = null;
@@ -1096,7 +1118,7 @@ public class DebugToolbarBean implements Serializable {
 		return consolePath;
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public ArrayList<Entry<String, String>> getCustomVars(String type) {
 
 		ArrayList customVars = new ArrayList<Entry<String, String>>();
@@ -1170,7 +1192,7 @@ public class DebugToolbarBean implements Serializable {
 
 	// retrieve the version of the extension library using reflection (since it
 	// might not be installed)
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static String getExtLibVersion() {
 
 		try {
@@ -1240,7 +1262,7 @@ public class DebugToolbarBean implements Serializable {
 	}
 
 	// store a (temporary) dBar variable in the viewScope
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void setTempVar(String varName, String varContent) {
 
 		Map<String, Object> viewScope = (Map<String, Object>) resolveVariable("viewScope");
