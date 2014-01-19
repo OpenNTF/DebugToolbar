@@ -429,7 +429,7 @@ public class DebugToolbarBean implements Serializable {
 
 		Map map = (Map) DebugToolbarBean.resolveVariable(this.getActiveTab());
 
-		return this.dumpIt( map.get(entryName));
+		return this.dumpIt(map.get(entryName));
 
 	}
 
@@ -443,21 +443,18 @@ public class DebugToolbarBean implements Serializable {
 
 			if (o == null) {
 				return "&lt;null&gt;";
-				
-			} else if (o instanceof String || 					
-					o instanceof Number ||
-					o instanceof Boolean
-					) {
-				
+
+			} else if (o instanceof String || o instanceof Number || o instanceof Boolean) {
+
 				return o.toString();
-			
+
 			} else if (o instanceof FBSString) {
-				return ( (FBSString)o ).toJavaObject().toString();
+				return ((FBSString) o).toJavaObject().toString();
 			} else if (o instanceof FBSNumber) {
-				return ( (FBSNumber)o ).toJavaObject().toString();
+				return ((FBSNumber) o).toJavaObject().toString();
 			} else if (o instanceof FBSBoolean) {
-				return ( (FBSBoolean)o ).toJavaObject().toString();
-			
+				return ((FBSBoolean) o).toJavaObject().toString();
+
 			} else if (o instanceof List) { // e.g. ArrayList, Vector
 
 				if (!this.isShowLists()) {
@@ -480,7 +477,7 @@ public class DebugToolbarBean implements Serializable {
 					int counter = 0;
 
 					while (it.hasNext()) {
-						
+
 						Object itObject = it.next();
 
 						if (counter >= DebugToolbarBean.MAX_DATASET_SAMPLE) {
@@ -489,7 +486,7 @@ public class DebugToolbarBean implements Serializable {
 						}
 
 						dumped.append("<tr><td" + (first ? " class=\"first\"" : "") + ">[" + counter + "]</td><td" + (first ? " class=\"first\"" : "") + ">");
-						dumped.append(this.dumpIt( itObject ));
+						dumped.append(this.dumpIt(itObject));
 						dumped.append("</td></tr>");
 						first = false;
 						counter++;
@@ -528,29 +525,29 @@ public class DebugToolbarBean implements Serializable {
 			} else if (o instanceof FBSObject) {
 
 				FBSObject fbso = (FBSObject) o;
-		
+
 				Iterator it = fbso.getPropertyKeys();
-				
+
 				dumped.append("<table class=\"dumped\"><tbody>");
-				
+
 				boolean first = true;
 				int counter = 0;
 
 				while (it.hasNext()) {
-					
+
 					String key = (String) it.next();
 					Object val = fbso.get(key);
-				
+
 					if (counter >= DebugToolbarBean.MAX_DATASET_SAMPLE) {
 						dumped.append("<tr><td colspan=\"2\"><span class=\"highlight\">More items available...</span></td></tr>");
 						break;
 					}
 
 					String dumpedVal = this.dumpIt(val);
-					
+
 					dumped.append("<tr><td" + (first ? " class=\"first\"" : "") + ">" + key + "</td>" + "<td" + (first ? " class=\"first\"" : "") + ">"
 							+ dumpedVal + "</td></tr>");
-					
+
 					first = false;
 					counter++;
 				}
@@ -571,7 +568,7 @@ public class DebugToolbarBean implements Serializable {
 		return dumped.toString();
 
 	}
-	
+
 	// clear the contents of the sessionScope
 	@SuppressWarnings("rawtypes")
 	public void clearSessionScope() {
@@ -851,91 +848,19 @@ public class DebugToolbarBean implements Serializable {
 	}
 
 	// retrieve a list of sorted methods for a class
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public ArrayList<Method> getSortedMethods(Class in) {
+	// Call is routed to the ComponentAnalyser
+	public List<Method> getSortedMethods(Class<?> in) {
 
-		ArrayList<Method> methods = null;
-
-		try {
-			Method[] classMethods = in.getMethods();
-			methods = new ArrayList(Arrays.asList(classMethods));
-
-			String className = in.getCanonicalName();
-
-			if (inspectorDeclaredOnly) { // filter: declared only (can't use
-											// getDeclaredXX here: will throw a
-											// Java security exception)
-
-				for (Iterator<Method> iterator = methods.iterator(); iterator.hasNext();) {
-					Method method = iterator.next();
-					if (!method.getDeclaringClass().getCanonicalName().equals(className)) {
-						iterator.remove();
-					}
-				}
-			}
-
-			Collections.sort(methods, new MethodComparable());
-		} catch (Exception e) {
-			this.error(e);
-		}
-
-		return methods;
-	}
-
-	// sort methods by name, moving methods starting with an underscore to the
-	// end
-	private class MethodComparable implements Comparator<Method> {
-		public int compare(Method m1, Method m2) {
-			String m1Name = m1.getName();
-			String m2Name = m2.getName();
-
-			if (m1Name.startsWith("_") && !m2Name.startsWith("_")) {
-				return 1;
-			}
-			if (!m1Name.startsWith("_") && m2Name.startsWith("_")) {
-				return -1;
-			}
-			return m1Name.compareTo(m2Name);
-		}
+		return ComponentAnalyser.INSTANCE.getSortedMethods(in, inspectorDeclaredOnly);
 	}
 
 	// retrieve a list of sorted fields for a class
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public ArrayList<Field> getSortedFields(Class in) {
-
-		ArrayList<Field> fields = null;
-
-		try {
-			Field[] classFields = in.getFields();
-			fields = new ArrayList(Arrays.asList(classFields));
-			String className = in.getCanonicalName();
-
-			if (inspectorDeclaredOnly) { // filter: declared only (can't use
-											// getDeclaredXX here: will throw a
-											// Java security exception)
-
-				for (Iterator<Field> iterator = fields.iterator(); iterator.hasNext();) {
-					Field field = iterator.next();
-					if (!field.getDeclaringClass().getCanonicalName().equals(className)) {
-						iterator.remove();
-					}
-				}
-			}
-
-			Collections.sort(fields, new FieldComparable());
-		} catch (Exception e) {
-			this.error(e);
-		}
-
-		return fields;
+	// Call is routed to the ComponentAnalyser
+	public List<Field> getSortedFields(Class<?> in) {
+		return ComponentAnalyser.INSTANCE.getSortedFields(in, inspectorDeclaredOnly);
 	}
 
 	// sort fields by name
-	private class FieldComparable implements Comparator<Field> {
-		public int compare(Field fld1, Field fld2) {
-			return fld1.getName().compareTo(fld2.getName());
-		}
-	}
 
 	public String getInspectorLink(String className) {
 
