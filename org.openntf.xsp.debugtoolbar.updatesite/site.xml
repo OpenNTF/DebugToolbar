@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.openntf.xsp.debugtoolbar.feature_1.0.0.201401190046.jar" id="org.openntf.xsp.debugtoolbar.feature" version="1.0.0.201401190046"/>
+   <feature url="features/org.openntf.xsp.debugtoolbar.feature_1.0.0.201401190131.jar" id="org.openntf.xsp.debugtoolbar.feature" version="1.0.0.201401190131"/>
 </site>

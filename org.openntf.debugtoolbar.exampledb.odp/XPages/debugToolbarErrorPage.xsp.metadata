@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="C1257C64006132CA" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="166" sequence="76" unid="5AFA566D372C9B89C1257A78003D15CA">
+<created><datetime dst="true">20120913T130712,74+02</datetime></created>
+<modified><datetime>20140118T184140,37+01</datetime></modified>
+<revised><datetime>20140118T184019,15+01</datetime></revised>
+<lastaccessed><datetime>20140118T184140,37+01</datetime></lastaccessed>
+<addedtofile><datetime>20140118T184140,37+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Leusink/O=LinQed</name><name>CN=Christian Guedemann/O=WGC/C=CH</name></updatedby>
+<wassignedby><name>CN=Christian Guedemann/O=WGC/C=CH</name></wassignedby>
+<item name="$Flags"><text>gC~4K</text></item>
+<item name="$TITLE"><text>debugToolbarErrorPage.xsp</text></item>
+
+
+
+<item name="$DesignerVersion" sign="true"><text>8.5.3</text></item>
+
+
+<item name="$FileNames" sign="true"><text>debugToolbarErrorPage.xsp</text></item>
+
+</note>

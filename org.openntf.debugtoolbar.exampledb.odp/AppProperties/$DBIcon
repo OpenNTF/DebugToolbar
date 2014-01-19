@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<note class='form' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.0'
+ replicaid='C1257C64006132CA'>
+<noteinfo noteid='15a' unid='33899FED154A1C10C12579AA0047BF05' sequence='9'>
+<created><datetime>20120220T140339,57+01</datetime></created>
+<modified><datetime>20140118T184140,31+01</datetime></modified>
+<revised><datetime>20140118T184019,09+01</datetime></revised>
+<lastaccessed><datetime>20140118T184140,31+01</datetime></lastaccessed>
+<addedtofile><datetime>20140118T184140,31+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Leusink/O=LinQed</name><name>CN=Christian Guedemann/O=WGC/C=CH</name></updatedby>
+<wassignedby><name>CN=Christian Guedemann/O=WGC/C=CH</name></wassignedby>
+<item name='$TITLE'><text>$DBIcon</text></item>
+<item name='$Flags'><text>34Ci~Q</text></item>
+<item name='$ImagesWide' sign='true'><number>1</number></item>
+<item name='$ImagesHigh' sign='true'><number>1</number></item>
+<item name='$ImagesColorize' sign='true'><number>0</number></item>
+<item name='$FileSize' sign='true'><number>2078</number></item>
+<item name='$ImageData' sign='true'>
+<rawitemdata type='1'>
+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
+</rawitemdata></item>
+<item name='$FileModDT' sign='true'><datetime>20121214T150656,42+01</datetime></item>
+<item name='$ImageNames' sign='true'><text>C:\Users\Mark Leusink\Documents\Development\icons\fatcow-hosting-icons-3000\32x32\bug.png</text></item>
+<item name='$DesignerVersion' sign='true'><text>8.5.3</text></item></note>
+

@@ -1892,7 +1892,10 @@ public class DebugToolbarBean implements Serializable {
 
 	public boolean executeInspector() {
 		m_CRE = ComponentAnalyser.INSTANCE.processInspection(getInspectorExpression());
-		return m_CRE.isSuccess();
+		if (m_CRE != null) {
+			return m_CRE.isSuccess();
+		}
+		return false;
 	}
 
 	public List<Method> getInspectorMethodList() {
@@ -1910,10 +1913,16 @@ public class DebugToolbarBean implements Serializable {
 	}
 
 	public boolean hasInspectorException() {
+		if (m_CRE == null) {
+			return false;
+		}
 		return !m_CRE.isSuccess();
 	}
 
 	public String getInspectorExceptionOutput() {
+		if (m_CRE == null) {
+			return "No inspection done so far!";
+		}
 		if (m_CRE.isSuccess()) {
 			return "";
 		}

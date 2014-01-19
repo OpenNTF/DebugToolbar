@@ -5149,7 +5149,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             Map<String,Object> attrs = getAttributes(result);
             attrs.put("disableTheme", Boolean.valueOf("true"));
             String sourceId = "repeatMethods/tr[1]/td[3]/xp:text[1]/@rendered";
-            String renderedExpr = "#{javascript:method.getDeclaringClass().getCanonicalName().equals(dBar.getInspectorResultClassName()}";
+            String renderedExpr = "#{javascript:method.getDeclaringClass().getCanonicalName().equals(dBar.getInspectorResultClassName())}";
             ValueBinding rendered = evaluator.createValueBinding(result, renderedExpr, sourceId,boolean.class);
             result.setValueBinding("rendered", rendered);
             return result;

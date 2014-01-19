@@ -20,7 +20,7 @@ public class ComponentEvaluationResult implements Serializable {
 		cre.setSuccess(true);
 		cre.setResultObject(objResult);
 		cre.setResultObjectClass(objResult.getClass());
-		return null;
+		return cre;
 	}
 
 	public static ComponentEvaluationResult generateMissingParameterResult() {

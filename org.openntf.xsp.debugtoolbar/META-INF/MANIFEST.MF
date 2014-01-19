@@ -28,6 +28,7 @@ Export-Package: org.openntf.xsp.debugtoolbar,
  org.openntf.xsp.debugtoolbar.beans,
  org.openntf.xsp.debugtoolbar.components,
  org.openntf.xsp.debugtoolbar.context,
+ org.openntf.xsp.debugtoolbar.inspector,
  org.openntf.xsp.debugtoolbar.library,
  org.openntf.xsp.debugtoolbar.ssjs,
  org.openntf.xsp.debugtoolbar.util

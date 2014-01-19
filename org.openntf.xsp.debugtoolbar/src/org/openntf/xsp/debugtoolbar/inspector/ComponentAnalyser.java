@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
 import javax.faces.context.FacesContext;
 import javax.faces.el.ValueBinding;
 
+import com.ibm.commons.util.StringUtil;
 import com.ibm.xsp.page.compiled.ExpressionEvaluatorImpl;
 
 public enum ComponentAnalyser {
@@ -20,7 +21,9 @@ public enum ComponentAnalyser {
 
 	public ComponentEvaluationResult processInspection(String strInspector) {
 		try {
-
+			if (StringUtil.isEmpty(strInspector)) {
+				return null;
+			}
 			// don't execute expression if parameters need to be set first
 			Pattern pattern = java.util.regex.Pattern.compile("\\((.*?)\\)", java.util.regex.Pattern.DOTALL);
 			Matcher matcher = pattern.matcher(strInspector);
@@ -38,7 +41,6 @@ public enum ComponentAnalyser {
 			ExpressionEvaluatorImpl evaluator = new ExpressionEvaluatorImpl(fc);
 			ValueBinding vb = evaluator.createValueBinding(fc.getViewRoot(), valueExpr, null, null);
 			Object objResult = vb.getValue(fc);
-
 			return ComponentEvaluationResult.generateResult(objResult);
 
 		} catch (Exception ex) {
