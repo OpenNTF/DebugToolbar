@@ -20,10 +20,9 @@ import org.openntf.xsp.debugtoolbar.Activator;
 import com.ibm.xsp.library.AbstractXspLibrary;
 
 public class DebugToolbarLibrary extends AbstractXspLibrary {
+	
 	private final static String LIBRARY_ID = DebugToolbarLibrary.class.getName();
-	// change this string to establish a namespace for your resources:
-	public final static String LIBRARY_RESOURCE_NAMESPACE = "DebugToolbar";
-	public final static String LIBRARY_BEAN_PREFIX = "DebugToolbar";
+
 	private final static boolean _debug = Activator._debug;
 
 	static {
