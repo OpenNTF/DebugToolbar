@@ -1,6 +1,6 @@
 /*
  * demo function that adds some dummy variables to the various scopes
- * and that shows how to use some of the XPage Debug Toolbar functions
+ * and shows how to use some of the XPages Debug Toolbar functions
  */
 
 function setDemoScopeVariables() {
