@@ -21,7 +21,7 @@ import com.ibm.xsp.library.AbstractXspLibrary;
 
 public class DebugToolbarLibrary extends AbstractXspLibrary {
 	
-	private final static String LIBRARY_ID = DebugToolbarLibrary.class.getName();
+	private final static String LIBRARY_ID = DebugToolbarLibrary.class.getPackage().getName();
 
 	private final static boolean _debug = Activator._debug;
 

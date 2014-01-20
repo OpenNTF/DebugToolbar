@@ -4,15 +4,15 @@
       label="XPages Debug Toolbar"
       version="1.0.0.qualifier">
 
-   <description url="http://www.example.com/description">
+   <description>
       An XPages plugin that allows you to easily view the contents of the various scopes, log debug messages to the screen and inspect objects.
    </description>
 
-   <copyright url="http://www.example.com/copyright">
-      [Enter Copyright Description here.]
+   <copyright>
+     Copyright 2012,2013,2014 Mark Leusink http://linqed.eu
    </copyright>
 
-   <license url="http://www.example.com/license">Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+   <license>Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
  
 http://www.apache.org/licenses/LICENSE-2.0
  
