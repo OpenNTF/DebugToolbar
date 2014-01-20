@@ -37,12 +37,15 @@ function setDemoScopeVariables() {
 		v.add("blue");
 		viewScope.put("vector", v);
 		
-		viewScope.put("someObject", {
+		sessionScope.put("someObject", {
 			_var1 : true,
 			_var2 : 45823,
 			_var3 : "yes"
 			
 		})
+		
+		sessionScope.put(1, "var with a number as a key (yes, that's allowed)");
+		sessionScope.put(2, "another var with a number as a key");
 		
 		//large(r) array
 		var largeArray = [];
