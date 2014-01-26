@@ -55,6 +55,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.openntf.xsp.debugtoolbar.inspector.ComponentAnalyser;
 import org.openntf.xsp.debugtoolbar.inspector.ComponentEvaluationResult;
+import org.openntf.xsp.debugtoolbar.objectdumper.DumperFactory;
+import org.openntf.xsp.debugtoolbar.objectdumper.IObjectDumper;
 
 import lotus.domino.ACL;
 import lotus.domino.Database;
@@ -444,7 +446,11 @@ public class DebugToolbarBean implements Serializable {
 			if (o == null) {
 				return "&lt;null&gt;";
 
-			} else if (o instanceof String || o instanceof Number || o instanceof Boolean) {
+			}
+			IObjectDumper<?> myDumper = DumperFactory.INSTANCE.getDumper(o);
+			return myDumper.getDump(o);
+			/*
+			else if (o instanceof String || o instanceof Number || o instanceof Boolean) {
 
 				return o.toString();
 
@@ -558,7 +564,7 @@ public class DebugToolbarBean implements Serializable {
 				dumped.append(o.toString());
 
 			}
-
+ 		*/
 		} catch (Exception e) {
 
 			this.error("could not dump object (" + o.getClass().toString() + ")", "dumped");
