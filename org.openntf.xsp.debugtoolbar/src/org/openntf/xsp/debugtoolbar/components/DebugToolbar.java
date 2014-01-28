@@ -121,337 +121,342 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             ComponentInfo.EMPTY_NORMAL, // 57 eventHandler17
             new ComponentInfo(false, new int[]{57}), // 58 "link34"
             ComponentInfo.EMPTY_MARKUP, // 59 text6
-            new ComponentInfo(false, new int[]{59}), // 60 td
-            new ComponentInfo(false, new int[]{60}), // 61 tr
-            ComponentInfo.EMPTY_NORMAL, // 62 text7
-            ComponentInfo.EMPTY_NORMAL, // 63 text8
-            new ComponentInfo(false, new int[]{62, 63}), // 64 td2
-            ComponentInfo.EMPTY_NORMAL, // 65 text9
-            ComponentInfo.EMPTY_NORMAL, // 66 text10
-            ComponentInfo.EMPTY_NORMAL, // 67 eventHandler18
-            new ComponentInfo(false, new int[]{67}), // 68 "link27"
-            ComponentInfo.EMPTY_NORMAL, // 69 eventHandler19
-            new ComponentInfo(false, new int[]{69}), // 70 "link29"
-            ComponentInfo.EMPTY_MARKUP, // 71 br
-            ComponentInfo.EMPTY_NORMAL, // 72 text11
-            new ComponentInfo(false, new int[]{68, 70, 71, 72}), // 73 "stacktrace"
-            new ComponentInfo(false, new int[]{65, 66, 73}), // 74 td3
-            new ComponentInfo(false, new int[]{64, 74}), // 75 tr2
-            ComponentInfo.EMPTY_NORMAL, // 76 text12
-            ComponentInfo.EMPTY_NORMAL, // 77 text13
-            new ComponentInfo(false, new int[]{61, 75}, // 78 "dtmessages"
+            ComponentInfo.EMPTY_NORMAL, // 60 eventHandler18
+            new ComponentInfo(false, new int[]{60}), // 61 "link21"
+            ComponentInfo.EMPTY_NORMAL, // 62 eventHandler19
+            new ComponentInfo(false, new int[]{62}), // 63 "link36"
+            ComponentInfo.EMPTY_MARKUP, // 64 text7
+            new ComponentInfo(false, new int[]{64}), // 65 td
+            new ComponentInfo(false, new int[]{65}), // 66 tr
+            ComponentInfo.EMPTY_NORMAL, // 67 text8
+            ComponentInfo.EMPTY_NORMAL, // 68 text9
+            new ComponentInfo(false, new int[]{67, 68}), // 69 td2
+            ComponentInfo.EMPTY_NORMAL, // 70 text10
+            ComponentInfo.EMPTY_NORMAL, // 71 text11
+            ComponentInfo.EMPTY_NORMAL, // 72 eventHandler20
+            new ComponentInfo(false, new int[]{72}), // 73 "link27"
+            ComponentInfo.EMPTY_NORMAL, // 74 eventHandler21
+            new ComponentInfo(false, new int[]{74}), // 75 "link29"
+            ComponentInfo.EMPTY_MARKUP, // 76 br
+            ComponentInfo.EMPTY_NORMAL, // 77 text12
+            new ComponentInfo(false, new int[]{73, 75, 76, 77}), // 78 "stacktrace"
+            new ComponentInfo(false, new int[]{70, 71, 78}), // 79 td3
+            new ComponentInfo(false, new int[]{69, 79}), // 80 tr2
+            ComponentInfo.EMPTY_NORMAL, // 81 text13
+            ComponentInfo.EMPTY_NORMAL, // 82 text14
+            new ComponentInfo(false, new int[]{66, 80}, // 83 "dtmessages"
               new Object[][]{
-                new Object[]{"footer", Integer.valueOf(76)},
-                new Object[]{"header", Integer.valueOf(77)},
+                new Object[]{"footer", Integer.valueOf(81)},
+                new Object[]{"header", Integer.valueOf(82)},
               } ),
-            ComponentInfo.EMPTY_NORMAL, // 79 text14
-            new ComponentInfo(false, new int[]{47, 48, 50, 51, 53, 54, 56, 58, 78, 79}), // 80 div4
-            ComponentInfo.EMPTY_NORMAL, // 81 eventHandler20
-            new ComponentInfo(false, new int[]{81}), // 82 "link18"
-            ComponentInfo.EMPTY_MARKUP, // 83 text15
-            ComponentInfo.EMPTY_NORMAL, // 84 eventHandler21
-            new ComponentInfo(false, new int[]{84}), // 85 "link17"
-            ComponentInfo.EMPTY_MARKUP, // 86 text16
-            ComponentInfo.EMPTY_NORMAL, // 87 eventHandler22
-            new ComponentInfo(false, new int[]{87}), // 88 "link22"
-            new ComponentInfo(false, new int[]{83, 85, 86, 88}), // 89 span
-            ComponentInfo.EMPTY_MARKUP, // 90 text17
-            ComponentInfo.EMPTY_NORMAL, // 91 eventHandler23
-            new ComponentInfo(false, new int[]{91}), // 92 "link14"
-            ComponentInfo.EMPTY_NORMAL, // 93 eventHandler24
-            new ComponentInfo(false, new int[]{93}), // 94 "link16"
+            ComponentInfo.EMPTY_NORMAL, // 84 text15
+            new ComponentInfo(false, new int[]{47, 48, 50, 51, 53, 54, 56, 58, 59, 61, 63, 83, 84}), // 85 div4
+            ComponentInfo.EMPTY_NORMAL, // 86 eventHandler22
+            new ComponentInfo(false, new int[]{86}), // 87 "link18"
+            ComponentInfo.EMPTY_MARKUP, // 88 text16
+            ComponentInfo.EMPTY_NORMAL, // 89 eventHandler23
+            new ComponentInfo(false, new int[]{89}), // 90 "link17"
+            ComponentInfo.EMPTY_MARKUP, // 91 text17
+            ComponentInfo.EMPTY_NORMAL, // 92 eventHandler24
+            new ComponentInfo(false, new int[]{92}), // 93 "link22"
+            new ComponentInfo(false, new int[]{88, 90, 91, 93}), // 94 span
             ComponentInfo.EMPTY_MARKUP, // 95 text18
-            new ComponentInfo(false, new int[]{95}), // 96 div6
-            ComponentInfo.EMPTY_NORMAL, // 97 eventHandler25
-            ComponentInfo.EMPTY_NORMAL, // 98 "image2"
-            new ComponentInfo(false, new int[]{97, 98}), // 99 "link26"
+            ComponentInfo.EMPTY_NORMAL, // 96 eventHandler25
+            new ComponentInfo(false, new int[]{96}), // 97 "link14"
+            ComponentInfo.EMPTY_NORMAL, // 98 eventHandler26
+            new ComponentInfo(false, new int[]{98}), // 99 "link16"
             ComponentInfo.EMPTY_MARKUP, // 100 text19
-            ComponentInfo.EMPTY_NORMAL, // 101 eventHandler26
-            ComponentInfo.EMPTY_NORMAL, // 102 "image1"
-            new ComponentInfo(false, new int[]{101, 102}), // 103 "link25"
-            new ComponentInfo(true, new int[]{99, 100, 103}), // 104 div7
-            ComponentInfo.EMPTY_NORMAL, // 105 text20
-            new ComponentInfo(true, new int[]{105}), // 106 div8
-            new ComponentInfo(true, new int[]{104, 106}), // 107 td4
-            ComponentInfo.EMPTY_NORMAL, // 108 text21
-            new ComponentInfo(true, new int[]{108}), // 109 td5
-            new ComponentInfo(true, new int[]{107, 109}), // 110 tr3
-            ComponentInfo.EMPTY_NORMAL, // 111 text22
-            ComponentInfo.EMPTY_NORMAL, // 112 text23
-            new ComponentInfo(false, new int[]{110}, // 113 "repeatscope"
+            new ComponentInfo(false, new int[]{100}), // 101 div6
+            ComponentInfo.EMPTY_NORMAL, // 102 eventHandler27
+            ComponentInfo.EMPTY_NORMAL, // 103 "image2"
+            new ComponentInfo(false, new int[]{102, 103}), // 104 "link26"
+            ComponentInfo.EMPTY_MARKUP, // 105 text20
+            ComponentInfo.EMPTY_NORMAL, // 106 eventHandler28
+            ComponentInfo.EMPTY_NORMAL, // 107 "image1"
+            new ComponentInfo(false, new int[]{106, 107}), // 108 "link25"
+            new ComponentInfo(true, new int[]{104, 105, 108}), // 109 div7
+            ComponentInfo.EMPTY_NORMAL, // 110 text21
+            new ComponentInfo(true, new int[]{110}), // 111 div8
+            new ComponentInfo(true, new int[]{109, 111}), // 112 td4
+            ComponentInfo.EMPTY_NORMAL, // 113 text22
+            new ComponentInfo(true, new int[]{113}), // 114 td5
+            new ComponentInfo(true, new int[]{112, 114}), // 115 tr3
+            ComponentInfo.EMPTY_NORMAL, // 116 text23
+            ComponentInfo.EMPTY_NORMAL, // 117 text24
+            new ComponentInfo(false, new int[]{115}, // 118 "repeatscope"
               new Object[][]{
-                new Object[]{"footer", Integer.valueOf(111)},
-                new Object[]{"header", Integer.valueOf(112)},
+                new Object[]{"footer", Integer.valueOf(116)},
+                new Object[]{"header", Integer.valueOf(117)},
               } ),
-            new ComponentInfo(false, new int[]{82, 89, 90, 92, 94, 96, 113}), // 114 div5
-            ComponentInfo.EMPTY_MARKUP, // 115 text24
-            new ComponentInfo(true, new int[]{115}), // 116 strong
-            ComponentInfo.EMPTY_MARKUP, // 117 text25
-            ComponentInfo.EMPTY_NORMAL, // 118 selectItem
-            ComponentInfo.EMPTY_NORMAL, // 119 selectItems
-            ComponentInfo.EMPTY_NORMAL, // 120 eventHandler27
-            new ComponentInfo(false, new int[]{118, 119, 120}), // 121 "comboboxlogfile"
+            new ComponentInfo(false, new int[]{87, 94, 95, 97, 99, 101, 118}), // 119 div5
+            ComponentInfo.EMPTY_MARKUP, // 120 text25
+            new ComponentInfo(true, new int[]{120}), // 121 strong
             ComponentInfo.EMPTY_MARKUP, // 122 text26
-            ComponentInfo.EMPTY_NORMAL, // 123 eventHandler28
-            new ComponentInfo(false, new int[]{123}), // 124 "link37"
-            ComponentInfo.EMPTY_MARKUP, // 125 text27
-            new ComponentInfo(true, new int[]{125}), // 126 strong2
-            ComponentInfo.EMPTY_MARKUP, // 127 text28
-            ComponentInfo.EMPTY_NORMAL, // 128 text29
-            ComponentInfo.EMPTY_NORMAL, // 129 eventHandler29
-            new ComponentInfo(false, new int[]{129}), // 130 "link41"
-            ComponentInfo.EMPTY_NORMAL, // 131 text30
-            new ComponentInfo(false, new int[]{130, 131}), // 132 "repeat1"
-            new ComponentInfo(true, new int[]{126, 127, 128, 132}), // 133 span2
-            new ComponentInfo(true, new int[]{116, 117, 121, 122, 124, 133}), // 134 div9
-            ComponentInfo.EMPTY_MARKUP, // 135 text31
-            ComponentInfo.EMPTY_NORMAL, // 136 eventHandler30
-            new ComponentInfo(false, new int[]{136}), // 137 "link40"
-            ComponentInfo.EMPTY_MARKUP, // 138 text32
-            new ComponentInfo(false, new int[]{135, 137, 138}), // 139 div10
-            ComponentInfo.EMPTY_NORMAL, // 140 text33
-            new ComponentInfo(false, new int[]{139, 140}), // 141 "logfilecontents"
-            new ComponentInfo(false, new int[]{134, 141}), // 142 "logfiles"
-            ComponentInfo.EMPTY_MARKUP, // 143 text34
-            new ComponentInfo(true, new int[]{143}), // 144 div13
-            ComponentInfo.EMPTY_MARKUP, // 145 text35
-            new ComponentInfo(true, new int[]{145}), // 146 th
-            new ComponentInfo(true, new int[]{146}), // 147 tr4
-            ComponentInfo.EMPTY_NORMAL, // 148 text36
-            new ComponentInfo(true, new int[]{148}), // 149 td6
-            ComponentInfo.EMPTY_NORMAL, // 150 text37
-            new ComponentInfo(true, new int[]{150}), // 151 td7
-            new ComponentInfo(true, new int[]{149, 151}), // 152 tr5
-            new ComponentInfo(false, new int[]{152}), // 153 "repeat3"
-            ComponentInfo.EMPTY_MARKUP, // 154 text38
-            new ComponentInfo(true, new int[]{154}), // 155 th2
-            new ComponentInfo(true, new int[]{155}), // 156 tr6
-            ComponentInfo.EMPTY_NORMAL, // 157 text39
-            new ComponentInfo(true, new int[]{157}), // 158 td8
-            ComponentInfo.EMPTY_NORMAL, // 159 text40
-            new ComponentInfo(true, new int[]{159}), // 160 td9
-            new ComponentInfo(true, new int[]{158, 160}), // 161 tr7
-            new ComponentInfo(false, new int[]{161}), // 162 "repeat4"
-            ComponentInfo.EMPTY_MARKUP, // 163 text41
-            new ComponentInfo(true, new int[]{163}), // 164 th3
-            new ComponentInfo(true, new int[]{164}), // 165 tr8
-            ComponentInfo.EMPTY_NORMAL, // 166 text42
-            new ComponentInfo(true, new int[]{166}), // 167 td10
-            ComponentInfo.EMPTY_NORMAL, // 168 text43
-            new ComponentInfo(true, new int[]{168}), // 169 td11
-            new ComponentInfo(true, new int[]{167, 169}), // 170 tr9
-            new ComponentInfo(false, new int[]{170}), // 171 "repeat6"
-            ComponentInfo.EMPTY_MARKUP, // 172 text44
-            new ComponentInfo(true, new int[]{172}), // 173 th4
-            new ComponentInfo(true, new int[]{173}), // 174 tr10
-            ComponentInfo.EMPTY_NORMAL, // 175 text45
-            new ComponentInfo(true, new int[]{175}), // 176 td12
-            ComponentInfo.EMPTY_NORMAL, // 177 text46
-            new ComponentInfo(true, new int[]{177}), // 178 td13
-            new ComponentInfo(true, new int[]{176, 178}), // 179 tr11
-            new ComponentInfo(false, new int[]{179}), // 180 "repeat5"
-            ComponentInfo.EMPTY_MARKUP, // 181 text47
-            new ComponentInfo(true, new int[]{181}), // 182 td14
-            ComponentInfo.EMPTY_NORMAL, // 183 eventHandler31
-            new ComponentInfo(false, new int[]{183}), // 184 "link38"
-            ComponentInfo.EMPTY_MARKUP, // 185 text48
-            new ComponentInfo(true, new int[]{184, 185}), // 186 td15
-            new ComponentInfo(false, new int[]{182, 186}), // 187 tr12
-            ComponentInfo.EMPTY_MARKUP, // 188 text49
-            new ComponentInfo(true, new int[]{188}), // 189 th5
-            new ComponentInfo(true, new int[]{189}), // 190 tr13
-            ComponentInfo.EMPTY_NORMAL, // 191 text50
-            new ComponentInfo(true, new int[]{191}), // 192 td16
-            ComponentInfo.EMPTY_NORMAL, // 193 text51
-            new ComponentInfo(true, new int[]{193}), // 194 td17
-            new ComponentInfo(true, new int[]{192, 194}), // 195 tr14
-            new ComponentInfo(false, new int[]{195}), // 196 "repeat7"
-            new ComponentInfo(true, new int[]{147, 153, 156, 162, 165, 171, 174, 180, 187, 190, 196}), // 197 tbody
-            new ComponentInfo(true, new int[]{197}), // 198 table
-            new ComponentInfo(true, new int[]{144, 198}), // 199 div12
-            ComponentInfo.EMPTY_MARKUP, // 200 text52
-            new ComponentInfo(true, new int[]{200}), // 201 div15
-            ComponentInfo.EMPTY_NORMAL, // 202 text53
-            ComponentInfo.EMPTY_NORMAL, // 203 text54
-            new ComponentInfo(true, new int[]{203}), // 204 tbody2
-            new ComponentInfo(true, new int[]{204}), // 205 table2
-            new ComponentInfo(true, new int[]{205}), // 206 div16
-            ComponentInfo.EMPTY_NORMAL, // 207 eventHandler32
-            new ComponentInfo(false, new int[]{207}), // 208 "link28"
-            new ComponentInfo(true, new int[]{208}), // 209 div17
-            new ComponentInfo(false, new int[]{201, 202, 206, 209}), // 210 "java"
-            new ComponentInfo(true, new int[]{210}), // 211 div14
-            ComponentInfo.EMPTY_MARKUP, // 212 br2
-            new ComponentInfo(false, new int[]{199, 211, 212}), // 213 div11
-            ComponentInfo.EMPTY_MARKUP, // 214 text55
-            new ComponentInfo(true, new int[]{214}), // 215 strong3
-            ComponentInfo.EMPTY_MARKUP, // 216 br3
-            ComponentInfo.EMPTY_MARKUP, // 217 text56
-            ComponentInfo.EMPTY_NORMAL, // 218 eventHandler33
-            new ComponentInfo(false, new int[]{218}), // 219 "link15"
-            ComponentInfo.EMPTY_NORMAL, // 220 eventHandler34
-            new ComponentInfo(false, new int[]{220}), // 221 "link30"
+            ComponentInfo.EMPTY_NORMAL, // 123 selectItem
+            ComponentInfo.EMPTY_NORMAL, // 124 selectItems
+            ComponentInfo.EMPTY_NORMAL, // 125 eventHandler29
+            new ComponentInfo(false, new int[]{123, 124, 125}), // 126 "comboboxlogfile"
+            ComponentInfo.EMPTY_MARKUP, // 127 text27
+            ComponentInfo.EMPTY_NORMAL, // 128 eventHandler30
+            new ComponentInfo(false, new int[]{128}), // 129 "link37"
+            ComponentInfo.EMPTY_MARKUP, // 130 text28
+            new ComponentInfo(true, new int[]{130}), // 131 strong2
+            ComponentInfo.EMPTY_MARKUP, // 132 text29
+            ComponentInfo.EMPTY_NORMAL, // 133 text30
+            ComponentInfo.EMPTY_NORMAL, // 134 eventHandler31
+            new ComponentInfo(false, new int[]{134}), // 135 "link41"
+            ComponentInfo.EMPTY_NORMAL, // 136 text31
+            new ComponentInfo(false, new int[]{135, 136}), // 137 "repeat1"
+            new ComponentInfo(true, new int[]{131, 132, 133, 137}), // 138 span2
+            new ComponentInfo(true, new int[]{121, 122, 126, 127, 129, 138}), // 139 div9
+            ComponentInfo.EMPTY_MARKUP, // 140 text32
+            ComponentInfo.EMPTY_NORMAL, // 141 eventHandler32
+            new ComponentInfo(false, new int[]{141}), // 142 "link40"
+            ComponentInfo.EMPTY_MARKUP, // 143 text33
+            new ComponentInfo(false, new int[]{140, 142, 143}), // 144 div10
+            ComponentInfo.EMPTY_NORMAL, // 145 text34
+            new ComponentInfo(false, new int[]{144, 145}), // 146 "logfilecontents"
+            new ComponentInfo(false, new int[]{139, 146}), // 147 "logfiles"
+            ComponentInfo.EMPTY_MARKUP, // 148 text35
+            new ComponentInfo(true, new int[]{148}), // 149 div13
+            ComponentInfo.EMPTY_MARKUP, // 150 text36
+            new ComponentInfo(true, new int[]{150}), // 151 th
+            new ComponentInfo(true, new int[]{151}), // 152 tr4
+            ComponentInfo.EMPTY_NORMAL, // 153 text37
+            new ComponentInfo(true, new int[]{153}), // 154 td6
+            ComponentInfo.EMPTY_NORMAL, // 155 text38
+            new ComponentInfo(true, new int[]{155}), // 156 td7
+            new ComponentInfo(true, new int[]{154, 156}), // 157 tr5
+            new ComponentInfo(false, new int[]{157}), // 158 "repeat3"
+            ComponentInfo.EMPTY_MARKUP, // 159 text39
+            new ComponentInfo(true, new int[]{159}), // 160 th2
+            new ComponentInfo(true, new int[]{160}), // 161 tr6
+            ComponentInfo.EMPTY_NORMAL, // 162 text40
+            new ComponentInfo(true, new int[]{162}), // 163 td8
+            ComponentInfo.EMPTY_NORMAL, // 164 text41
+            new ComponentInfo(true, new int[]{164}), // 165 td9
+            new ComponentInfo(true, new int[]{163, 165}), // 166 tr7
+            new ComponentInfo(false, new int[]{166}), // 167 "repeat4"
+            ComponentInfo.EMPTY_MARKUP, // 168 text42
+            new ComponentInfo(true, new int[]{168}), // 169 th3
+            new ComponentInfo(true, new int[]{169}), // 170 tr8
+            ComponentInfo.EMPTY_NORMAL, // 171 text43
+            new ComponentInfo(true, new int[]{171}), // 172 td10
+            ComponentInfo.EMPTY_NORMAL, // 173 text44
+            new ComponentInfo(true, new int[]{173}), // 174 td11
+            new ComponentInfo(true, new int[]{172, 174}), // 175 tr9
+            new ComponentInfo(false, new int[]{175}), // 176 "repeat6"
+            ComponentInfo.EMPTY_MARKUP, // 177 text45
+            new ComponentInfo(true, new int[]{177}), // 178 th4
+            new ComponentInfo(true, new int[]{178}), // 179 tr10
+            ComponentInfo.EMPTY_NORMAL, // 180 text46
+            new ComponentInfo(true, new int[]{180}), // 181 td12
+            ComponentInfo.EMPTY_NORMAL, // 182 text47
+            new ComponentInfo(true, new int[]{182}), // 183 td13
+            new ComponentInfo(true, new int[]{181, 183}), // 184 tr11
+            new ComponentInfo(false, new int[]{184}), // 185 "repeat5"
+            ComponentInfo.EMPTY_MARKUP, // 186 text48
+            new ComponentInfo(true, new int[]{186}), // 187 td14
+            ComponentInfo.EMPTY_NORMAL, // 188 eventHandler33
+            new ComponentInfo(false, new int[]{188}), // 189 "link38"
+            ComponentInfo.EMPTY_MARKUP, // 190 text49
+            new ComponentInfo(true, new int[]{189, 190}), // 191 td15
+            new ComponentInfo(false, new int[]{187, 191}), // 192 tr12
+            ComponentInfo.EMPTY_MARKUP, // 193 text50
+            new ComponentInfo(true, new int[]{193}), // 194 th5
+            new ComponentInfo(true, new int[]{194}), // 195 tr13
+            ComponentInfo.EMPTY_NORMAL, // 196 text51
+            new ComponentInfo(true, new int[]{196}), // 197 td16
+            ComponentInfo.EMPTY_NORMAL, // 198 text52
+            new ComponentInfo(true, new int[]{198}), // 199 td17
+            new ComponentInfo(true, new int[]{197, 199}), // 200 tr14
+            new ComponentInfo(false, new int[]{200}), // 201 "repeat7"
+            new ComponentInfo(true, new int[]{152, 158, 161, 167, 170, 176, 179, 185, 192, 195, 201}), // 202 tbody
+            new ComponentInfo(true, new int[]{202}), // 203 table
+            new ComponentInfo(true, new int[]{149, 203}), // 204 div12
+            ComponentInfo.EMPTY_MARKUP, // 205 text53
+            new ComponentInfo(true, new int[]{205}), // 206 div15
+            ComponentInfo.EMPTY_NORMAL, // 207 text54
+            ComponentInfo.EMPTY_NORMAL, // 208 text55
+            new ComponentInfo(true, new int[]{208}), // 209 tbody2
+            new ComponentInfo(true, new int[]{209}), // 210 table2
+            new ComponentInfo(true, new int[]{210}), // 211 div16
+            ComponentInfo.EMPTY_NORMAL, // 212 eventHandler34
+            new ComponentInfo(false, new int[]{212}), // 213 "link28"
+            new ComponentInfo(true, new int[]{213}), // 214 div17
+            new ComponentInfo(false, new int[]{206, 207, 211, 214}), // 215 "java"
+            new ComponentInfo(true, new int[]{215}), // 216 div14
+            ComponentInfo.EMPTY_MARKUP, // 217 br2
+            new ComponentInfo(false, new int[]{204, 216, 217}), // 218 div11
+            ComponentInfo.EMPTY_MARKUP, // 219 text56
+            new ComponentInfo(true, new int[]{219}), // 220 strong3
+            ComponentInfo.EMPTY_MARKUP, // 221 br3
             ComponentInfo.EMPTY_MARKUP, // 222 text57
-            new ComponentInfo(true, new int[]{215, 216, 217, 219, 221, 222}), // 223 td18
-            ComponentInfo.EMPTY_NORMAL, // 224 selectItem2
-            ComponentInfo.EMPTY_NORMAL, // 225 selectItems2
-            ComponentInfo.EMPTY_NORMAL, // 226 eventHandler35
-            new ComponentInfo(false, new int[]{224, 225, 226}), // 227 "componentid"
-            ComponentInfo.EMPTY_MARKUP, // 228 text58
-            ComponentInfo.EMPTY_NORMAL, // 229 eventHandler36
-            new ComponentInfo(false, new int[]{229}), // 230 "chkshowhiddencontrols"
-            ComponentInfo.EMPTY_MARKUP, // 231 br4
-            ComponentInfo.EMPTY_NORMAL, // 232 eventHandler37
-            new ComponentInfo(false, new int[]{232}), // 233 "link19"
-            new ComponentInfo(false, new int[]{233}), // 234 "repeat2"
-            new ComponentInfo(true, new int[]{227, 228, 230, 231, 234}), // 235 td19
-            ComponentInfo.EMPTY_MARKUP, // 236 text59
-            new ComponentInfo(true, new int[]{236}), // 237 strong4
-            new ComponentInfo(true, new int[]{237}), // 238 td20
-            ComponentInfo.EMPTY_NORMAL, // 239 selectItem3
-            ComponentInfo.EMPTY_NORMAL, // 240 selectItems3
-            ComponentInfo.EMPTY_NORMAL, // 241 eventHandler38
-            new ComponentInfo(false, new int[]{239, 240, 241}), // 242 "cbprevexp"
-            new ComponentInfo(true, new int[]{242}), // 243 td21
-            new ComponentInfo(true, new int[]{223, 235, 238, 243}), // 244 tr15
-            ComponentInfo.EMPTY_MARKUP, // 245 tr16
-            ComponentInfo.EMPTY_MARKUP, // 246 text60
-            new ComponentInfo(true, new int[]{246}), // 247 strong5
-            new ComponentInfo(true, new int[]{247}), // 248 td22
-            ComponentInfo.EMPTY_NORMAL, // 249 eventHandler39
-            new ComponentInfo(false, new int[]{249}), // 250 "inputexpression"
+            ComponentInfo.EMPTY_NORMAL, // 223 eventHandler35
+            new ComponentInfo(false, new int[]{223}), // 224 "link15"
+            ComponentInfo.EMPTY_NORMAL, // 225 eventHandler36
+            new ComponentInfo(false, new int[]{225}), // 226 "link30"
+            ComponentInfo.EMPTY_MARKUP, // 227 text58
+            new ComponentInfo(true, new int[]{220, 221, 222, 224, 226, 227}), // 228 td18
+            ComponentInfo.EMPTY_NORMAL, // 229 selectItem2
+            ComponentInfo.EMPTY_NORMAL, // 230 selectItems2
+            ComponentInfo.EMPTY_NORMAL, // 231 eventHandler37
+            new ComponentInfo(false, new int[]{229, 230, 231}), // 232 "componentid"
+            ComponentInfo.EMPTY_MARKUP, // 233 text59
+            ComponentInfo.EMPTY_NORMAL, // 234 eventHandler38
+            new ComponentInfo(false, new int[]{234}), // 235 "chkshowhiddencontrols"
+            ComponentInfo.EMPTY_MARKUP, // 236 br4
+            ComponentInfo.EMPTY_NORMAL, // 237 eventHandler39
+            new ComponentInfo(false, new int[]{237}), // 238 "link19"
+            new ComponentInfo(false, new int[]{238}), // 239 "repeat2"
+            new ComponentInfo(true, new int[]{232, 233, 235, 236, 239}), // 240 td19
+            ComponentInfo.EMPTY_MARKUP, // 241 text60
+            new ComponentInfo(true, new int[]{241}), // 242 strong4
+            new ComponentInfo(true, new int[]{242}), // 243 td20
+            ComponentInfo.EMPTY_NORMAL, // 244 selectItem3
+            ComponentInfo.EMPTY_NORMAL, // 245 selectItems3
+            ComponentInfo.EMPTY_NORMAL, // 246 eventHandler40
+            new ComponentInfo(false, new int[]{244, 245, 246}), // 247 "cbprevexp"
+            new ComponentInfo(true, new int[]{247}), // 248 td21
+            new ComponentInfo(true, new int[]{228, 240, 243, 248}), // 249 tr15
+            ComponentInfo.EMPTY_MARKUP, // 250 tr16
             ComponentInfo.EMPTY_MARKUP, // 251 text61
-            ComponentInfo.EMPTY_NORMAL, // 252 eventHandler40
-            new ComponentInfo(false, new int[]{252}), // 253 "link31"
-            ComponentInfo.EMPTY_MARKUP, // 254 br5
-            ComponentInfo.EMPTY_MARKUP, // 255 text62
-            new ComponentInfo(true, new int[]{255}), // 256 i
-            new ComponentInfo(true, new int[]{250, 251, 253, 254, 256}), // 257 td23
-            new ComponentInfo(true, new int[]{248, 257}), // 258 tr17
-            new ComponentInfo(false, new int[]{244, 245, 258}), // 259 "inspectorheader"
-            ComponentInfo.EMPTY_NORMAL, // 260 text63
-            new ComponentInfo(true, new int[]{260}), // 261 div18
-            ComponentInfo.EMPTY_NORMAL, // 262 text64
-            new ComponentInfo(true, new int[]{262}), // 263 div19
-            ComponentInfo.EMPTY_NORMAL, // 264 "inspectormessages"
-            new ComponentInfo(true, new int[]{264}), // 265 pre
-            ComponentInfo.EMPTY_NORMAL, // 266 "link44"
-            new ComponentInfo(true, new int[]{266}), // 267 b
-            ComponentInfo.EMPTY_MARKUP, // 268 br6
-            ComponentInfo.EMPTY_NORMAL, // 269 "expressionvalue"
-            new ComponentInfo(false, new int[]{267, 268, 269}), // 270 div20
-            ComponentInfo.EMPTY_NORMAL, // 271 eventHandler41
-            new ComponentInfo(false, new int[]{271}), // 272 "link35"
-            ComponentInfo.EMPTY_NORMAL, // 273 eventHandler42
-            new ComponentInfo(false, new int[]{273}), // 274 "link32"
-            ComponentInfo.EMPTY_MARKUP, // 275 text65
+            new ComponentInfo(true, new int[]{251}), // 252 strong5
+            new ComponentInfo(true, new int[]{252}), // 253 td22
+            ComponentInfo.EMPTY_NORMAL, // 254 eventHandler41
+            new ComponentInfo(false, new int[]{254}), // 255 "inputexpression"
+            ComponentInfo.EMPTY_MARKUP, // 256 text62
+            ComponentInfo.EMPTY_NORMAL, // 257 eventHandler42
+            new ComponentInfo(false, new int[]{257}), // 258 "link31"
+            ComponentInfo.EMPTY_MARKUP, // 259 br5
+            ComponentInfo.EMPTY_MARKUP, // 260 text63
+            new ComponentInfo(true, new int[]{260}), // 261 i
+            new ComponentInfo(true, new int[]{255, 256, 258, 259, 261}), // 262 td23
+            new ComponentInfo(true, new int[]{253, 262}), // 263 tr17
+            new ComponentInfo(false, new int[]{249, 250, 263}), // 264 "inspectorheader"
+            ComponentInfo.EMPTY_NORMAL, // 265 text64
+            new ComponentInfo(true, new int[]{265}), // 266 div18
+            ComponentInfo.EMPTY_NORMAL, // 267 text65
+            new ComponentInfo(true, new int[]{267}), // 268 div19
+            ComponentInfo.EMPTY_NORMAL, // 269 "inspectormessages"
+            new ComponentInfo(true, new int[]{269}), // 270 pre
+            ComponentInfo.EMPTY_NORMAL, // 271 "link44"
+            new ComponentInfo(true, new int[]{271}), // 272 b
+            ComponentInfo.EMPTY_MARKUP, // 273 br6
+            ComponentInfo.EMPTY_NORMAL, // 274 "expressionvalue"
+            new ComponentInfo(false, new int[]{272, 273, 274}), // 275 div20
             ComponentInfo.EMPTY_NORMAL, // 276 eventHandler43
-            new ComponentInfo(false, new int[]{276}), // 277 "link10"
-            new ComponentInfo(false, new int[]{275, 277}), // 278 span3
-            new ComponentInfo(true, new int[]{272, 274, 278}), // 279 div21
-            ComponentInfo.EMPTY_NORMAL, // 280 "link7"
-            ComponentInfo.EMPTY_NORMAL, // 281 "computedfield4"
-            new ComponentInfo(true, new int[]{280, 281}), // 282 td24
-            ComponentInfo.EMPTY_NORMAL, // 283 eventHandler44
-            new ComponentInfo(false, new int[]{283}), // 284 "link42"
-            new ComponentInfo(true, new int[]{284}), // 285 strong6
-            ComponentInfo.EMPTY_MARKUP, // 286 text66
-            ComponentInfo.EMPTY_NORMAL, // 287 "link43"
-            ComponentInfo.EMPTY_NORMAL, // 288 text67
-            new ComponentInfo(false, new int[]{287, 288}), // 289 "repeatpm"
-            ComponentInfo.EMPTY_MARKUP, // 290 text68
-            ComponentInfo.EMPTY_MARKUP, // 291 br7
-            ComponentInfo.EMPTY_NORMAL, // 292 text69
-            new ComponentInfo(true, new int[]{285, 286, 289, 290, 291, 292}), // 293 td25
-            ComponentInfo.EMPTY_NORMAL, // 294 text70
-            ComponentInfo.EMPTY_NORMAL, // 295 "linkdeclclass"
-            new ComponentInfo(true, new int[]{294, 295}), // 296 td26
-            new ComponentInfo(true, new int[]{282, 293, 296}), // 297 tr18
-            ComponentInfo.EMPTY_NORMAL, // 298 text71
-            new ComponentInfo(false, new int[]{297}, // 299 "repeatmethods"
+            new ComponentInfo(false, new int[]{276}), // 277 "link35"
+            ComponentInfo.EMPTY_NORMAL, // 278 eventHandler44
+            new ComponentInfo(false, new int[]{278}), // 279 "link32"
+            ComponentInfo.EMPTY_MARKUP, // 280 text66
+            ComponentInfo.EMPTY_NORMAL, // 281 eventHandler45
+            new ComponentInfo(false, new int[]{281}), // 282 "link10"
+            new ComponentInfo(false, new int[]{280, 282}), // 283 span3
+            new ComponentInfo(true, new int[]{277, 279, 283}), // 284 div21
+            ComponentInfo.EMPTY_NORMAL, // 285 "link7"
+            ComponentInfo.EMPTY_NORMAL, // 286 "computedfield4"
+            new ComponentInfo(true, new int[]{285, 286}), // 287 td24
+            ComponentInfo.EMPTY_NORMAL, // 288 eventHandler46
+            new ComponentInfo(false, new int[]{288}), // 289 "link42"
+            new ComponentInfo(true, new int[]{289}), // 290 strong6
+            ComponentInfo.EMPTY_MARKUP, // 291 text67
+            ComponentInfo.EMPTY_NORMAL, // 292 "link43"
+            ComponentInfo.EMPTY_NORMAL, // 293 text68
+            new ComponentInfo(false, new int[]{292, 293}), // 294 "repeatpm"
+            ComponentInfo.EMPTY_MARKUP, // 295 text69
+            ComponentInfo.EMPTY_MARKUP, // 296 br7
+            ComponentInfo.EMPTY_NORMAL, // 297 text70
+            new ComponentInfo(true, new int[]{290, 291, 294, 295, 296, 297}), // 298 td25
+            ComponentInfo.EMPTY_NORMAL, // 299 text71
+            ComponentInfo.EMPTY_NORMAL, // 300 "linkdeclclass"
+            new ComponentInfo(true, new int[]{299, 300}), // 301 td26
+            new ComponentInfo(true, new int[]{287, 298, 301}), // 302 tr18
+            ComponentInfo.EMPTY_NORMAL, // 303 text72
+            new ComponentInfo(false, new int[]{302}, // 304 "repeatmethods"
               new Object[][]{
-                new Object[]{"header", Integer.valueOf(298)},
+                new Object[]{"header", Integer.valueOf(303)},
               } ),
-            ComponentInfo.EMPTY_NORMAL, // 300 "link45"
-            ComponentInfo.EMPTY_NORMAL, // 301 "computedfield5"
-            new ComponentInfo(true, new int[]{300, 301}), // 302 td27
-            ComponentInfo.EMPTY_NORMAL, // 303 eventHandler45
-            new ComponentInfo(false, new int[]{303}), // 304 "link46"
-            new ComponentInfo(true, new int[]{304}), // 305 strong7
-            new ComponentInfo(true, new int[]{305}), // 306 td28
-            ComponentInfo.EMPTY_NORMAL, // 307 link
-            ComponentInfo.EMPTY_NORMAL, // 308 text72
-            new ComponentInfo(true, new int[]{307, 308}), // 309 td29
-            new ComponentInfo(true, new int[]{302, 306, 309}), // 310 tr19
-            ComponentInfo.EMPTY_NORMAL, // 311 text73
-            new ComponentInfo(false, new int[]{310}, // 312 "repeatfields"
+            ComponentInfo.EMPTY_NORMAL, // 305 "link45"
+            ComponentInfo.EMPTY_NORMAL, // 306 "computedfield5"
+            new ComponentInfo(true, new int[]{305, 306}), // 307 td27
+            ComponentInfo.EMPTY_NORMAL, // 308 eventHandler47
+            new ComponentInfo(false, new int[]{308}), // 309 "link46"
+            new ComponentInfo(true, new int[]{309}), // 310 strong7
+            new ComponentInfo(true, new int[]{310}), // 311 td28
+            ComponentInfo.EMPTY_NORMAL, // 312 link
+            ComponentInfo.EMPTY_NORMAL, // 313 text73
+            new ComponentInfo(true, new int[]{312, 313}), // 314 td29
+            new ComponentInfo(true, new int[]{307, 311, 314}), // 315 tr19
+            ComponentInfo.EMPTY_NORMAL, // 316 text74
+            new ComponentInfo(false, new int[]{315}, // 317 "repeatfields"
               new Object[][]{
-                new Object[]{"header", Integer.valueOf(311)},
+                new Object[]{"header", Integer.valueOf(316)},
               } ),
-            new ComponentInfo(false, new int[]{299, 312}), // 313 table3
-            new ComponentInfo(false, new int[]{270, 279, 313}), // 314 "expressioninfo"
-            new ComponentInfo(false, new int[]{259, 261, 263, 265, 314}), // 315 "inspector"
-            ComponentInfo.EMPTY_MARKUP, // 316 img
-            new ComponentInfo(true, new int[]{316}), // 317 td30
-            ComponentInfo.EMPTY_MARKUP, // 318 text74
-            ComponentInfo.EMPTY_NORMAL, // 319 link21
-            ComponentInfo.EMPTY_MARKUP, // 320 text75
-            ComponentInfo.EMPTY_NORMAL, // 321 link36
-            ComponentInfo.EMPTY_MARKUP, // 322 text76
-            ComponentInfo.EMPTY_MARKUP, // 323 text77
-            new ComponentInfo(true, new int[]{323}), // 324 a2
-            ComponentInfo.EMPTY_MARKUP, // 325 text78
-            ComponentInfo.EMPTY_MARKUP, // 326 br8
-            ComponentInfo.EMPTY_MARKUP, // 327 br9
-            ComponentInfo.EMPTY_MARKUP, // 328 text79
-            new ComponentInfo(true, new int[]{328}), // 329 a3
-            ComponentInfo.EMPTY_MARKUP, // 330 text80
-            ComponentInfo.EMPTY_MARKUP, // 331 text81
-            new ComponentInfo(true, new int[]{331}), // 332 a4
-            ComponentInfo.EMPTY_MARKUP, // 333 text82
-            ComponentInfo.EMPTY_MARKUP, // 334 text83
-            new ComponentInfo(true, new int[]{334}), // 335 a5
-            new ComponentInfo(true, new int[]{318, 319, 320, 321, 322, 324, 325, 326, 327, 329, 330, 332, 333, 335}), // 336 td31
-            new ComponentInfo(true, new int[]{317, 336}), // 337 tr20
-            ComponentInfo.EMPTY_MARKUP, // 338 text84
-            ComponentInfo.EMPTY_MARKUP, // 339 br10
-            ComponentInfo.EMPTY_MARKUP, // 340 br11
-            ComponentInfo.EMPTY_MARKUP, // 341 text85
-            ComponentInfo.EMPTY_MARKUP, // 342 text86
-            new ComponentInfo(true, new int[]{342}), // 343 a6
-            ComponentInfo.EMPTY_MARKUP, // 344 text87
-            ComponentInfo.EMPTY_MARKUP, // 345 br12
-            new ComponentInfo(true, new int[]{338, 339, 340, 341, 343, 344, 345}), // 346 td32
-            new ComponentInfo(true, new int[]{346}), // 347 tr21
-            new ComponentInfo(true, new int[]{337, 347}), // 348 tbody3
-            new ComponentInfo(true, new int[]{348}), // 349 table4
-            new ComponentInfo(true, new int[]{349}), // 350 div24
-            ComponentInfo.EMPTY_MARKUP, // 351 text88
-            ComponentInfo.EMPTY_NORMAL, // 352 "link13"
-            ComponentInfo.EMPTY_MARKUP, // 353 text89
-            new ComponentInfo(true, new int[]{351, 352, 353}), // 354 p
-            new ComponentInfo(false, new int[]{350, 354}), // 355 div23
-            new ComponentInfo(false, new int[]{355}), // 356 div22
-            new ComponentInfo(false, new int[]{80, 114, 142, 213, 315, 356}), // 357 "toolbarcontents"
-            ComponentInfo.EMPTY_NORMAL, // 358 "link39"
-            new ComponentInfo(true, new int[]{358}), // 359 li13
-            ComponentInfo.EMPTY_NORMAL, // 360 eventHandler46
-            new ComponentInfo(false, new int[]{360}), // 361 "link4"
-            new ComponentInfo(true, new int[]{361}), // 362 li14
-            new ComponentInfo(true, new int[]{359, 362}), // 363 ul4
-            new ComponentInfo(false, new int[]{363}), // 364 div25
-            new ComponentInfo(false, new int[]{8, 45, 357, 364}), // 365 "debugtoolbar"
-            new ComponentInfo(false, new int[]{0, 2, 3, 365}), // 366 panel
-            new ComponentInfo(false, new int[]{366}), // 367 view
+            new ComponentInfo(false, new int[]{304, 317}), // 318 table3
+            new ComponentInfo(false, new int[]{275, 284, 318}), // 319 "expressioninfo"
+            new ComponentInfo(false, new int[]{264, 266, 268, 270, 319}), // 320 "inspector"
+            ComponentInfo.EMPTY_MARKUP, // 321 img
+            new ComponentInfo(true, new int[]{321}), // 322 td30
+            ComponentInfo.EMPTY_MARKUP, // 323 text75
+            ComponentInfo.EMPTY_NORMAL, // 324 link47
+            ComponentInfo.EMPTY_MARKUP, // 325 text76
+            ComponentInfo.EMPTY_NORMAL, // 326 link48
+            ComponentInfo.EMPTY_MARKUP, // 327 text77
+            ComponentInfo.EMPTY_MARKUP, // 328 text78
+            new ComponentInfo(true, new int[]{328}), // 329 a2
+            ComponentInfo.EMPTY_MARKUP, // 330 text79
+            ComponentInfo.EMPTY_MARKUP, // 331 br8
+            ComponentInfo.EMPTY_MARKUP, // 332 br9
+            ComponentInfo.EMPTY_MARKUP, // 333 text80
+            new ComponentInfo(true, new int[]{333}), // 334 a3
+            ComponentInfo.EMPTY_MARKUP, // 335 text81
+            ComponentInfo.EMPTY_MARKUP, // 336 text82
+            new ComponentInfo(true, new int[]{336}), // 337 a4
+            ComponentInfo.EMPTY_MARKUP, // 338 text83
+            ComponentInfo.EMPTY_MARKUP, // 339 text84
+            new ComponentInfo(true, new int[]{339}), // 340 a5
+            new ComponentInfo(true, new int[]{323, 324, 325, 326, 327, 329, 330, 331, 332, 334, 335, 337, 338, 340}), // 341 td31
+            new ComponentInfo(true, new int[]{322, 341}), // 342 tr20
+            ComponentInfo.EMPTY_MARKUP, // 343 text85
+            ComponentInfo.EMPTY_MARKUP, // 344 br10
+            ComponentInfo.EMPTY_MARKUP, // 345 br11
+            ComponentInfo.EMPTY_MARKUP, // 346 text86
+            ComponentInfo.EMPTY_MARKUP, // 347 text87
+            new ComponentInfo(true, new int[]{347}), // 348 a6
+            ComponentInfo.EMPTY_MARKUP, // 349 text88
+            ComponentInfo.EMPTY_MARKUP, // 350 br12
+            new ComponentInfo(true, new int[]{343, 344, 345, 346, 348, 349, 350}), // 351 td32
+            new ComponentInfo(true, new int[]{351}), // 352 tr21
+            new ComponentInfo(true, new int[]{342, 352}), // 353 tbody3
+            new ComponentInfo(true, new int[]{353}), // 354 table4
+            new ComponentInfo(true, new int[]{354}), // 355 div24
+            ComponentInfo.EMPTY_MARKUP, // 356 text89
+            ComponentInfo.EMPTY_NORMAL, // 357 "link13"
+            ComponentInfo.EMPTY_MARKUP, // 358 text90
+            new ComponentInfo(true, new int[]{356, 357, 358}), // 359 p
+            new ComponentInfo(false, new int[]{355, 359}), // 360 div23
+            new ComponentInfo(false, new int[]{360}), // 361 div22
+            new ComponentInfo(false, new int[]{85, 119, 147, 218, 320, 361}), // 362 "toolbarcontents"
+            ComponentInfo.EMPTY_NORMAL, // 363 "link39"
+            new ComponentInfo(true, new int[]{363}), // 364 li13
+            ComponentInfo.EMPTY_NORMAL, // 365 eventHandler48
+            new ComponentInfo(false, new int[]{365}), // 366 "link4"
+            new ComponentInfo(true, new int[]{366}), // 367 li14
+            new ComponentInfo(true, new int[]{364, 367}), // 368 ul4
+            new ComponentInfo(false, new int[]{368}), // 369 div25
+            new ComponentInfo(false, new int[]{8, 45, 362, 369}), // 370 "debugtoolbar"
+            new ComponentInfo(false, new int[]{0, 2, 3, 370}), // 371 panel
+            new ComponentInfo(false, new int[]{371}), // 372 view
         };
         
         public DebugToolbarPage() {
-            super(367, s_infos );
+            super(372, s_infos );
         }
         
         public int getComponentForId(String id) throws NoSuchComponentException { 
             if( "debugtoolbar".equals(id) )
-                return 365;
+                return 370;
             if( "link8".equals(id) )
                 return 5;
             if( "link12".equals(id) )
@@ -477,7 +482,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             if( "link9".equals(id) )
                 return 42;
             if( "toolbarcontents".equals(id) )
-                return 357;
+                return 362;
             if( "linkdrefresh".equals(id) )
                 return 47;
             if( "link24".equals(id) )
@@ -488,128 +493,132 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
                 return 56;
             if( "link34".equals(id) )
                 return 58;
+            if( "link21".equals(id) )
+                return 61;
+            if( "link36".equals(id) )
+                return 63;
             if( "dtmessages".equals(id) )
-                return 78;
+                return 83;
             if( "stacktrace".equals(id) )
-                return 73;
+                return 78;
             if( "link27".equals(id) )
-                return 68;
+                return 73;
             if( "link29".equals(id) )
-                return 70;
+                return 75;
             if( "link18".equals(id) )
-                return 82;
+                return 87;
             if( "link17".equals(id) )
-                return 85;
+                return 90;
             if( "link22".equals(id) )
-                return 88;
+                return 93;
             if( "link14".equals(id) )
-                return 92;
+                return 97;
             if( "link16".equals(id) )
-                return 94;
-            if( "repeatscope".equals(id) )
-                return 113;
-            if( "link26".equals(id) )
                 return 99;
+            if( "repeatscope".equals(id) )
+                return 118;
+            if( "link26".equals(id) )
+                return 104;
             if( "image2".equals(id) )
-                return 98;
-            if( "link25".equals(id) )
                 return 103;
+            if( "link25".equals(id) )
+                return 108;
             if( "image1".equals(id) )
-                return 102;
+                return 107;
             if( "logfiles".equals(id) )
-                return 142;
+                return 147;
             if( "comboboxlogfile".equals(id) )
-                return 121;
+                return 126;
             if( "link37".equals(id) )
-                return 124;
+                return 129;
             if( "repeat1".equals(id) )
-                return 132;
-            if( "link41".equals(id) )
-                return 130;
-            if( "logfilecontents".equals(id) )
-                return 141;
-            if( "link40".equals(id) )
                 return 137;
+            if( "link41".equals(id) )
+                return 135;
+            if( "logfilecontents".equals(id) )
+                return 146;
+            if( "link40".equals(id) )
+                return 142;
             if( "repeat3".equals(id) )
-                return 153;
+                return 158;
             if( "repeat4".equals(id) )
-                return 162;
+                return 167;
             if( "repeat6".equals(id) )
-                return 171;
+                return 176;
             if( "repeat5".equals(id) )
-                return 180;
+                return 185;
             if( "link38".equals(id) )
-                return 184;
+                return 189;
             if( "repeat7".equals(id) )
-                return 196;
+                return 201;
             if( "java".equals(id) )
-                return 210;
+                return 215;
             if( "link28".equals(id) )
-                return 208;
+                return 213;
             if( "inspector".equals(id) )
-                return 315;
+                return 320;
             if( "inspectorheader".equals(id) )
-                return 259;
-            if( "link15".equals(id) )
-                return 219;
-            if( "link30".equals(id) )
-                return 221;
-            if( "componentid".equals(id) )
-                return 227;
-            if( "chkshowhiddencontrols".equals(id) )
-                return 230;
-            if( "repeat2".equals(id) )
-                return 234;
-            if( "link19".equals(id) )
-                return 233;
-            if( "cbprevexp".equals(id) )
-                return 242;
-            if( "inputexpression".equals(id) )
-                return 250;
-            if( "link31".equals(id) )
-                return 253;
-            if( "inspectormessages".equals(id) )
                 return 264;
-            if( "expressioninfo".equals(id) )
-                return 314;
-            if( "link44".equals(id) )
-                return 266;
-            if( "expressionvalue".equals(id) )
+            if( "link15".equals(id) )
+                return 224;
+            if( "link30".equals(id) )
+                return 226;
+            if( "componentid".equals(id) )
+                return 232;
+            if( "chkshowhiddencontrols".equals(id) )
+                return 235;
+            if( "repeat2".equals(id) )
+                return 239;
+            if( "link19".equals(id) )
+                return 238;
+            if( "cbprevexp".equals(id) )
+                return 247;
+            if( "inputexpression".equals(id) )
+                return 255;
+            if( "link31".equals(id) )
+                return 258;
+            if( "inspectormessages".equals(id) )
                 return 269;
-            if( "link35".equals(id) )
-                return 272;
-            if( "link32".equals(id) )
+            if( "expressioninfo".equals(id) )
+                return 319;
+            if( "link44".equals(id) )
+                return 271;
+            if( "expressionvalue".equals(id) )
                 return 274;
-            if( "link10".equals(id) )
+            if( "link35".equals(id) )
                 return 277;
+            if( "link32".equals(id) )
+                return 279;
+            if( "link10".equals(id) )
+                return 282;
             if( "repeatmethods".equals(id) )
-                return 299;
-            if( "link7".equals(id) )
-                return 280;
-            if( "computedfield4".equals(id) )
-                return 281;
-            if( "link42".equals(id) )
-                return 284;
-            if( "repeatpm".equals(id) )
-                return 289;
-            if( "link43".equals(id) )
-                return 287;
-            if( "linkdeclclass".equals(id) )
-                return 295;
-            if( "repeatfields".equals(id) )
-                return 312;
-            if( "link45".equals(id) )
-                return 300;
-            if( "computedfield5".equals(id) )
-                return 301;
-            if( "link46".equals(id) )
                 return 304;
+            if( "link7".equals(id) )
+                return 285;
+            if( "computedfield4".equals(id) )
+                return 286;
+            if( "link42".equals(id) )
+                return 289;
+            if( "repeatpm".equals(id) )
+                return 294;
+            if( "link43".equals(id) )
+                return 292;
+            if( "linkdeclclass".equals(id) )
+                return 300;
+            if( "repeatfields".equals(id) )
+                return 317;
+            if( "link45".equals(id) )
+                return 305;
+            if( "computedfield5".equals(id) )
+                return 306;
+            if( "link46".equals(id) )
+                return 309;
             if( "link13".equals(id) )
-                return 352;
+                return 357;
             if( "link39".equals(id) )
-                return 358;
+                return 363;
             if( "link4".equals(id) )
-                return 361;
+                return 366;
             return -1;
         }
         
@@ -617,9 +626,9 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
                 UIComponent parent, PageExpressionEvaluator evaluator)
                 throws NoSuchComponentException { 
             switch (id) {
-            case 367:
+            case 372:
                 return createView(context, parent, evaluator);
-            case 366:
+            case 371:
                 return createPanel(context, parent, evaluator);
             case 0:
                 return createA(context, parent, evaluator);
@@ -629,7 +638,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
                 return createText(context, parent, evaluator);
             case 3:
                 return createText2(context, parent, evaluator);
-            case 365:
+            case 370:
                 return createDebugtoolbar(context, parent, evaluator);
             case 8:
                 return createDiv(context, parent, evaluator);
@@ -715,9 +724,9 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
                 return createLink9(context, parent, evaluator);
             case 41:
                 return createEventHandler12(context, parent, evaluator);
-            case 357:
+            case 362:
                 return createToolbarcontents(context, parent, evaluator);
-            case 80:
+            case 85:
                 return createDiv4(context, parent, evaluator);
             case 47:
                 return createLinkdrefresh(context, parent, evaluator);
@@ -745,614 +754,624 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
                 return createLink34(context, parent, evaluator);
             case 57:
                 return createEventHandler17(context, parent, evaluator);
-            case 78:
-                return createDtmessages(context, parent, evaluator);
-            case 61:
-                return createTr(context, parent, evaluator);
-            case 60:
-                return createTd(context, parent, evaluator);
             case 59:
                 return createText6(context, parent, evaluator);
-            case 75:
-                return createTr2(context, parent, evaluator);
-            case 64:
-                return createTd2(context, parent, evaluator);
-            case 62:
-                return createText7(context, parent, evaluator);
-            case 63:
-                return createText8(context, parent, evaluator);
-            case 74:
-                return createTd3(context, parent, evaluator);
-            case 65:
-                return createText9(context, parent, evaluator);
-            case 66:
-                return createText10(context, parent, evaluator);
-            case 73:
-                return createStacktrace(context, parent, evaluator);
-            case 68:
-                return createLink27(context, parent, evaluator);
-            case 67:
+            case 61:
+                return createLink21(context, parent, evaluator);
+            case 60:
                 return createEventHandler18(context, parent, evaluator);
-            case 70:
-                return createLink29(context, parent, evaluator);
-            case 69:
+            case 63:
+                return createLink36(context, parent, evaluator);
+            case 62:
                 return createEventHandler19(context, parent, evaluator);
-            case 71:
-                return createBr(context, parent, evaluator);
-            case 72:
-                return createText11(context, parent, evaluator);
-            case 76:
-                return createText12(context, parent, evaluator);
-            case 77:
-                return createText13(context, parent, evaluator);
-            case 79:
-                return createText14(context, parent, evaluator);
-            case 114:
-                return createDiv5(context, parent, evaluator);
-            case 82:
-                return createLink18(context, parent, evaluator);
-            case 81:
-                return createEventHandler20(context, parent, evaluator);
-            case 89:
-                return createSpan(context, parent, evaluator);
             case 83:
-                return createText15(context, parent, evaluator);
-            case 85:
-                return createLink17(context, parent, evaluator);
-            case 84:
+                return createDtmessages(context, parent, evaluator);
+            case 66:
+                return createTr(context, parent, evaluator);
+            case 65:
+                return createTd(context, parent, evaluator);
+            case 64:
+                return createText7(context, parent, evaluator);
+            case 80:
+                return createTr2(context, parent, evaluator);
+            case 69:
+                return createTd2(context, parent, evaluator);
+            case 67:
+                return createText8(context, parent, evaluator);
+            case 68:
+                return createText9(context, parent, evaluator);
+            case 79:
+                return createTd3(context, parent, evaluator);
+            case 70:
+                return createText10(context, parent, evaluator);
+            case 71:
+                return createText11(context, parent, evaluator);
+            case 78:
+                return createStacktrace(context, parent, evaluator);
+            case 73:
+                return createLink27(context, parent, evaluator);
+            case 72:
+                return createEventHandler20(context, parent, evaluator);
+            case 75:
+                return createLink29(context, parent, evaluator);
+            case 74:
                 return createEventHandler21(context, parent, evaluator);
-            case 86:
-                return createText16(context, parent, evaluator);
-            case 88:
-                return createLink22(context, parent, evaluator);
+            case 76:
+                return createBr(context, parent, evaluator);
+            case 77:
+                return createText12(context, parent, evaluator);
+            case 81:
+                return createText13(context, parent, evaluator);
+            case 82:
+                return createText14(context, parent, evaluator);
+            case 84:
+                return createText15(context, parent, evaluator);
+            case 119:
+                return createDiv5(context, parent, evaluator);
             case 87:
+                return createLink18(context, parent, evaluator);
+            case 86:
                 return createEventHandler22(context, parent, evaluator);
-            case 90:
-                return createText17(context, parent, evaluator);
-            case 92:
-                return createLink14(context, parent, evaluator);
-            case 91:
-                return createEventHandler23(context, parent, evaluator);
             case 94:
-                return createLink16(context, parent, evaluator);
+                return createSpan(context, parent, evaluator);
+            case 88:
+                return createText16(context, parent, evaluator);
+            case 90:
+                return createLink17(context, parent, evaluator);
+            case 89:
+                return createEventHandler23(context, parent, evaluator);
+            case 91:
+                return createText17(context, parent, evaluator);
             case 93:
+                return createLink22(context, parent, evaluator);
+            case 92:
                 return createEventHandler24(context, parent, evaluator);
-            case 96:
-                return createDiv6(context, parent, evaluator);
             case 95:
                 return createText18(context, parent, evaluator);
-            case 113:
-                return createRepeatscope(context, parent, evaluator);
-            case 110:
-                return createTr3(context, parent, evaluator);
-            case 107:
-                return createTd4(context, parent, evaluator);
-            case 104:
-                return createDiv7(context, parent, evaluator);
-            case 99:
-                return createLink26(context, parent, evaluator);
             case 97:
+                return createLink14(context, parent, evaluator);
+            case 96:
                 return createEventHandler25(context, parent, evaluator);
+            case 99:
+                return createLink16(context, parent, evaluator);
             case 98:
-                return createImage2(context, parent, evaluator);
+                return createEventHandler26(context, parent, evaluator);
+            case 101:
+                return createDiv6(context, parent, evaluator);
             case 100:
                 return createText19(context, parent, evaluator);
-            case 103:
-                return createLink25(context, parent, evaluator);
-            case 101:
-                return createEventHandler26(context, parent, evaluator);
+            case 118:
+                return createRepeatscope(context, parent, evaluator);
+            case 115:
+                return createTr3(context, parent, evaluator);
+            case 112:
+                return createTd4(context, parent, evaluator);
+            case 109:
+                return createDiv7(context, parent, evaluator);
+            case 104:
+                return createLink26(context, parent, evaluator);
             case 102:
-                return createImage1(context, parent, evaluator);
-            case 106:
-                return createDiv8(context, parent, evaluator);
+                return createEventHandler27(context, parent, evaluator);
+            case 103:
+                return createImage2(context, parent, evaluator);
             case 105:
                 return createText20(context, parent, evaluator);
-            case 109:
-                return createTd5(context, parent, evaluator);
             case 108:
-                return createText21(context, parent, evaluator);
+                return createLink25(context, parent, evaluator);
+            case 106:
+                return createEventHandler28(context, parent, evaluator);
+            case 107:
+                return createImage1(context, parent, evaluator);
             case 111:
+                return createDiv8(context, parent, evaluator);
+            case 110:
+                return createText21(context, parent, evaluator);
+            case 114:
+                return createTd5(context, parent, evaluator);
+            case 113:
                 return createText22(context, parent, evaluator);
-            case 112:
-                return createText23(context, parent, evaluator);
-            case 142:
-                return createLogfiles(context, parent, evaluator);
-            case 134:
-                return createDiv9(context, parent, evaluator);
             case 116:
-                return createStrong(context, parent, evaluator);
-            case 115:
-                return createText24(context, parent, evaluator);
+                return createText23(context, parent, evaluator);
             case 117:
-                return createText25(context, parent, evaluator);
+                return createText24(context, parent, evaluator);
+            case 147:
+                return createLogfiles(context, parent, evaluator);
+            case 139:
+                return createDiv9(context, parent, evaluator);
             case 121:
-                return createComboboxlogfile(context, parent, evaluator);
-            case 118:
-                return createSelectItem(context, parent, evaluator);
-            case 119:
-                return createSelectItems(context, parent, evaluator);
+                return createStrong(context, parent, evaluator);
             case 120:
-                return createEventHandler27(context, parent, evaluator);
+                return createText25(context, parent, evaluator);
             case 122:
                 return createText26(context, parent, evaluator);
-            case 124:
-                return createLink37(context, parent, evaluator);
-            case 123:
-                return createEventHandler28(context, parent, evaluator);
-            case 133:
-                return createSpan2(context, parent, evaluator);
             case 126:
-                return createStrong2(context, parent, evaluator);
+                return createComboboxlogfile(context, parent, evaluator);
+            case 123:
+                return createSelectItem(context, parent, evaluator);
+            case 124:
+                return createSelectItems(context, parent, evaluator);
             case 125:
-                return createText27(context, parent, evaluator);
-            case 127:
-                return createText28(context, parent, evaluator);
-            case 128:
-                return createText29(context, parent, evaluator);
-            case 132:
-                return createRepeat1(context, parent, evaluator);
-            case 130:
-                return createLink41(context, parent, evaluator);
-            case 129:
                 return createEventHandler29(context, parent, evaluator);
-            case 131:
-                return createText30(context, parent, evaluator);
-            case 141:
-                return createLogfilecontents(context, parent, evaluator);
-            case 139:
-                return createDiv10(context, parent, evaluator);
-            case 135:
-                return createText31(context, parent, evaluator);
-            case 137:
-                return createLink40(context, parent, evaluator);
-            case 136:
+            case 127:
+                return createText27(context, parent, evaluator);
+            case 129:
+                return createLink37(context, parent, evaluator);
+            case 128:
                 return createEventHandler30(context, parent, evaluator);
             case 138:
-                return createText32(context, parent, evaluator);
-            case 140:
-                return createText33(context, parent, evaluator);
-            case 213:
-                return createDiv11(context, parent, evaluator);
-            case 199:
-                return createDiv12(context, parent, evaluator);
-            case 144:
-                return createDiv13(context, parent, evaluator);
-            case 143:
-                return createText34(context, parent, evaluator);
-            case 198:
-                return createTable(context, parent, evaluator);
-            case 197:
-                return createTbody(context, parent, evaluator);
-            case 147:
-                return createTr4(context, parent, evaluator);
+                return createSpan2(context, parent, evaluator);
+            case 131:
+                return createStrong2(context, parent, evaluator);
+            case 130:
+                return createText28(context, parent, evaluator);
+            case 132:
+                return createText29(context, parent, evaluator);
+            case 133:
+                return createText30(context, parent, evaluator);
+            case 137:
+                return createRepeat1(context, parent, evaluator);
+            case 135:
+                return createLink41(context, parent, evaluator);
+            case 134:
+                return createEventHandler31(context, parent, evaluator);
+            case 136:
+                return createText31(context, parent, evaluator);
             case 146:
-                return createTh(context, parent, evaluator);
+                return createLogfilecontents(context, parent, evaluator);
+            case 144:
+                return createDiv10(context, parent, evaluator);
+            case 140:
+                return createText32(context, parent, evaluator);
+            case 142:
+                return createLink40(context, parent, evaluator);
+            case 141:
+                return createEventHandler32(context, parent, evaluator);
+            case 143:
+                return createText33(context, parent, evaluator);
             case 145:
-                return createText35(context, parent, evaluator);
-            case 153:
-                return createRepeat3(context, parent, evaluator);
-            case 152:
-                return createTr5(context, parent, evaluator);
+                return createText34(context, parent, evaluator);
+            case 218:
+                return createDiv11(context, parent, evaluator);
+            case 204:
+                return createDiv12(context, parent, evaluator);
             case 149:
-                return createTd6(context, parent, evaluator);
+                return createDiv13(context, parent, evaluator);
             case 148:
-                return createText36(context, parent, evaluator);
+                return createText35(context, parent, evaluator);
+            case 203:
+                return createTable(context, parent, evaluator);
+            case 202:
+                return createTbody(context, parent, evaluator);
+            case 152:
+                return createTr4(context, parent, evaluator);
             case 151:
-                return createTd7(context, parent, evaluator);
+                return createTh(context, parent, evaluator);
             case 150:
+                return createText36(context, parent, evaluator);
+            case 158:
+                return createRepeat3(context, parent, evaluator);
+            case 157:
+                return createTr5(context, parent, evaluator);
+            case 154:
+                return createTd6(context, parent, evaluator);
+            case 153:
                 return createText37(context, parent, evaluator);
             case 156:
-                return createTr6(context, parent, evaluator);
+                return createTd7(context, parent, evaluator);
             case 155:
-                return createTh2(context, parent, evaluator);
-            case 154:
                 return createText38(context, parent, evaluator);
-            case 162:
-                return createRepeat4(context, parent, evaluator);
             case 161:
-                return createTr7(context, parent, evaluator);
-            case 158:
-                return createTd8(context, parent, evaluator);
-            case 157:
-                return createText39(context, parent, evaluator);
+                return createTr6(context, parent, evaluator);
             case 160:
-                return createTd9(context, parent, evaluator);
+                return createTh2(context, parent, evaluator);
             case 159:
+                return createText39(context, parent, evaluator);
+            case 167:
+                return createRepeat4(context, parent, evaluator);
+            case 166:
+                return createTr7(context, parent, evaluator);
+            case 163:
+                return createTd8(context, parent, evaluator);
+            case 162:
                 return createText40(context, parent, evaluator);
             case 165:
-                return createTr8(context, parent, evaluator);
+                return createTd9(context, parent, evaluator);
             case 164:
-                return createTh3(context, parent, evaluator);
-            case 163:
                 return createText41(context, parent, evaluator);
-            case 171:
-                return createRepeat6(context, parent, evaluator);
             case 170:
-                return createTr9(context, parent, evaluator);
-            case 167:
-                return createTd10(context, parent, evaluator);
-            case 166:
-                return createText42(context, parent, evaluator);
+                return createTr8(context, parent, evaluator);
             case 169:
-                return createTd11(context, parent, evaluator);
+                return createTh3(context, parent, evaluator);
             case 168:
+                return createText42(context, parent, evaluator);
+            case 176:
+                return createRepeat6(context, parent, evaluator);
+            case 175:
+                return createTr9(context, parent, evaluator);
+            case 172:
+                return createTd10(context, parent, evaluator);
+            case 171:
                 return createText43(context, parent, evaluator);
             case 174:
-                return createTr10(context, parent, evaluator);
+                return createTd11(context, parent, evaluator);
             case 173:
-                return createTh4(context, parent, evaluator);
-            case 172:
                 return createText44(context, parent, evaluator);
-            case 180:
-                return createRepeat5(context, parent, evaluator);
             case 179:
-                return createTr11(context, parent, evaluator);
-            case 176:
-                return createTd12(context, parent, evaluator);
-            case 175:
-                return createText45(context, parent, evaluator);
+                return createTr10(context, parent, evaluator);
             case 178:
-                return createTd13(context, parent, evaluator);
+                return createTh4(context, parent, evaluator);
             case 177:
-                return createText46(context, parent, evaluator);
-            case 187:
-                return createTr12(context, parent, evaluator);
-            case 182:
-                return createTd14(context, parent, evaluator);
-            case 181:
-                return createText47(context, parent, evaluator);
-            case 186:
-                return createTd15(context, parent, evaluator);
-            case 184:
-                return createLink38(context, parent, evaluator);
-            case 183:
-                return createEventHandler31(context, parent, evaluator);
+                return createText45(context, parent, evaluator);
             case 185:
-                return createText48(context, parent, evaluator);
-            case 190:
-                return createTr13(context, parent, evaluator);
-            case 189:
-                return createTh5(context, parent, evaluator);
-            case 188:
-                return createText49(context, parent, evaluator);
-            case 196:
-                return createRepeat7(context, parent, evaluator);
-            case 195:
-                return createTr14(context, parent, evaluator);
+                return createRepeat5(context, parent, evaluator);
+            case 184:
+                return createTr11(context, parent, evaluator);
+            case 181:
+                return createTd12(context, parent, evaluator);
+            case 180:
+                return createText46(context, parent, evaluator);
+            case 183:
+                return createTd13(context, parent, evaluator);
+            case 182:
+                return createText47(context, parent, evaluator);
             case 192:
-                return createTd16(context, parent, evaluator);
+                return createTr12(context, parent, evaluator);
+            case 187:
+                return createTd14(context, parent, evaluator);
+            case 186:
+                return createText48(context, parent, evaluator);
             case 191:
-                return createText50(context, parent, evaluator);
-            case 194:
-                return createTd17(context, parent, evaluator);
-            case 193:
-                return createText51(context, parent, evaluator);
-            case 211:
-                return createDiv14(context, parent, evaluator);
-            case 210:
-                return createJava(context, parent, evaluator);
-            case 201:
-                return createDiv15(context, parent, evaluator);
-            case 200:
-                return createText52(context, parent, evaluator);
-            case 202:
-                return createText53(context, parent, evaluator);
-            case 206:
-                return createDiv16(context, parent, evaluator);
-            case 205:
-                return createTable2(context, parent, evaluator);
-            case 204:
-                return createTbody2(context, parent, evaluator);
-            case 203:
-                return createText54(context, parent, evaluator);
-            case 209:
-                return createDiv17(context, parent, evaluator);
-            case 208:
-                return createLink28(context, parent, evaluator);
-            case 207:
-                return createEventHandler32(context, parent, evaluator);
-            case 212:
-                return createBr2(context, parent, evaluator);
-            case 315:
-                return createInspector(context, parent, evaluator);
-            case 259:
-                return createInspectorheader(context, parent, evaluator);
-            case 244:
-                return createTr15(context, parent, evaluator);
-            case 223:
-                return createTd18(context, parent, evaluator);
-            case 215:
-                return createStrong3(context, parent, evaluator);
-            case 214:
-                return createText55(context, parent, evaluator);
-            case 216:
-                return createBr3(context, parent, evaluator);
-            case 217:
-                return createText56(context, parent, evaluator);
-            case 219:
-                return createLink15(context, parent, evaluator);
-            case 218:
+                return createTd15(context, parent, evaluator);
+            case 189:
+                return createLink38(context, parent, evaluator);
+            case 188:
                 return createEventHandler33(context, parent, evaluator);
-            case 221:
-                return createLink30(context, parent, evaluator);
-            case 220:
+            case 190:
+                return createText49(context, parent, evaluator);
+            case 195:
+                return createTr13(context, parent, evaluator);
+            case 194:
+                return createTh5(context, parent, evaluator);
+            case 193:
+                return createText50(context, parent, evaluator);
+            case 201:
+                return createRepeat7(context, parent, evaluator);
+            case 200:
+                return createTr14(context, parent, evaluator);
+            case 197:
+                return createTd16(context, parent, evaluator);
+            case 196:
+                return createText51(context, parent, evaluator);
+            case 199:
+                return createTd17(context, parent, evaluator);
+            case 198:
+                return createText52(context, parent, evaluator);
+            case 216:
+                return createDiv14(context, parent, evaluator);
+            case 215:
+                return createJava(context, parent, evaluator);
+            case 206:
+                return createDiv15(context, parent, evaluator);
+            case 205:
+                return createText53(context, parent, evaluator);
+            case 207:
+                return createText54(context, parent, evaluator);
+            case 211:
+                return createDiv16(context, parent, evaluator);
+            case 210:
+                return createTable2(context, parent, evaluator);
+            case 209:
+                return createTbody2(context, parent, evaluator);
+            case 208:
+                return createText55(context, parent, evaluator);
+            case 214:
+                return createDiv17(context, parent, evaluator);
+            case 213:
+                return createLink28(context, parent, evaluator);
+            case 212:
                 return createEventHandler34(context, parent, evaluator);
+            case 217:
+                return createBr2(context, parent, evaluator);
+            case 320:
+                return createInspector(context, parent, evaluator);
+            case 264:
+                return createInspectorheader(context, parent, evaluator);
+            case 249:
+                return createTr15(context, parent, evaluator);
+            case 228:
+                return createTd18(context, parent, evaluator);
+            case 220:
+                return createStrong3(context, parent, evaluator);
+            case 219:
+                return createText56(context, parent, evaluator);
+            case 221:
+                return createBr3(context, parent, evaluator);
             case 222:
                 return createText57(context, parent, evaluator);
-            case 235:
-                return createTd19(context, parent, evaluator);
-            case 227:
-                return createComponentid(context, parent, evaluator);
             case 224:
-                return createSelectItem2(context, parent, evaluator);
-            case 225:
-                return createSelectItems2(context, parent, evaluator);
-            case 226:
+                return createLink15(context, parent, evaluator);
+            case 223:
                 return createEventHandler35(context, parent, evaluator);
-            case 228:
-                return createText58(context, parent, evaluator);
-            case 230:
-                return createChkshowhiddencontrols(context, parent, evaluator);
-            case 229:
+            case 226:
+                return createLink30(context, parent, evaluator);
+            case 225:
                 return createEventHandler36(context, parent, evaluator);
-            case 231:
-                return createBr4(context, parent, evaluator);
-            case 234:
-                return createRepeat2(context, parent, evaluator);
-            case 233:
-                return createLink19(context, parent, evaluator);
-            case 232:
-                return createEventHandler37(context, parent, evaluator);
-            case 238:
-                return createTd20(context, parent, evaluator);
-            case 237:
-                return createStrong4(context, parent, evaluator);
-            case 236:
-                return createText59(context, parent, evaluator);
-            case 243:
-                return createTd21(context, parent, evaluator);
-            case 242:
-                return createCbprevexp(context, parent, evaluator);
-            case 239:
-                return createSelectItem3(context, parent, evaluator);
+            case 227:
+                return createText58(context, parent, evaluator);
             case 240:
-                return createSelectItems3(context, parent, evaluator);
-            case 241:
+                return createTd19(context, parent, evaluator);
+            case 232:
+                return createComponentid(context, parent, evaluator);
+            case 229:
+                return createSelectItem2(context, parent, evaluator);
+            case 230:
+                return createSelectItems2(context, parent, evaluator);
+            case 231:
+                return createEventHandler37(context, parent, evaluator);
+            case 233:
+                return createText59(context, parent, evaluator);
+            case 235:
+                return createChkshowhiddencontrols(context, parent, evaluator);
+            case 234:
                 return createEventHandler38(context, parent, evaluator);
-            case 245:
-                return createTr16(context, parent, evaluator);
-            case 258:
-                return createTr17(context, parent, evaluator);
-            case 248:
-                return createTd22(context, parent, evaluator);
-            case 247:
-                return createStrong5(context, parent, evaluator);
-            case 246:
-                return createText60(context, parent, evaluator);
-            case 257:
-                return createTd23(context, parent, evaluator);
-            case 250:
-                return createInputexpression(context, parent, evaluator);
-            case 249:
+            case 236:
+                return createBr4(context, parent, evaluator);
+            case 239:
+                return createRepeat2(context, parent, evaluator);
+            case 238:
+                return createLink19(context, parent, evaluator);
+            case 237:
                 return createEventHandler39(context, parent, evaluator);
+            case 243:
+                return createTd20(context, parent, evaluator);
+            case 242:
+                return createStrong4(context, parent, evaluator);
+            case 241:
+                return createText60(context, parent, evaluator);
+            case 248:
+                return createTd21(context, parent, evaluator);
+            case 247:
+                return createCbprevexp(context, parent, evaluator);
+            case 244:
+                return createSelectItem3(context, parent, evaluator);
+            case 245:
+                return createSelectItems3(context, parent, evaluator);
+            case 246:
+                return createEventHandler40(context, parent, evaluator);
+            case 250:
+                return createTr16(context, parent, evaluator);
+            case 263:
+                return createTr17(context, parent, evaluator);
+            case 253:
+                return createTd22(context, parent, evaluator);
+            case 252:
+                return createStrong5(context, parent, evaluator);
             case 251:
                 return createText61(context, parent, evaluator);
-            case 253:
-                return createLink31(context, parent, evaluator);
-            case 252:
-                return createEventHandler40(context, parent, evaluator);
-            case 254:
-                return createBr5(context, parent, evaluator);
-            case 256:
-                return createI(context, parent, evaluator);
+            case 262:
+                return createTd23(context, parent, evaluator);
             case 255:
+                return createInputexpression(context, parent, evaluator);
+            case 254:
+                return createEventHandler41(context, parent, evaluator);
+            case 256:
                 return createText62(context, parent, evaluator);
+            case 258:
+                return createLink31(context, parent, evaluator);
+            case 257:
+                return createEventHandler42(context, parent, evaluator);
+            case 259:
+                return createBr5(context, parent, evaluator);
             case 261:
-                return createDiv18(context, parent, evaluator);
+                return createI(context, parent, evaluator);
             case 260:
                 return createText63(context, parent, evaluator);
-            case 263:
-                return createDiv19(context, parent, evaluator);
-            case 262:
-                return createText64(context, parent, evaluator);
-            case 265:
-                return createPre(context, parent, evaluator);
-            case 264:
-                return createInspectormessages(context, parent, evaluator);
-            case 314:
-                return createExpressioninfo(context, parent, evaluator);
-            case 270:
-                return createDiv20(context, parent, evaluator);
-            case 267:
-                return createB(context, parent, evaluator);
             case 266:
-                return createLink44(context, parent, evaluator);
+                return createDiv18(context, parent, evaluator);
+            case 265:
+                return createText64(context, parent, evaluator);
             case 268:
-                return createBr6(context, parent, evaluator);
-            case 269:
-                return createExpressionvalue(context, parent, evaluator);
-            case 279:
-                return createDiv21(context, parent, evaluator);
-            case 272:
-                return createLink35(context, parent, evaluator);
-            case 271:
-                return createEventHandler41(context, parent, evaluator);
-            case 274:
-                return createLink32(context, parent, evaluator);
-            case 273:
-                return createEventHandler42(context, parent, evaluator);
-            case 278:
-                return createSpan3(context, parent, evaluator);
-            case 275:
+                return createDiv19(context, parent, evaluator);
+            case 267:
                 return createText65(context, parent, evaluator);
+            case 270:
+                return createPre(context, parent, evaluator);
+            case 269:
+                return createInspectormessages(context, parent, evaluator);
+            case 319:
+                return createExpressioninfo(context, parent, evaluator);
+            case 275:
+                return createDiv20(context, parent, evaluator);
+            case 272:
+                return createB(context, parent, evaluator);
+            case 271:
+                return createLink44(context, parent, evaluator);
+            case 273:
+                return createBr6(context, parent, evaluator);
+            case 274:
+                return createExpressionvalue(context, parent, evaluator);
+            case 284:
+                return createDiv21(context, parent, evaluator);
             case 277:
-                return createLink10(context, parent, evaluator);
+                return createLink35(context, parent, evaluator);
             case 276:
                 return createEventHandler43(context, parent, evaluator);
-            case 313:
-                return createTable3(context, parent, evaluator);
-            case 299:
-                return createRepeatmethods(context, parent, evaluator);
-            case 297:
-                return createTr18(context, parent, evaluator);
-            case 282:
-                return createTd24(context, parent, evaluator);
-            case 280:
-                return createLink7(context, parent, evaluator);
-            case 281:
-                return createComputedfield4(context, parent, evaluator);
-            case 293:
-                return createTd25(context, parent, evaluator);
-            case 285:
-                return createStrong6(context, parent, evaluator);
-            case 284:
-                return createLink42(context, parent, evaluator);
-            case 283:
+            case 279:
+                return createLink32(context, parent, evaluator);
+            case 278:
                 return createEventHandler44(context, parent, evaluator);
-            case 286:
+            case 283:
+                return createSpan3(context, parent, evaluator);
+            case 280:
                 return createText66(context, parent, evaluator);
-            case 289:
-                return createRepeatpm(context, parent, evaluator);
+            case 282:
+                return createLink10(context, parent, evaluator);
+            case 281:
+                return createEventHandler45(context, parent, evaluator);
+            case 318:
+                return createTable3(context, parent, evaluator);
+            case 304:
+                return createRepeatmethods(context, parent, evaluator);
+            case 302:
+                return createTr18(context, parent, evaluator);
             case 287:
-                return createLink43(context, parent, evaluator);
-            case 288:
-                return createText67(context, parent, evaluator);
+                return createTd24(context, parent, evaluator);
+            case 285:
+                return createLink7(context, parent, evaluator);
+            case 286:
+                return createComputedfield4(context, parent, evaluator);
+            case 298:
+                return createTd25(context, parent, evaluator);
             case 290:
-                return createText68(context, parent, evaluator);
+                return createStrong6(context, parent, evaluator);
+            case 289:
+                return createLink42(context, parent, evaluator);
+            case 288:
+                return createEventHandler46(context, parent, evaluator);
             case 291:
-                return createBr7(context, parent, evaluator);
+                return createText67(context, parent, evaluator);
+            case 294:
+                return createRepeatpm(context, parent, evaluator);
             case 292:
+                return createLink43(context, parent, evaluator);
+            case 293:
+                return createText68(context, parent, evaluator);
+            case 295:
                 return createText69(context, parent, evaluator);
             case 296:
-                return createTd26(context, parent, evaluator);
-            case 294:
+                return createBr7(context, parent, evaluator);
+            case 297:
                 return createText70(context, parent, evaluator);
-            case 295:
-                return createLinkdeclclass(context, parent, evaluator);
-            case 298:
-                return createText71(context, parent, evaluator);
-            case 312:
-                return createRepeatfields(context, parent, evaluator);
-            case 310:
-                return createTr19(context, parent, evaluator);
-            case 302:
-                return createTd27(context, parent, evaluator);
-            case 300:
-                return createLink45(context, parent, evaluator);
             case 301:
-                return createComputedfield5(context, parent, evaluator);
-            case 306:
-                return createTd28(context, parent, evaluator);
-            case 305:
-                return createStrong7(context, parent, evaluator);
-            case 304:
-                return createLink46(context, parent, evaluator);
+                return createTd26(context, parent, evaluator);
+            case 299:
+                return createText71(context, parent, evaluator);
+            case 300:
+                return createLinkdeclclass(context, parent, evaluator);
             case 303:
-                return createEventHandler45(context, parent, evaluator);
-            case 309:
-                return createTd29(context, parent, evaluator);
-            case 307:
-                return createLink(context, parent, evaluator);
-            case 308:
                 return createText72(context, parent, evaluator);
-            case 311:
-                return createText73(context, parent, evaluator);
-            case 356:
-                return createDiv22(context, parent, evaluator);
-            case 355:
-                return createDiv23(context, parent, evaluator);
-            case 350:
-                return createDiv24(context, parent, evaluator);
-            case 349:
-                return createTable4(context, parent, evaluator);
-            case 348:
-                return createTbody3(context, parent, evaluator);
-            case 337:
-                return createTr20(context, parent, evaluator);
             case 317:
-                return createTd30(context, parent, evaluator);
+                return createRepeatfields(context, parent, evaluator);
+            case 315:
+                return createTr19(context, parent, evaluator);
+            case 307:
+                return createTd27(context, parent, evaluator);
+            case 305:
+                return createLink45(context, parent, evaluator);
+            case 306:
+                return createComputedfield5(context, parent, evaluator);
+            case 311:
+                return createTd28(context, parent, evaluator);
+            case 310:
+                return createStrong7(context, parent, evaluator);
+            case 309:
+                return createLink46(context, parent, evaluator);
+            case 308:
+                return createEventHandler47(context, parent, evaluator);
+            case 314:
+                return createTd29(context, parent, evaluator);
+            case 312:
+                return createLink(context, parent, evaluator);
+            case 313:
+                return createText73(context, parent, evaluator);
             case 316:
-                return createImg(context, parent, evaluator);
-            case 336:
-                return createTd31(context, parent, evaluator);
-            case 318:
                 return createText74(context, parent, evaluator);
-            case 319:
-                return createLink21(context, parent, evaluator);
-            case 320:
-                return createText75(context, parent, evaluator);
-            case 321:
-                return createLink36(context, parent, evaluator);
-            case 322:
-                return createText76(context, parent, evaluator);
-            case 324:
-                return createA2(context, parent, evaluator);
-            case 323:
-                return createText77(context, parent, evaluator);
-            case 325:
-                return createText78(context, parent, evaluator);
-            case 326:
-                return createBr8(context, parent, evaluator);
-            case 327:
-                return createBr9(context, parent, evaluator);
-            case 329:
-                return createA3(context, parent, evaluator);
-            case 328:
-                return createText79(context, parent, evaluator);
-            case 330:
-                return createText80(context, parent, evaluator);
-            case 332:
-                return createA4(context, parent, evaluator);
-            case 331:
-                return createText81(context, parent, evaluator);
-            case 333:
-                return createText82(context, parent, evaluator);
-            case 335:
-                return createA5(context, parent, evaluator);
-            case 334:
-                return createText83(context, parent, evaluator);
-            case 347:
-                return createTr21(context, parent, evaluator);
-            case 346:
-                return createTd32(context, parent, evaluator);
-            case 338:
-                return createText84(context, parent, evaluator);
-            case 339:
-                return createBr10(context, parent, evaluator);
-            case 340:
-                return createBr11(context, parent, evaluator);
-            case 341:
-                return createText85(context, parent, evaluator);
-            case 343:
-                return createA6(context, parent, evaluator);
-            case 342:
-                return createText86(context, parent, evaluator);
-            case 344:
-                return createText87(context, parent, evaluator);
-            case 345:
-                return createBr12(context, parent, evaluator);
-            case 354:
-                return createP(context, parent, evaluator);
-            case 351:
-                return createText88(context, parent, evaluator);
-            case 352:
-                return createLink13(context, parent, evaluator);
-            case 353:
-                return createText89(context, parent, evaluator);
-            case 364:
-                return createDiv25(context, parent, evaluator);
-            case 363:
-                return createUl4(context, parent, evaluator);
-            case 359:
-                return createLi13(context, parent, evaluator);
-            case 358:
-                return createLink39(context, parent, evaluator);
-            case 362:
-                return createLi14(context, parent, evaluator);
             case 361:
-                return createLink4(context, parent, evaluator);
+                return createDiv22(context, parent, evaluator);
             case 360:
-                return createEventHandler46(context, parent, evaluator);
+                return createDiv23(context, parent, evaluator);
+            case 355:
+                return createDiv24(context, parent, evaluator);
+            case 354:
+                return createTable4(context, parent, evaluator);
+            case 353:
+                return createTbody3(context, parent, evaluator);
+            case 342:
+                return createTr20(context, parent, evaluator);
+            case 322:
+                return createTd30(context, parent, evaluator);
+            case 321:
+                return createImg(context, parent, evaluator);
+            case 341:
+                return createTd31(context, parent, evaluator);
+            case 323:
+                return createText75(context, parent, evaluator);
+            case 324:
+                return createLink47(context, parent, evaluator);
+            case 325:
+                return createText76(context, parent, evaluator);
+            case 326:
+                return createLink48(context, parent, evaluator);
+            case 327:
+                return createText77(context, parent, evaluator);
+            case 329:
+                return createA2(context, parent, evaluator);
+            case 328:
+                return createText78(context, parent, evaluator);
+            case 330:
+                return createText79(context, parent, evaluator);
+            case 331:
+                return createBr8(context, parent, evaluator);
+            case 332:
+                return createBr9(context, parent, evaluator);
+            case 334:
+                return createA3(context, parent, evaluator);
+            case 333:
+                return createText80(context, parent, evaluator);
+            case 335:
+                return createText81(context, parent, evaluator);
+            case 337:
+                return createA4(context, parent, evaluator);
+            case 336:
+                return createText82(context, parent, evaluator);
+            case 338:
+                return createText83(context, parent, evaluator);
+            case 340:
+                return createA5(context, parent, evaluator);
+            case 339:
+                return createText84(context, parent, evaluator);
+            case 352:
+                return createTr21(context, parent, evaluator);
+            case 351:
+                return createTd32(context, parent, evaluator);
+            case 343:
+                return createText85(context, parent, evaluator);
+            case 344:
+                return createBr10(context, parent, evaluator);
+            case 345:
+                return createBr11(context, parent, evaluator);
+            case 346:
+                return createText86(context, parent, evaluator);
+            case 348:
+                return createA6(context, parent, evaluator);
+            case 347:
+                return createText87(context, parent, evaluator);
+            case 349:
+                return createText88(context, parent, evaluator);
+            case 350:
+                return createBr12(context, parent, evaluator);
+            case 359:
+                return createP(context, parent, evaluator);
+            case 356:
+                return createText89(context, parent, evaluator);
+            case 357:
+                return createLink13(context, parent, evaluator);
+            case 358:
+                return createText90(context, parent, evaluator);
+            case 369:
+                return createDiv25(context, parent, evaluator);
+            case 368:
+                return createUl4(context, parent, evaluator);
+            case 364:
+                return createLi13(context, parent, evaluator);
+            case 363:
+                return createLink39(context, parent, evaluator);
+            case 367:
+                return createLi14(context, parent, evaluator);
+            case 366:
+                return createLink4(context, parent, evaluator);
+            case 365:
+                return createEventHandler48(context, parent, evaluator);
             }
             throw new NoSuchComponentException(id);
         }
@@ -2150,6 +2169,75 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
+        private UIComponent createText6(FacesContext context, 
+                UIComponent parent, PageExpressionEvaluator evaluator) {
+            UIPassThroughText textComp = new UIPassThroughText();
+            textComp.setText("\u00a0|\u00a0");
+            return textComp;
+        }
+
+        private UIComponent createLink21(FacesContext context, 
+                UIComponent parent, PageExpressionEvaluator evaluator) {
+            XspOutputLink result = new XspOutputLink();
+            result.setEscape(false);
+            String sourceId = "link21/@rendered";
+            String renderedExpr = "#{!dBar.debugLifecycle}";
+            ValueBinding rendered = evaluator.createValueBinding(result, renderedExpr, sourceId,boolean.class);
+            result.setValueBinding("rendered", rendered);
+            setId(result, "link21");
+            result.setText("enable lifecycle debugging");
+            return result;
+        }
+
+        private UIComponent createEventHandler18(FacesContext context, 
+                UIComponent parent, PageExpressionEvaluator evaluator) {
+            XspEventHandler result = new XspEventHandler();
+            result.setImmediate(true);
+            result.setExecMode("partial");
+            String sourceId = "link21/xp:eventHandler[1]/xp:this.action[1]/text()";
+            MethodBinding action = evaluator.createMethodBinding(result,
+                    "#{javascript:dBar.setDebugLifecycle(true);}",
+                    null,null, sourceId);
+            result.setAction(action);
+            result.setRefreshId("debugToolbar");
+            result.setSubmit(true);
+            result.setEvent("onclick");
+            result.setExecId("debugToolbar");
+            result.setRefreshMode("partial");
+            return result;
+        }
+
+        private UIComponent createLink36(FacesContext context, 
+                UIComponent parent, PageExpressionEvaluator evaluator) {
+            XspOutputLink result = new XspOutputLink();
+            result.setEscape(false);
+            String sourceId = "link36/@rendered";
+            String renderedExpr = "#{dBar.debugLifecycle}";
+            ValueBinding rendered = evaluator.createValueBinding(result, renderedExpr, sourceId,boolean.class);
+            result.setValueBinding("rendered", rendered);
+            setId(result, "link36");
+            result.setText("disable lifecycle debugging");
+            return result;
+        }
+
+        private UIComponent createEventHandler19(FacesContext context, 
+                UIComponent parent, PageExpressionEvaluator evaluator) {
+            XspEventHandler result = new XspEventHandler();
+            result.setImmediate(true);
+            result.setExecMode("partial");
+            String sourceId = "link36/xp:eventHandler[1]/xp:this.action[1]/text()";
+            MethodBinding action = evaluator.createMethodBinding(result,
+                    "#{javascript:dBar.setDebugLifecycle(false);}",
+                    null,null, sourceId);
+            result.setAction(action);
+            result.setRefreshId("debugToolbar");
+            result.setSubmit(true);
+            result.setEvent("onclick");
+            result.setExecId("debugToolbar");
+            result.setRefreshMode("partial");
+            return result;
+        }
+
         private UIComponent createDtmessages(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspDataIterator result = new XspDataIterator();
@@ -2181,7 +2269,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText6(FacesContext context, 
+        private UIComponent createText7(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("\u00a0");
@@ -2205,7 +2293,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText7(FacesContext context, 
+        private UIComponent createText8(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             DateTimeConverter converter = new DateTimeConverter();
@@ -2226,7 +2314,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText8(FacesContext context, 
+        private UIComponent createText9(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             DateTimeConverter converter = new DateTimeConverter();
@@ -2253,7 +2341,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText9(FacesContext context, 
+        private UIComponent createText10(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             String sourceId = "dtMessages/xp:tr[2]/xp:td[2]/xp:text[1]/xp:this.value[1]/text()";
@@ -2270,7 +2358,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText10(FacesContext context, 
+        private UIComponent createText11(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             String sourceId = "dtMessages/xp:tr[2]/xp:td[2]/xp:text[2]/@value";
@@ -2311,7 +2399,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler18(FacesContext context, 
+        private UIComponent createEventHandler20(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             result.setImmediate(true);
@@ -2342,7 +2430,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler19(FacesContext context, 
+        private UIComponent createEventHandler21(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             result.setImmediate(true);
@@ -2367,7 +2455,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText11(FacesContext context, 
+        private UIComponent createText12(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             ConverterMethodBinding converter = new ConverterMethodBinding();
@@ -2402,7 +2490,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText12(FacesContext context, 
+        private UIComponent createText13(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             result.setValue("</tbody></table>");
@@ -2412,7 +2500,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText13(FacesContext context, 
+        private UIComponent createText14(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             String value = "<table class=\"messages striped\" style=\"width:100%; margin-top: 5px\"><tbody>";
@@ -2423,7 +2511,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText14(FacesContext context, 
+        private UIComponent createText15(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             result.setValue("No messages found");
@@ -2458,7 +2546,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler20(FacesContext context, 
+        private UIComponent createEventHandler22(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             result.setImmediate(true);
@@ -2486,7 +2574,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText15(FacesContext context, 
+        private UIComponent createText16(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("\u00a0|\u00a0");
@@ -2505,7 +2593,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler21(FacesContext context, 
+        private UIComponent createEventHandler23(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             result.setImmediate(true);
@@ -2523,7 +2611,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText16(FacesContext context, 
+        private UIComponent createText17(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("\u00a0|\u00a0");
@@ -2539,7 +2627,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler22(FacesContext context, 
+        private UIComponent createEventHandler24(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             result.setImmediate(true);
@@ -2556,7 +2644,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText17(FacesContext context, 
+        private UIComponent createText18(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("\u00a0|\u00a0");
@@ -2576,7 +2664,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler23(FacesContext context, 
+        private UIComponent createEventHandler25(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             result.setImmediate(true);
@@ -2606,7 +2694,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler24(FacesContext context, 
+        private UIComponent createEventHandler26(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             result.setImmediate(true);
@@ -2634,7 +2722,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText18(FacesContext context, 
+        private UIComponent createText19(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("No values found");
@@ -2698,7 +2786,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler25(FacesContext context, 
+        private UIComponent createEventHandler27(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             result.setImmediate(true);
@@ -2740,7 +2828,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText19(FacesContext context, 
+        private UIComponent createText20(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("\u00a0");
@@ -2767,7 +2855,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler26(FacesContext context, 
+        private UIComponent createEventHandler28(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             result.setImmediate(true);
@@ -2816,7 +2904,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText20(FacesContext context, 
+        private UIComponent createText21(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             String sourceId = "repeatScope/tr[1]/td[1]/div[2]/xp:text[1]/@value";
@@ -2836,7 +2924,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText21(FacesContext context, 
+        private UIComponent createText22(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             String sourceId = "repeatScope/tr[1]/td[2]/xp:text[1]/xp:this.value[1]/text()";
@@ -2849,7 +2937,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText22(FacesContext context, 
+        private UIComponent createText23(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             result.setValue("</tbody></table>");
@@ -2859,7 +2947,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText23(FacesContext context, 
+        private UIComponent createText24(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             result.setValue("<table class=\"grid\"><tbody>");
@@ -2895,14 +2983,14 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText24(FacesContext context, 
+        private UIComponent createText25(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("(log) File:");
             return textComp;
         }
 
-        private UIComponent createText25(FacesContext context, 
+        private UIComponent createText26(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("\u00a0");
@@ -2938,7 +3026,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler27(FacesContext context, 
+        private UIComponent createEventHandler29(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             String sourceId = "comboBoxLogFile/xp:eventHandler[1]/xp:this.onStart[1]/text()";
@@ -2960,7 +3048,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText26(FacesContext context, 
+        private UIComponent createText27(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("\u00a0");
@@ -2976,7 +3064,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler28(FacesContext context, 
+        private UIComponent createEventHandler30(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             result.setImmediate(true);
@@ -3009,21 +3097,21 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText27(FacesContext context, 
+        private UIComponent createText28(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("Recent:");
             return textComp;
         }
 
-        private UIComponent createText28(FacesContext context, 
+        private UIComponent createText29(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("\u00a0");
             return textComp;
         }
 
-        private UIComponent createText29(FacesContext context, 
+        private UIComponent createText30(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             result.setValue("no recent files found");
@@ -3070,7 +3158,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler29(FacesContext context, 
+        private UIComponent createEventHandler31(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             String sourceId = "link41/xp:eventHandler[1]/xp:this.onStart[1]/text()";
@@ -3092,7 +3180,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText30(FacesContext context, 
+        private UIComponent createText31(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             result.setValue(" | ");
@@ -3125,7 +3213,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText31(FacesContext context, 
+        private UIComponent createText32(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             String text = "A more recent version of this file is available. Click\u00a0";
             UIPassThroughText textComp = new UIPassThroughText();
@@ -3142,7 +3230,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler30(FacesContext context, 
+        private UIComponent createEventHandler32(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             result.setImmediate(true);
@@ -3164,14 +3252,14 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText32(FacesContext context, 
+        private UIComponent createText33(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("\u00a0to refresh.");
             return textComp;
         }
 
-        private UIComponent createText33(FacesContext context, 
+        private UIComponent createText34(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             ConverterMethodBinding converter = new ConverterMethodBinding();
@@ -3225,7 +3313,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText34(FacesContext context, 
+        private UIComponent createText35(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("Environment");
@@ -3262,7 +3350,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText35(FacesContext context, 
+        private UIComponent createText36(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("USER");
@@ -3298,7 +3386,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText36(FacesContext context, 
+        private UIComponent createText37(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             String sourceId = "repeat3/tr[1]/td[1]/xp:text[1]/@value";
@@ -3318,7 +3406,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText37(FacesContext context, 
+        private UIComponent createText38(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             String sourceId = "repeat3/tr[1]/td[2]/xp:text[1]/@value";
@@ -3346,7 +3434,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText38(FacesContext context, 
+        private UIComponent createText39(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("BROWSER");
@@ -3382,7 +3470,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText39(FacesContext context, 
+        private UIComponent createText40(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             String sourceId = "repeat4/tr[1]/td[1]/xp:text[1]/@value";
@@ -3402,7 +3490,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText40(FacesContext context, 
+        private UIComponent createText41(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             String sourceId = "repeat4/tr[1]/td[2]/xp:text[1]/@value";
@@ -3430,7 +3518,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText41(FacesContext context, 
+        private UIComponent createText42(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("SERVER");
@@ -3466,7 +3554,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText42(FacesContext context, 
+        private UIComponent createText43(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             String sourceId = "repeat6/tr[1]/td[1]/xp:text[1]/@value";
@@ -3486,7 +3574,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText43(FacesContext context, 
+        private UIComponent createText44(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             String sourceId = "repeat6/tr[1]/td[2]/xp:text[1]/@value";
@@ -3514,7 +3602,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText44(FacesContext context, 
+        private UIComponent createText45(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("DATABASE");
@@ -3550,7 +3638,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText45(FacesContext context, 
+        private UIComponent createText46(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             String sourceId = "repeat5/tr[1]/td[1]/xp:text[1]/@value";
@@ -3570,7 +3658,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText46(FacesContext context, 
+        private UIComponent createText47(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             String sourceId = "repeat5/tr[1]/td[2]/xp:text[1]/@value";
@@ -3597,7 +3685,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText47(FacesContext context, 
+        private UIComponent createText48(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("Tools");
@@ -3620,7 +3708,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler31(FacesContext context, 
+        private UIComponent createEventHandler33(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             result.setExecMode("partial");
@@ -3637,7 +3725,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText48(FacesContext context, 
+        private UIComponent createText49(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("\u00a0(in messages tab)");
@@ -3659,7 +3747,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText49(FacesContext context, 
+        private UIComponent createText50(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("REQUEST");
@@ -3695,7 +3783,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText50(FacesContext context, 
+        private UIComponent createText51(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             String sourceId = "repeat7/tr[1]/td[1]/xp:text[1]/@value";
@@ -3715,7 +3803,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText51(FacesContext context, 
+        private UIComponent createText52(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             String sourceId = "repeat7/tr[1]/td[2]/xp:text[1]/@value";
@@ -3752,14 +3840,14 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText52(FacesContext context, 
+        private UIComponent createText53(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("Java memory usage");
             return textComp;
         }
 
-        private UIComponent createText53(FacesContext context, 
+        private UIComponent createText54(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             String sourceId = "java/xp:text[1]/xp:this.value[1]/text()";
@@ -3795,7 +3883,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText54(FacesContext context, 
+        private UIComponent createText55(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             String sourceId = "java/div[2]/table[1]/tbody[1]/xp:text[1]/xp:this.value[1]/text()";
@@ -3825,7 +3913,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler32(FacesContext context, 
+        private UIComponent createEventHandler34(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             result.setImmediate(true);
@@ -3891,7 +3979,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText55(FacesContext context, 
+        private UIComponent createText56(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("Components on page:");
@@ -3905,7 +3993,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText56(FacesContext context, 
+        private UIComponent createText57(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("(");
@@ -3925,7 +4013,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler33(FacesContext context, 
+        private UIComponent createEventHandler35(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             String sourceId = "link15/xp:eventHandler[1]/xp:this.action[1]/text()";
@@ -3954,7 +4042,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler34(FacesContext context, 
+        private UIComponent createEventHandler36(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             String sourceId = "link30/xp:eventHandler[1]/xp:this.action[1]/text()";
@@ -3970,7 +4058,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText57(FacesContext context, 
+        private UIComponent createText58(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText(")");
@@ -4013,7 +4101,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler35(FacesContext context, 
+        private UIComponent createEventHandler37(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             result.setRefreshId("inspector");
@@ -4029,7 +4117,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText58(FacesContext context, 
+        private UIComponent createText59(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("\u00a0");
@@ -4050,7 +4138,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler36(FacesContext context, 
+        private UIComponent createEventHandler38(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             result.setExecMode("partial");
@@ -4097,7 +4185,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler37(FacesContext context, 
+        private UIComponent createEventHandler39(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             String sourceId = "link19/xp:eventHandler[1]/xp:this.action[1]/text()";
@@ -4128,7 +4216,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText59(FacesContext context, 
+        private UIComponent createText60(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("Previous:");
@@ -4167,7 +4255,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler38(FacesContext context, 
+        private UIComponent createEventHandler40(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             result.setExecMode("partial");
@@ -4212,7 +4300,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText60(FacesContext context, 
+        private UIComponent createText61(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("Expression:");
@@ -4239,7 +4327,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler39(FacesContext context, 
+        private UIComponent createEventHandler41(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             result.setSubmit(true);
@@ -4253,7 +4341,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText61(FacesContext context, 
+        private UIComponent createText62(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("\u00a0");
@@ -4273,7 +4361,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler40(FacesContext context, 
+        private UIComponent createEventHandler42(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             String sourceId = "link31/xp:eventHandler[1]/xp:this.action[1]/text()";
@@ -4303,7 +4391,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText62(FacesContext context, 
+        private UIComponent createText63(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             String text = "(click Enter to execute the expression)";
             UIPassThroughText textComp = new UIPassThroughText();
@@ -4318,7 +4406,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText63(FacesContext context, 
+        private UIComponent createText64(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             result.setValue("Invalid expression");
@@ -4337,7 +4425,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText64(FacesContext context, 
+        private UIComponent createText65(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             String sourceId = "inspector/div[2]/xp:text[1]/@value";
@@ -4463,7 +4551,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler41(FacesContext context, 
+        private UIComponent createEventHandler43(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             result.setImmediate(true);
@@ -4494,7 +4582,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler42(FacesContext context, 
+        private UIComponent createEventHandler44(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             result.setImmediate(true);
@@ -4522,7 +4610,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText65(FacesContext context, 
+        private UIComponent createText66(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("\u00a0|\u00a0");
@@ -4538,7 +4626,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler43(FacesContext context, 
+        private UIComponent createEventHandler45(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             result.setImmediate(true);
@@ -4663,7 +4751,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler44(FacesContext context, 
+        private UIComponent createEventHandler46(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             String sourceId = "link42/xp:eventHandler[1]/xp:this.action[1]/text()";
@@ -4683,7 +4771,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText66(FacesContext context, 
+        private UIComponent createText67(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("(");
@@ -4722,7 +4810,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText67(FacesContext context, 
+        private UIComponent createText68(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             result.setValue(", ");
@@ -4736,7 +4824,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText68(FacesContext context, 
+        private UIComponent createText69(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText(")");
@@ -4750,7 +4838,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText69(FacesContext context, 
+        private UIComponent createText70(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             String sourceId = "repeatMethods/tr[1]/td[2]/xp:text[1]/xp:this.value[1]/text()";
@@ -4773,7 +4861,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText70(FacesContext context, 
+        private UIComponent createText71(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             result.setValue("n/a");
@@ -4808,7 +4896,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText71(FacesContext context, 
+        private UIComponent createText72(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             String value = "<tr><th colspan=\"3\">Methods</th></tr><tr><th>Returns</th><th>Name</th><th>Inherited from</th></tr></thead><tbody>";
@@ -4915,7 +5003,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler45(FacesContext context, 
+        private UIComponent createEventHandler47(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             String sourceId = "link46/xp:eventHandler[1]/xp:this.action[1]/text()";
@@ -4963,7 +5051,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText72(FacesContext context, 
+        private UIComponent createText73(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             result.setValue("n/a");
@@ -4977,7 +5065,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText73(FacesContext context, 
+        private UIComponent createText74(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputText result = new XspOutputText();
             String value = "<tr><th colspan=\"3\">Fields</th></tr><tr><th>Type</th><th>Name</th><th>Inherited from</th></tr></thead><tbody>";
@@ -5060,7 +5148,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText74(FacesContext context, 
+        private UIComponent createText75(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             String text = "The XPages Debug Toolbar is created and maintained by Mark Leusink. Download the latest release\n\t\t\t\t\t\t\t\t\t\t\tfrom\u00a0";
             UIPassThroughText textComp = new UIPassThroughText();
@@ -5068,7 +5156,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return textComp;
         }
 
-        private UIComponent createLink21(FacesContext context, 
+        private UIComponent createLink47(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputLink result = new XspOutputLink();
             String value = "http://www.openntf.org/internal/home.nsf/project.xsp?action=openDocument&name=XPage%20Debug%20Toolbar";
@@ -5078,7 +5166,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText75(FacesContext context, 
+        private UIComponent createText76(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             String text = "\u00a0or the source directly from\u00a0";
             UIPassThroughText textComp = new UIPassThroughText();
@@ -5086,7 +5174,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return textComp;
         }
 
-        private UIComponent createLink36(FacesContext context, 
+        private UIComponent createLink48(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspOutputLink result = new XspOutputLink();
             result.setValue("https://www.github.com/openntf/DebugToolbar");
@@ -5095,7 +5183,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText76(FacesContext context, 
+        private UIComponent createText77(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             String text = ". This project is part of the\u00a0";
             UIPassThroughText textComp = new UIPassThroughText();
@@ -5112,14 +5200,14 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText77(FacesContext context, 
+        private UIComponent createText78(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("OpenNTF Essentials");
             return textComp;
         }
 
-        private UIComponent createText78(FacesContext context, 
+        private UIComponent createText79(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText(".");
@@ -5149,14 +5237,14 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText79(FacesContext context, 
+        private UIComponent createText80(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("blog");
             return textComp;
         }
 
-        private UIComponent createText80(FacesContext context, 
+        private UIComponent createText81(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("\u00a0|\u00a0");
@@ -5172,14 +5260,14 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText81(FacesContext context, 
+        private UIComponent createText82(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("linkedIn");
             return textComp;
         }
 
-        private UIComponent createText82(FacesContext context, 
+        private UIComponent createText83(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("\u00a0|\u00a0");
@@ -5195,7 +5283,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText83(FacesContext context, 
+        private UIComponent createText84(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("twitter");
@@ -5217,7 +5305,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText84(FacesContext context, 
+        private UIComponent createText85(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             String text = "Looking for an expert in IBM XPages or Domino development (client, web, mobile)? Or need\n\t\t\t\t\t\t\t\t\t\t\tassistance in using this or any of my other projects?";
             UIPassThroughText textComp = new UIPassThroughText();
@@ -5239,7 +5327,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText85(FacesContext context, 
+        private UIComponent createText86(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("Contact me at\u00a0");
@@ -5255,14 +5343,14 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText86(FacesContext context, 
+        private UIComponent createText87(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("m.leusink@linqed.eu");
             return textComp;
         }
 
-        private UIComponent createText87(FacesContext context, 
+        private UIComponent createText88(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText("\u00a0!");
@@ -5284,7 +5372,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return component;
         }
 
-        private UIComponent createText88(FacesContext context, 
+        private UIComponent createText89(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             String text = "(the Inspector section of this tool was inspired by Tommy Valand\'s\u00a0";
             UIPassThroughText textComp = new UIPassThroughText();
@@ -5306,7 +5394,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createText89(FacesContext context, 
+        private UIComponent createText90(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             UIPassThroughText textComp = new UIPassThroughText();
             textComp.setText(")");
@@ -5365,7 +5453,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             return result;
         }
 
-        private UIComponent createEventHandler46(FacesContext context, 
+        private UIComponent createEventHandler48(FacesContext context, 
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             result.setImmediate(true);

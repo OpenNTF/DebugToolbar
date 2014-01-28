@@ -55,6 +55,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.openntf.xsp.debugtoolbar.inspector.ComponentAnalyser;
 import org.openntf.xsp.debugtoolbar.inspector.ComponentEvaluationResult;
+import org.openntf.xsp.debugtoolbar.lifecycle.DebugBeanPhaseListener;
 
 import lotus.domino.ACL;
 import lotus.domino.Database;
@@ -128,6 +129,8 @@ public class DebugToolbarBean implements Serializable {
 
 	private String dominoDataDir;
 	private String dominoProgramDir;
+	
+	private boolean debugLifecycle;
 
 	private boolean inspectorShowHiddenComponents; // show or hide components
 													// without an id
@@ -1901,4 +1904,42 @@ public class DebugToolbarBean implements Serializable {
 		return "";
 
 	}
+
+	public boolean isDebugLifecycle() {
+		return debugLifecycle;
+	}
+	public void setDebugLifecycle(boolean to) {
+		this.debugLifecycle = to;
+	}
+	
+	public boolean isRestoreViewPhase() {
+		DebugBeanPhaseListener listener = DebugBeanPhaseListener.getInstance();
+		return (null != listener && listener.isRestoreViewPhase());
+	}
+
+	public boolean isApplyRequestValuesPhase() {
+		DebugBeanPhaseListener listener = DebugBeanPhaseListener.getInstance();
+		return (null != listener && listener.isApplyRequestValuesPhase());
+	}
+
+	public boolean isProcessValidationsPhase() {
+		DebugBeanPhaseListener listener = DebugBeanPhaseListener.getInstance();
+		return (null != listener && listener.isProcessValidationsPhase());
+	}
+
+	public boolean isUpdateModelValuesPhase() {
+		DebugBeanPhaseListener listener = DebugBeanPhaseListener.getInstance();
+		return (null != listener && listener.isUpdateModelValuesPhase());
+	}
+
+	public boolean isInvokeApplicationPhase() {
+		DebugBeanPhaseListener listener = DebugBeanPhaseListener.getInstance();
+		return (null != listener && listener.isInvokeApplicationPhase());
+	}
+
+	public boolean isRenderResponsePhase() {
+		DebugBeanPhaseListener listener = DebugBeanPhaseListener.getInstance();
+		return (null != listener && listener.isRenderResponsePhase());
+	}
+	
 }
