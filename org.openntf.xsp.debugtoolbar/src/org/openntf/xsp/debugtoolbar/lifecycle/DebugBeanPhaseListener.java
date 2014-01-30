@@ -107,6 +107,7 @@ public class DebugBeanPhaseListener implements javax.faces.event.PhaseListener {
 					//dBar.debug(" ");
 					if (event.getPhaseId().equals(PhaseId.RENDER_RESPONSE)) {
 						dBar.debug("Request:\tCompleted.");
+						dBar.addDivider();
 					}
 				}
 			}
