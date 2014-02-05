@@ -10,7 +10,7 @@
     <composite-name>toolbar</composite-name>
     <display-name>XPages Debug Toolbar</display-name>
     <composite-file>/org/openntf/xsp/debugtoolbar/components/DebugToolbar</composite-file>
-    <description>XPages Debug Toolbar - easy access to scope contents, debug messages, XPages API and your app environment</description>
+    <description>XPages Debug Toolbar - easy access to scope contents, debug messages to your XPage, view the XPages API and your app environment</description>
     <icon>
       <small-icon>/icons/bug16.png</small-icon>
       <large-icon>/icons/bug32.png</large-icon>

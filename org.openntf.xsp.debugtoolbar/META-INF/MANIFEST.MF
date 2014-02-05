@@ -3,7 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: XPages Debug Toolbar
 Bundle-SymbolicName: org.openntf.xsp.debugtoolbar;singleton:=true
 Bundle-Version: 1.1.0.qualifier
-Bundle-Activator: org.openntf.xsp.debugtoolbar.Activator
 Bundle-Vendor: OpenNTF
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Import-Package: com.ibm.commons.util,
@@ -24,8 +23,7 @@ Import-Package: com.ibm.commons.util,
  org.eclipse.core.runtime,
  org.osgi.framework
 Bundle-ActivationPolicy: lazy
-Export-Package: org.openntf.xsp.debugtoolbar,
- org.openntf.xsp.debugtoolbar.beans,
+Export-Package: org.openntf.xsp.debugtoolbar.beans,
  org.openntf.xsp.debugtoolbar.components,
  org.openntf.xsp.debugtoolbar.inspector,
  org.openntf.xsp.debugtoolbar.library
