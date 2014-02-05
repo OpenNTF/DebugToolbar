@@ -17,9 +17,10 @@ import com.ibm.commons.util.StringUtil;
 public class DebugBeanPhaseListener implements javax.faces.event.PhaseListener {
 
 	private static final long serialVersionUID = 1L;
-
+	
 	private static DebugBeanPhaseListener instance;
-
+	
+	private static final String LOG_CONTEXT = "lifecycle";
 	private PhaseId phaseId;
 
 	public DebugBeanPhaseListener() {
@@ -76,11 +77,12 @@ public class DebugBeanPhaseListener implements javax.faces.event.PhaseListener {
 				if (dBar.isDebugLifecycle()) {
 					if (event.getPhaseId().equals(PhaseId.RESTORE_VIEW)) {
 						dBar.addDivider();
-						dBar.debug("Request:\tStarted...");
+						dBar.debug("Request: Started...", LOG_CONTEXT);
+						dBar.debug(" ");
 					}
-					//dBar.debug(" ");
-					dBar.debug("Lifecycle:\tBefore Phase: "
-							+ event.getPhaseId());
+					
+					dBar.debug("Before Phase: "
+							+ event.getPhaseId(), LOG_CONTEXT);
 				}
 			}
 		} catch (Exception e) {
@@ -100,13 +102,11 @@ public class DebugBeanPhaseListener implements javax.faces.event.PhaseListener {
 
 				if (dBar.isDebugLifecycle()) {
 
-					dBar.debug(event.getFacesContext().getExternalContext()
-							.getRequestParameterMap().get("$$ajaxid"));
-
-					dBar.debug("Lifecycle:\tAfter Phase: " + event.getPhaseId());
-					//dBar.debug(" ");
+					dBar.debug("After Phase: " + event.getPhaseId(), LOG_CONTEXT);
+					dBar.debug(" ");
+				
 					if (event.getPhaseId().equals(PhaseId.RENDER_RESPONSE)) {
-						dBar.debug("Request:\tCompleted.");
+						dBar.debug("Request: Completed.", LOG_CONTEXT);
 						dBar.addDivider();
 					}
 				}
