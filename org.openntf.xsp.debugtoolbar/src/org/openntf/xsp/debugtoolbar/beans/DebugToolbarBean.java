@@ -38,9 +38,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.SortedSet;
 import java.util.TreeMap;
-import java.util.TreeSet;
 import java.util.Vector;
 import java.util.Map.Entry;
 
@@ -55,7 +53,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.openntf.xsp.debugtoolbar.inspector.ComponentAnalyser;
 import org.openntf.xsp.debugtoolbar.inspector.ComponentEvaluationResult;
+
 import org.openntf.xsp.debugtoolbar.lifecycle.DebugBeanPhaseListener;
+
+import org.openntf.xsp.debugtoolbar.objectdumper.DumperFactory;
+import org.openntf.xsp.debugtoolbar.objectdumper.IObjectDumper;
 
 import lotus.domino.ACL;
 import lotus.domino.Database;
@@ -74,10 +76,6 @@ import lotus.domino.NotesException;
 
 import com.ibm.commons.util.StringUtil;
 import com.ibm.designer.runtime.directory.DirectoryUser;
-import com.ibm.jscript.types.FBSBoolean;
-import com.ibm.jscript.types.FBSNumber;
-import com.ibm.jscript.types.FBSObject;
-import com.ibm.jscript.types.FBSString;
 import com.ibm.xsp.designer.context.XSPContext;
 
 public class DebugToolbarBean implements Serializable {
@@ -93,7 +91,7 @@ public class DebugToolbarBean implements Serializable {
 													// held in this class
 	private static final long LOG_FILE_SIZE_LIMIT_MB = 2; // log file size limit
 															// (in MB)
-	private static final int MAX_DATASET_SAMPLE = 50; // maximum number of
+	public static final int MAX_DATASET_SAMPLE = 50; // maximum number of
 														// samples from a list
 														// that are shown by
 														// default
@@ -437,138 +435,14 @@ public class DebugToolbarBean implements Serializable {
 	}
 
 	// dump the contents of an object
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	private String dumpIt(Object o) {
+	public String dumpIt(Object o) {
 
-		StringBuilder dumped = new StringBuilder();
-
-		try {
-
-			if (o == null) {
-				return "&lt;null&gt;";
-
-			} else if (o instanceof String || o instanceof Number || o instanceof Boolean) {
-
-				return o.toString();
-
-			} else if (o instanceof FBSString) {
-				return ((FBSString) o).toJavaObject().toString();
-			} else if (o instanceof FBSNumber) {
-				return ((FBSNumber) o).toJavaObject().toString();
-			} else if (o instanceof FBSBoolean) {
-				return ((FBSBoolean) o).toJavaObject().toString();
-
-			} else if (o instanceof List) { // e.g. ArrayList, Vector
-
-				if (!this.isShowLists()) {
-					return "span class=\"highlight\">(hidden list/ map)</span>";
-				}
-
-				List list = (List) o;
-
-				if (list.size() == 0) {
-
-					dumped.append("(empty list)");
-
-				} else {
-
-					Iterator it = list.iterator();
-
-					dumped.append("<table class=\"dumped\"><tbody>");
-
-					boolean first = true;
-					int counter = 0;
-
-					while (it.hasNext()) {
-
-						Object itObject = it.next();
-
-						if (counter >= DebugToolbarBean.MAX_DATASET_SAMPLE) {
-							dumped.append("<tr><td colspan=\"2\"><span class=\"highlight\">More items available...</span></td></tr>");
-							break;
-						}
-
-						dumped.append("<tr><td" + (first ? " class=\"first\"" : "") + ">[" + counter + "]</td><td" + (first ? " class=\"first\"" : "") + ">");
-						dumped.append(this.dumpIt(itObject));
-						dumped.append("</td></tr>");
-						first = false;
-						counter++;
-					}
-
-					dumped.append("</tbody></table>");
-				}
-
-			} else if (o instanceof Map) {
-
-				Map map = (Map) o;
-				SortedSet<Object> keys = new TreeSet<Object>(map.keySet());
-
-				dumped.append("<table class=\"dumped\"><tbody>");
-
-				int counter = 0;
-				boolean first = true;
-
-				for (Object key : keys) {
-
-					if (counter >= DebugToolbarBean.MAX_DATASET_SAMPLE) {
-						dumped.append("<tr><td colspan=\"2\"><span class=\"highlight\">More items available...</span></td></tr>");
-						break;
-					}
-
-					dumped.append("<tr><td" + (first ? " class=\"first\"" : "") + ">" + key + "</td>" + "<td" + (first ? " class=\"first\"" : "") + ">"
-							+ this.dumpIt(map.get(key)) + "</td></tr>");
-
-					first = false;
-					counter++;
-
-				}
-
-				dumped.append("</tbody></table>");
-
-			} else if (o instanceof FBSObject) {
-
-				FBSObject fbso = (FBSObject) o;
-
-				Iterator it = fbso.getPropertyKeys();
-
-				dumped.append("<table class=\"dumped\"><tbody>");
-
-				boolean first = true;
-				int counter = 0;
-
-				while (it.hasNext()) {
-
-					String key = (String) it.next();
-					Object val = fbso.get(key);
-
-					if (counter >= DebugToolbarBean.MAX_DATASET_SAMPLE) {
-						dumped.append("<tr><td colspan=\"2\"><span class=\"highlight\">More items available...</span></td></tr>");
-						break;
-					}
-
-					String dumpedVal = this.dumpIt(val);
-
-					dumped.append("<tr><td" + (first ? " class=\"first\"" : "") + ">" + key + "</td>" + "<td" + (first ? " class=\"first\"" : "") + ">"
-							+ dumpedVal + "</td></tr>");
-
-					first = false;
-					counter++;
-				}
-
-				dumped.append("</tbody></table>");
-
-			} else {
-				dumped.append(o.toString());
-
-			}
-
-		} catch (Exception e) {
-
-			this.error("could not dump object (" + o.getClass().toString() + ")", "dumped");
-
+		if (o == null) {
+			return "&lt;null&gt;";
 		}
-
-		return dumped.toString();
+		
+		IObjectDumper<?> myDumper = DumperFactory.INSTANCE.getDumper(o);
+		return myDumper.getDump(o, this);
 
 	}
 
