@@ -18,22 +18,15 @@ package org.openntf.xsp.debugtoolbar.beans;
  * >> 
  */
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.Serializable;
 import java.io.StringWriter;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -46,16 +39,15 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.component.UIComponent;
-import javax.faces.model.SelectItem;
 import javax.faces.model.SelectItemGroup;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 import org.openntf.xsp.debugtoolbar.inspector.ComponentAnalyser;
 import org.openntf.xsp.debugtoolbar.inspector.ComponentEvaluationResult;
-
 import org.openntf.xsp.debugtoolbar.lifecycle.DebugBeanPhaseListener;
-
+import org.openntf.xsp.debugtoolbar.modules.DebugToolbarUtils;
+import org.openntf.xsp.debugtoolbar.modules.FilesModule;
 import org.openntf.xsp.debugtoolbar.objectdumper.DumperFactory;
 import org.openntf.xsp.debugtoolbar.objectdumper.IObjectDumper;
 
@@ -67,10 +59,8 @@ import lotus.domino.Session;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.Date;
 import java.util.logging.Level;
 
-import lotus.domino.DateTime;
 import lotus.domino.Document;
 import lotus.domino.NotesException;
 
@@ -83,20 +73,17 @@ public class DebugToolbarBean implements Serializable {
 	private static final long serialVersionUID = 6348127836747732428L;
 
 	public static final String BEAN_NAME = "dBar";
-	private static final String LOG_FILE_CONTENTS = "logFileContents";
-	private static final String LOG_FILE_SELECTED = "logFileSelected";
+
 	private static final String DEFAULT_TOOLBAR_COLOR = "#161E7A";
 
 	private static final int MAX_MESSAGES = 2000; // maximum number of message
 													// held in this class
-	private static final long LOG_FILE_SIZE_LIMIT_MB = 2; // log file size limit
-															// (in MB)
+	
 	public static final int MAX_DATASET_SAMPLE = 50; // maximum number of
 														// samples from a list
 														// that are shown by
 														// default
 
-	private static final String TEMP_VAR_NAME = "dBarTemp";
 
 	private boolean toolbarVisible; // (automatically) set to true if the
 									// toolbar is loaded, if set to false
@@ -116,17 +103,11 @@ public class DebugToolbarBean implements Serializable {
 	private boolean showLists;
 	private String toolbarColor;
 
-	private ArrayList<SelectItemGroup> logFileOptions;
-
 	private boolean configLoaded;
 
 	private List<Object> sortedScopeKeys;
 
-	private long logFileModifiedRead;
-	private ArrayList<String> logFileHistory;
-
-	private String dominoDataDir;
-	private String dominoProgramDir;
+	
 	
 	private boolean debugLifecycle;
 
@@ -170,6 +151,8 @@ public class DebugToolbarBean implements Serializable {
 	private static int LEVEL_WARN = 1;
 	private static int LEVEL_INFO = 2;
 	private static int LEVEL_DEBUG = 3;
+	
+	private FilesModule filesModule;
 
 	private ComponentEvaluationResult m_CRE;
 
@@ -190,18 +173,8 @@ public class DebugToolbarBean implements Serializable {
 
 			requestContextPath = FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath();
 			consolePath = requestContextPath + "/debugToolbarConsole.xsp";
-
-			dominoDataDir = com.ibm.xsp.model.domino.DominoUtils.getEnvironmentString("Directory"); // path
-																									// to
-																									// the
-																									// domino/data
-																									// directory
-			dominoProgramDir = com.ibm.xsp.model.domino.DominoUtils.getEnvironmentString("NotesProgram"); // path
-																											// to
-																											// the
-																											// domino
-																											// program
-																											// directory
+			
+			filesModule = new FilesModule();
 
 			inspectorShowHiddenComponents = false;
 			inspectorComponentIdsOptions = new ArrayList<String>();
@@ -231,7 +204,7 @@ public class DebugToolbarBean implements Serializable {
 
 	// retrieve an instance of this toolbar class
 	public static DebugToolbarBean get() {
-		return (DebugToolbarBean) resolveVariable(BEAN_NAME);
+		return (DebugToolbarBean) DebugToolbarUtils.resolveVariable(BEAN_NAME);
 	}
 
 	// dump the contents of any object to the toolbar
@@ -379,7 +352,7 @@ public class DebugToolbarBean implements Serializable {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void readScopeKeys() {
 
-		Map map = (Map) resolveVariable(activeTab);
+		Map map = (Map) DebugToolbarUtils.resolveVariable(activeTab);
 
 		sortedScopeKeys = new ArrayList<Object>(map.keySet());
 
@@ -428,7 +401,7 @@ public class DebugToolbarBean implements Serializable {
 			return "(skipped - debugToolbar variable)";
 		}
 
-		Map map = (Map) DebugToolbarBean.resolveVariable(this.getActiveTab());
+		Map map = (Map) DebugToolbarUtils.resolveVariable(this.getActiveTab());
 
 		return this.dumpIt(map.get(entryName));
 
@@ -490,7 +463,7 @@ public class DebugToolbarBean implements Serializable {
 
 		if (StringUtil.isNotEmpty(name)) {
 
-			Map map = (Map) resolveVariable(activeTab);
+			Map map = (Map) DebugToolbarUtils.resolveVariable(activeTab);
 			map.remove(name);
 
 			readScopeKeys();
@@ -896,26 +869,6 @@ public class DebugToolbarBean implements Serializable {
 		this.debug("(timer stopped) " + id);
 	}
 
-	public static String getReadableSize(long bytes) {
-
-		if (bytes < 1024) {
-			return bytes + " bytes";
-		} else {
-			double kbSize = bytes / 1024;
-
-			if (kbSize < 1024) {
-				// 0 decimals
-				return Math.round(kbSize * 1) / 1 + " kB";
-			} else {
-				// 1 decimal
-				double mbSize = kbSize / 1024;
-				NumberFormat df = new DecimalFormat("#0.0");
-				return df.format(mbSize) + " MB";
-			}
-		}
-
-	}
-
 	public String getConsolePath() {
 		return consolePath;
 	}
@@ -939,7 +892,7 @@ public class DebugToolbarBean implements Serializable {
 				groups.remove(n.getCommon());
 
 				customVars.add(new AbstractMap.SimpleEntry("username", effectiveUserName));
-				customVars.add(new AbstractMap.SimpleEntry("access level", getReadableAccessLevel(accessLevel)));
+				customVars.add(new AbstractMap.SimpleEntry("access level", DebugToolbarUtils.getReadableAccessLevel(accessLevel)));
 
 				customVars.add(new AbstractMap.SimpleEntry("roles", (userRoles.size() > 0 ? userRoles.toString() : "(no roles enabled)")));
 				customVars.add(new AbstractMap.SimpleEntry("groups", (groups.size() > 0 ? groups.toString() : "(user not listed in any group)")));
@@ -965,7 +918,7 @@ public class DebugToolbarBean implements Serializable {
 				customVars.add(new AbstractMap.SimpleEntry("name", currentDbTitle));
 				customVars.add(new AbstractMap.SimpleEntry("path", currentDbFilePath));
 
-				customVars.add(new AbstractMap.SimpleEntry("size", DebugToolbarBean.getReadableSize((long) getCurrentDatabase().getSize())));
+				customVars.add(new AbstractMap.SimpleEntry("size", DebugToolbarUtils.getReadableSize((long) getCurrentDatabase().getSize())));
 				customVars.add(new AbstractMap.SimpleEntry("created", getCurrentDatabase().getCreated().toString()));
 				customVars.add(new AbstractMap.SimpleEntry("last modified", getCurrentDatabase().getLastModified().toString()));
 				customVars.add(new AbstractMap.SimpleEntry("full text indexed?", (getCurrentDatabase().isFTIndexed() ? "yes (last update: "
@@ -1025,25 +978,6 @@ public class DebugToolbarBean implements Serializable {
 
 	}
 
-	private static String getReadableAccessLevel(int level) {
-
-		switch (level) {
-		case 1:
-			return "Depositor";
-		case 2:
-			return "Reader";
-		case 3:
-			return "Author";
-		case 4:
-			return "Editor";
-		case 5:
-			return "Designer";
-		case 6:
-			return "Manager";
-		}
-		return "";
-	}
-
 	public String getColor() {
 		return toolbarColor;
 	}
@@ -1052,34 +986,7 @@ public class DebugToolbarBean implements Serializable {
 		this.toolbarColor = (color == null ? DEFAULT_TOOLBAR_COLOR : color);
 	}
 
-	@SuppressWarnings("unchecked")
-	private String getTempVar(String varName) {
-		Map<String, Object> viewScope = (Map<String, Object>) resolveVariable("viewScope");
-
-		if (viewScope.containsKey(TEMP_VAR_NAME)) {
-			return ((HashMap<String, String>) viewScope.get(TEMP_VAR_NAME)).get(varName);
-		}
-		return null;
-
-	}
-
-	// store a (temporary) dBar variable in the viewScope
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	private void setTempVar(String varName, String varContent) {
-
-		Map<String, Object> viewScope = (Map<String, Object>) resolveVariable("viewScope");
-
-		HashMap<String, String> tempVar = null;
-		if (viewScope.containsKey(TEMP_VAR_NAME)) {
-			tempVar = (HashMap) viewScope.get(TEMP_VAR_NAME);
-		} else {
-			tempVar = new HashMap<String, String>();
-		}
-
-		tempVar.put(varName, varContent);
-		viewScope.put(TEMP_VAR_NAME, tempVar);
-
-	}
+	
 
 	/*
 	 * read components ids from the view root
@@ -1090,7 +997,7 @@ public class DebugToolbarBean implements Serializable {
 
 			inspectorComponentIdsOptions.clear();
 
-			getComponentChildren((com.ibm.xsp.component.UIViewRootEx2) resolveVariable("view"), "");
+			getComponentChildren((com.ibm.xsp.component.UIViewRootEx2) DebugToolbarUtils.resolveVariable("view"), "");
 
 			if (inspectorSortAlphabetic) {
 				Collections.sort(inspectorComponentIdsOptions);
@@ -1147,276 +1054,49 @@ public class DebugToolbarBean implements Serializable {
 		this.inspectorSortAlphabetic = to;
 	}
 
-	// class to hold information about a file
-	private class FileInfo implements Serializable, Comparable<Object> {
-
-		private static final long serialVersionUID = -120581900512974320L;
-		String name;
-		Long modified;
-		long size;
-
-		public FileInfo(String name, long modified, long size) {
-			this.name = name;
-			this.modified = new Long(modified);
-			this.size = size;
-		}
-
-		public String getName() {
-			return name;
-		}
-
-		public Long getModified() {
-			return modified;
-		}
-
-		public String getDescription() {
-			return name + " (" + DebugToolbarBean.getReadableSize(size) + ") ";
-		}
-
-		public int compareTo(Object argInfo) {
-			return ((FileInfo) argInfo).getModified().compareTo(this.getModified());
-		}
-
-	}
-
-	// returns a list of all available log files
-	public ArrayList<SelectItemGroup> getLogFileOptions() {
-
-		try {
-
-			if (logFileOptions == null || logFileOptions.size() == 0) {
-
-				logFileOptions = new ArrayList<SelectItemGroup>();
-
-				// files in workspace/logs folder (e.g. error-log files)
-
-				// error logs
-				logFileOptions.add(getFilesOptions("domino" + File.separator + "workspace" + File.separator + "logs" + File.separator, "Error (logs)", "error",
-						null));
-
-				// trace logs
-				logFileOptions.add(getFilesOptions("domino" + File.separator + "workspace" + File.separator + "logs" + File.separator, "Trace (logs)", "trace",
-						null));
-
-				// other files
-				logFileOptions.add(getFilesOptions("domino" + File.separator + "workspace" + File.separator + "logs" + File.separator, "Other (logs)", null,
-						new ArrayList<String>(Arrays.asList(("error,trace").split(",")))));
-
-				// files in IBM_TECHNICAL_SUPPORT folder
-
-				// xpages logs
-				logFileOptions.add(getFilesOptions("IBM_TECHNICAL_SUPPORT" + File.separator, "XPages (IBM_TECHNICAL_SUPPORT)", "xpages", null));
-
-				// console logs
-				logFileOptions.add(getFilesOptions("IBM_TECHNICAL_SUPPORT" + File.separator, "Console (IBM_TECHNICAL_SUPPORT)", "console", null));
-
-				logFileOptions.add(getFilesOptions("IBM_TECHNICAL_SUPPORT" + File.separator, "Other (IBM_TECHNICAL_SUPPORT)", null, new ArrayList<String>(
-						Arrays.asList(("xpages,console").split(",")))));
-
-				// other files
-				ArrayList<SelectItem> groupItems = new ArrayList<SelectItem>();
-				groupItems.add(new SelectItem(dominoProgramDir + File.separator + "notes.ini", "notes.ini"));
-				groupItems.add(new SelectItem(dominoProgramDir + File.separator + "jvm" + File.separator + "lib" + File.separator + "security" + File.separator
-						+ "java.policy", "java.policy"));
-				logFileOptions.add(new SelectItemGroup("other files", null, true, groupItems.toArray(new SelectItem[groupItems.size()])));
-
-			}
-
-		} catch (Exception e) {
-			this.error(e);
-		}
-
-		return logFileOptions;
-	}
-
-	public void clearLogFileOptions() {
-		if (logFileOptions != null) {
-			logFileOptions.clear();
-		}
-	}
-
-	// retrieve a list of files from the specified folder relative to the
-	// domino\data folder (as a SelectItemGroup)
-	// optionally with an include/ exclude filter
-	private SelectItemGroup getFilesOptions(String folder, String groupTitle, String prefixInclude, ArrayList<String> prefixExclude) {
-
-		ArrayList<SelectItem> groupItems = new ArrayList<SelectItem>();
-		ArrayList<FileInfo> logFilesInfoList = getFilesList(folder, prefixInclude, prefixExclude);
-
-		for (FileInfo info : logFilesInfoList) {
-			groupItems.add(new SelectItem(dominoDataDir + File.separator + folder + info.getName(), info.getDescription()));
-		}
-
-		return new SelectItemGroup(groupTitle, null, true, groupItems.toArray(new SelectItem[groupItems.size()]));
-	}
-
-	private ArrayList<FileInfo> getFilesList(String folder, String prefixInclude, ArrayList<String> prefixExclude) {
-
-		// list of included file extensions for log folders
-		ArrayList<String> includeExt = new ArrayList<String>();
-		includeExt.add("xml");
-		includeExt.add("log");
-		includeExt.add("txt");
-
-		File dir = new File(dominoDataDir + File.separator + folder);
-
-		ArrayList<FileInfo> filesInfoList = new ArrayList<FileInfo>();
-
-		for (File f : dir.listFiles()) {
-
-			if (!f.isDirectory() && f.length() > 0) {
-
-				String name = f.getName();
-				String ext = name.substring(name.lastIndexOf(".") + 1).toLowerCase();
-
-				if (includeExt.contains(ext)) {
-
-					boolean include = true;
-
-					if (prefixInclude != null) {
-						include = f.getName().startsWith(prefixInclude);
-
-					} else if (prefixExclude != null) {
-
-						for (String prefix : prefixExclude) {
-							if (f.getName().startsWith(prefix)) {
-								include = false;
-								break;
-							}
-						}
-					}
-
-					if (include) {
-						filesInfoList.add(new FileInfo(f.getName(), f.lastModified(), f.length()));
-					}
-				}
-			}
-		}
-
-		// sort the list of files descending by last modified
-		Collections.sort(filesInfoList);
-
-		return filesInfoList;
-
-	}
+	/************
+	 * FILES
+	 ***********/
 
 	public String getSelectedLogFile() {
-		return getTempVar(LOG_FILE_SELECTED);
+		return filesModule.getSelectedLogFile();
 	}
 
 	public void setSelectedLogFile(String to) {
-		setTempVar(LOG_FILE_SELECTED, to);
+		filesModule.setSelectedLogFile(to);
 	}
 
 	public String getLogFileContents() {
-		return getTempVar(LOG_FILE_CONTENTS);
+		return filesModule.getLogFileContents();
 	}
 
 	public void setLogFileContents(String to) {
-		setTempVar(LOG_FILE_CONTENTS, to);
+		filesModule.setLogFileContents(to);
 	}
 
 	public boolean hasRecentFiles() {
-		return (logFileHistory != null && logFileHistory.size() > 0);
+		return filesModule.hasRecentFiles();
 	}
 
-	private void addToFileHistory(String fileName) {
-		if (logFileHistory == null) {
-			logFileHistory = new ArrayList<String>();
-		}
-
-		if (!logFileHistory.contains(fileName)) {
-
-			if (logFileHistory.size() >= 5) { // store last 5 files only
-				logFileHistory.remove(logFileHistory.size() - 1); // remove
-																	// oldest
-																	// element
-			}
-
-			logFileHistory.add(0, fileName);
-		}
-
+	public ArrayList<SelectItemGroup> getLogFileOptions() {
+		return filesModule.getLogFileOptions();
+	}
+	
+	public void clearLogFileOptions() {
+		filesModule.clearLogFileOptions();
 	}
 
 	public ArrayList<String> getLogFileHistory() {
-		return logFileHistory;
+		return filesModule.getLogFileHistory();
 	}
-
-	/*
-	 * Reads the selected log file and stores the contents in the viewScope
-	 */
-	public void showFileContents() {
-
-		BufferedReader reader = null;
-
-		try {
-
-			String selected = getSelectedLogFile();
-
-			if (StringUtil.isEmpty(selected)) { // no file selected
-				setLogFileContents(null);
-				return;
-			}
-
-			// add selected file to history
-			addToFileHistory(selected);
-
-			String contents = null;
-
-			File f = new File(selected);
-			if (f.length() > (LOG_FILE_SIZE_LIMIT_MB * 1024 * 1024)) { // file
-																		// too
-																		// large
-
-				contents = "Files is too large: size is " + (f.length() / 1024 / 1024) + " MB (limit is " + LOG_FILE_SIZE_LIMIT_MB + " MB)";
-
-			} else {
-
-				logFileModifiedRead = f.lastModified();
-
-				StringBuffer fileContents = new StringBuffer(1000);
-				reader = new BufferedReader(new InputStreamReader(new FileInputStream(f), "UTF-8"));
-				char[] buffer = new char[1024];
-				int read = 0;
-
-				while ((read = reader.read(buffer)) != -1) {
-					String readData = String.valueOf(buffer, 0, read);
-					fileContents.append(readData);
-					buffer = new char[1024];
-				}
-
-				// escape less then /greater then characters
-				contents = fileContents.toString().replace("<", "&lt;").replace(">", "&gt;");
-			}
-
-			setLogFileContents(contents);
-
-		} catch (Exception e) {
-			error(e);
-		} finally {
-			try {
-				reader.close();
-			} catch (Exception e) {
-			}
-		}
-
-	}
-
+	
 	// checks if the selected file is the most recent version
 	public boolean isLogFileMostRecent() {
+		return filesModule.isLogFileMostRecent();
+	}
 
-		String selected = getSelectedLogFile();
-
-		if (StringUtil.isEmpty(selected)) {
-			return true;
-		} else {
-
-			File f = new File(selected);
-			long lastModified = f.lastModified();
-
-			return (logFileModifiedRead >= lastModified);
-		}
-
+	public void showFileContents() {
+		filesModule.showFileContents();
 	}
 
 	/*************************************
@@ -1593,8 +1273,8 @@ public class DebugToolbarBean implements Serializable {
 
 			docLog.replaceItemValue("LogSeverity", severity.getName());
 
-			setDate(docLog, "LogEventTime", message.getDate());
-			setDate(docLog, "LogAgentStartTime", message.getDate());
+			DebugToolbarUtils.setDate(docLog, "LogEventTime", message.getDate());
+			DebugToolbarUtils.setDate(docLog, "LogAgentStartTime", message.getDate());
 
 			docLog.replaceItemValue("LogEventType", (isError ? "Error" : "Event"));
 			docLog.replaceItemValue("LogMessage", message.getDetails());
@@ -1603,7 +1283,7 @@ public class DebugToolbarBean implements Serializable {
 
 			String fromPage = message.getFromPage();
 			if (fromPage == null) {
-				fromPage = ((com.ibm.xsp.component.UIViewRootEx2) resolveVariable("view")).getPageName();
+				fromPage = ((com.ibm.xsp.component.UIViewRootEx2) DebugToolbarUtils.resolveVariable("view")).getPageName();
 				if (fromPage.indexOf("/") == 0) {
 					fromPage = fromPage.substring(1);
 				}
@@ -1611,7 +1291,7 @@ public class DebugToolbarBean implements Serializable {
 
 			docLog.replaceItemValue("LogFromAgent", fromPage);
 
-			docLog.replaceItemValue("LogAccessLevel", getReadableAccessLevel(accessLevel));
+			docLog.replaceItemValue("LogAccessLevel", DebugToolbarUtils.getReadableAccessLevel(accessLevel));
 			docLog.replaceItemValue("LogUserRoles", userRoles);
 			docLog.replaceItemValue("LogClientVersion", notesVersion);
 
@@ -1634,14 +1314,14 @@ public class DebugToolbarBean implements Serializable {
 
 	private Session getSession() {
 		if (session == null) {
-			session = (Session) resolveVariable("session");
+			session = (Session) DebugToolbarUtils.resolveVariable("session");
 		} else {
 			try {
 				@SuppressWarnings("unused")
 				boolean tmp = session.isOnServer();
 			} catch (NotesException ne) {
 				try {
-					session = (Session) resolveVariable("session");
+					session = (Session) DebugToolbarUtils.resolveVariable("session");
 				} catch (Exception e) {
 				}
 			}
@@ -1651,7 +1331,7 @@ public class DebugToolbarBean implements Serializable {
 
 	private Database getCurrentDatabase() {
 		if (dbCurrent == null || DebugToolbarBean.isRecycled(dbCurrent)) {
-			dbCurrent = (Database) resolveVariable("database");
+			dbCurrent = (Database) DebugToolbarUtils.resolveVariable("database");
 		}
 		return dbCurrent;
 	}
@@ -1668,37 +1348,6 @@ public class DebugToolbarBean implements Serializable {
 			}
 		}
 		return sb.toString();
-	}
-
-	private static Object resolveVariable(String variableName) {
-		FacesContext context = FacesContext.getCurrentInstance();
-		return context.getApplication().getVariableResolver().resolveVariable(context, variableName);
-	}
-
-	// function to store a java.util.Date in a document field (and recycle the
-	// DateTime object afterwards)
-	private void setDate(Document doc, String dateItemName, Date date) {
-
-		if (date == null) {
-			return;
-		}
-
-		DateTime dt = null;
-
-		try {
-
-			dt = getSession().createDateTime(date);
-			doc.replaceItemValue(dateItemName, dt);
-
-		} catch (NotesException e) {
-			error(e);
-		} finally {
-			try {
-				dt.recycle();
-			} catch (NotesException ne) {
-			}
-		}
-
 	}
 
 	public static List<String> getCanonicalNames(Class<?>[] classCollection) {
