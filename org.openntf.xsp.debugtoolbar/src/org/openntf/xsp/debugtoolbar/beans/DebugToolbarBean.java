@@ -546,7 +546,7 @@ public class DebugToolbarBean implements Serializable {
 	 * log a message with a specific type to the toolbar and/or external
 	 * database
 	 */
-	private void log(Object msg, String msgContext, String type) {
+	public void log(Object msg, String msgContext, String type) {
 
 		if (toolbarVisible || logEnabled) {
 
