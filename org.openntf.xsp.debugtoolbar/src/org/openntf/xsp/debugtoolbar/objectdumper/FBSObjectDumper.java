@@ -29,7 +29,7 @@ public class FBSObjectDumper implements IObjectDumper<FBSObject> {
 				String key = (String) it.next();
 				Object val = fbso.get(key);
 
-				if (counter >= dBar.MAX_DATASET_SAMPLE) {
+				if (counter >= DebugToolbarBean.MAX_DATASET_SAMPLE) {
 					sb.append("<tr><td colspan=\"2\"><span class=\"highlight\">More items available...</span></td></tr>");
 					break;
 				}
