@@ -26,7 +26,7 @@ public class FilesModule {
 	private String dominoProgramDir;
 	private String dominoDataDir;
 	
-	private static final long LOG_FILE_SIZE_LIMIT_MB = 2; // log file size limit in MB
+	private static final long LOG_FILE_SIZE_LIMIT_MB = 5; 	// log file size limit in MB
 	private static final String LOG_FILE_CONTENTS = "logFileContents";
 	private static final String LOG_FILE_SELECTED = "logFileSelected";
 	
