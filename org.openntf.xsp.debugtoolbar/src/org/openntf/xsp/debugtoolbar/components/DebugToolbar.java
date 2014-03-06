@@ -3158,7 +3158,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
                 UIComponent parent, PageExpressionEvaluator evaluator) {
             XspEventHandler result = new XspEventHandler();
             String sourceId = "link41/xp:eventHandler[1]/xp:this.onStart[1]/text()";
-            String onStartExpr = "dojo.html.set(dojo.byId(\"#{id:logFileContents}\"), \"Loading...\");";
+            String onStartExpr = "dojo.place(\"<span>Loading...</span>\", \"#{id:logFileContents}\", \"only\");";
             ValueBinding onStart = evaluator.createValueBinding(result, onStartExpr, sourceId,String.class);
             result.setValueBinding("onStart", onStart);
             result.setExecMode("partial");
