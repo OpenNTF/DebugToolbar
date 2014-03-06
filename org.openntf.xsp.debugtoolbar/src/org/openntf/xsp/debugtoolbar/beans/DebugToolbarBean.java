@@ -948,7 +948,11 @@ public class DebugToolbarBean implements Serializable {
 		return customVars;
 
 	}
-
+	
+	public static String getReadableSize(long bytes) {
+		return DebugToolbarUtils.getReadableSize(bytes);
+	}
+	
 	// retrieve the version of the extension library using reflection (since it
 	// might not be installed)
 	@SuppressWarnings({ "unchecked", "rawtypes" })
