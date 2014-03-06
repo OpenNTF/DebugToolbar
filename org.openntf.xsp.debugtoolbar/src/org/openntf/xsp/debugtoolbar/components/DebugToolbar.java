@@ -4495,7 +4495,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             result.setValueBinding("rendered", rendered);
             setId(result, "link44");
             String sourceId3 = "link44/@text";
-            String textExpr = "#{javascript:dBar.getInspectorResultClassName();}";
+            String textExpr = "#{dBar.inspectorResultClassName}";
             ValueBinding text = evaluator.createValueBinding(result, textExpr, sourceId3,String.class);
             result.setValueBinding("text", text);
             return result;

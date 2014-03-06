@@ -91,6 +91,11 @@ public class DebugToolbarBean implements Serializable {
 									// no messages are written to the toolbar's
 									// messages section
 
+	private static final String LINKBASE_FACES = "http://download.oracle.com/docs/cd/E17802_01/j2ee/j2ee/javaserverfaces/1.1_01/docs/api/";
+	private static final String LINKBASE_JAVA = "http://java.sun.com/javase/6/docs/api/";
+	private static final String LINKBASE_IBM = "http://public.dhe.ibm.com/software/dw/lotus/Domino-Designer/JavaDocs/XPagesExtAPI/8.5.2/";
+	private static final String LINKBASE_GOOGLE = "http://google.com/search?q=";
+	
 	private Vector<Message> messages;
 	private boolean isDetailedTimings;
 	private int numErrors;
@@ -714,35 +719,34 @@ public class DebugToolbarBean implements Serializable {
 
 	public String getInspectorLink(String className) {
 
+		if (className == null) {
+			return "";
+		}
+	
 		String inspectorLink = "";
-
+		
 		try {
 
-			String linkBase;
 			String classPath;
 
 			if (className.startsWith("javax.faces")) {
 
-				linkBase = "http://download.oracle.com/docs/cd/E17802_01/j2ee/j2ee/javaserverfaces/1.1_01/docs/api/";
 				classPath = className.replace(".", "/") + ".html";
-				inspectorLink = linkBase + classPath;
+				inspectorLink = LINKBASE_FACES + classPath;
 
 			} else if (className.startsWith("java")) { // link to java api
 
-				linkBase = "http://java.sun.com/javase/6/docs/api/";
 				classPath = className.replace(".", "/") + ".html";
-				inspectorLink = linkBase + classPath;
+				inspectorLink = LINKBASE_JAVA + classPath;
 
 			} else if (className.startsWith("com.ibm")) { // link to IBM/XPages
 															// API
-
-				linkBase = "http://public.dhe.ibm.com/software/dw/lotus/Domino-Designer/JavaDocs/XPagesExtAPI/8.5.2/";
 				classPath = className.replace(".", "/") + ".html";
-				inspectorLink = linkBase + classPath;
+				inspectorLink = LINKBASE_IBM + classPath;
 
 			} else { // generic Google link
 
-				inspectorLink = "http://google.com/search?q=" + className;
+				inspectorLink = LINKBASE_GOOGLE + className;
 
 			}
 
