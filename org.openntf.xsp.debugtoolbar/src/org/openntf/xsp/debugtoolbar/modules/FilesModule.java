@@ -13,7 +13,7 @@ import java.util.Map;
 import javax.faces.model.SelectItem;
 import javax.faces.model.SelectItemGroup;
 
-import org.openntf.xsp.debugtoolbar.Logger;
+import org.openntf.xsp.debugtoolbar.beans.DebugToolbarBean;
 
 import com.ibm.commons.util.StringUtil;
 
@@ -84,7 +84,7 @@ dominoProgramDir = com.ibm.xsp.model.domino.DominoUtils.getEnvironmentString("No
 				}
 
 			} catch (Exception e) {
-				Logger.error(e);
+				DebugToolbarBean.get().error(e);
 			}
 
 			return logFileOptions;
@@ -254,7 +254,7 @@ dominoProgramDir = com.ibm.xsp.model.domino.DominoUtils.getEnvironmentString("No
 				setLogFileContents(contents);
 
 			} catch (Exception e) {
-				Logger.error(e);
+				DebugToolbarBean.get().error(e);
 			} finally {
 				try {
 					reader.close();
