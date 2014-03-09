@@ -4408,7 +4408,7 @@ public class DebugToolbar extends AbstractCompiledPageDispatcher{
             result.setValue("Invalid expression");
             result.setStyle("color:red");
             String sourceId = "inspector/div[1]/xp:text[1]/xp:this.rendered[1]/text()";
-            String renderedExpr = "#{javascript:( !dBar.hasInspectorResult() && !facesContext.getMessages( \'inspectorMessages\' ).hasNext() );}";
+            String renderedExpr = "#{javascript:( dBar.hasInspectorExpression() && !dBar.hasInspectorResult() && !facesContext.getMessages( \'inspectorMessages\' ).hasNext() );}";
             ValueBinding rendered = evaluator.createValueBinding(result, renderedExpr, sourceId,boolean.class);
             result.setValueBinding("rendered", rendered);
             return result;

@@ -638,6 +638,10 @@ public class DebugToolbarBean implements Serializable {
 	public String getInspectorExpression() {
 		return DebugToolbarBean.join(inspectorExpression);
 	}
+	
+	public boolean hasInspectorExpression() {
+		return (inspectorExpression != null && inspectorExpression.size()>0);
+	}
 
 	public static void addInspectorMessage(String message) {
 		FacesContext.getCurrentInstance().addMessage("inspectorMessages", new FacesMessage(FacesMessage.SEVERITY_WARN, message, message));
