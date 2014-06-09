@@ -93,7 +93,7 @@ public class DebugToolbarBean implements Serializable {
 
 	private static final String LINKBASE_FACES = "http://download.oracle.com/docs/cd/E17802_01/j2ee/j2ee/javaserverfaces/1.1_01/docs/api/";
 	private static final String LINKBASE_JAVA = "http://java.sun.com/javase/6/docs/api/";
-	private static final String LINKBASE_IBM = "http://public.dhe.ibm.com/software/dw/lotus/Domino-Designer/JavaDocs/XPagesExtAPI/8.5.2/";
+	private static final String LINKBASE_IBM = "http://public.dhe.ibm.com/software/dw/lotus/Domino-Designer/JavaDocs/Designer/9.0.1/";
 	private static final String LINKBASE_GOOGLE = "http://google.com/search?q=";
 	
 	private Vector<Message> messages;
