@@ -17,9 +17,14 @@ public class ComponentEvaluationResult implements Serializable {
 
 	public static ComponentEvaluationResult generateResult(Object objResult) {
 		ComponentEvaluationResult cre = new ComponentEvaluationResult();
-		cre.setSuccess(true);
-		cre.setResultObject(objResult);
-		cre.setResultObjectClass(objResult.getClass());
+		if (objResult != null) {
+			cre.setSuccess(true);
+			cre.setResultObject(objResult);
+			cre.setResultObjectClass(objResult.getClass());
+		} else {
+			cre.setSuccess(false);
+			cre.setErrorMessage("Expression returned 'null'");
+		}
 		return cre;
 	}
 
