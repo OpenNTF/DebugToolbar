@@ -1037,7 +1037,7 @@ public class DebugToolbarBean implements Serializable {
 
 			for (UIComponent childNode : children) {
 				String id = childNode.getId();
-
+				
 				if (id != null) {
 
 					if (!"debugToolbar".equals(id)) { // don't add (children of)
@@ -1045,7 +1045,7 @@ public class DebugToolbarBean implements Serializable {
 
 						if (!id.startsWith("_") || inspectorShowHiddenComponents) {
 							// add to list
-							inspectorComponentIdsOptions.add(prefix + id + "|" + id);
+							inspectorComponentIdsOptions.add(prefix + id + " (" + childNode.getClass().getSimpleName() + ")|" + id);
 						}
 					}
 				}
