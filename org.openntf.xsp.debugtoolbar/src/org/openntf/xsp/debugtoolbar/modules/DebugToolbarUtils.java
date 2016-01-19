@@ -2,7 +2,9 @@ package org.openntf.xsp.debugtoolbar.modules;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.Collection;
 import java.util.Date;
+import java.util.Iterator;
 
 import javax.faces.context.FacesContext;
 
@@ -64,6 +66,9 @@ public abstract class DebugToolbarUtils {
 
 	}
 	
+	/*
+	 * returns a 'readable' access level name for Notes database access
+	 */
 	public static String getReadableAccessLevel(int level) {
 
 		switch (level) {
@@ -81,6 +86,23 @@ public abstract class DebugToolbarUtils {
 			return "Manager";
 		}
 		return "";
+	}
+	
+	/*
+	 * joins a collection using the specified seperator
+	 */
+	public static String join(final Collection<String> c, final String sep) {
+
+		StringBuilder sb = new StringBuilder();
+		Iterator<String> it = c.iterator();
+		while (it.hasNext()) {
+			sb.append(it.next());
+
+			if (it.hasNext()) {
+				sb.append(sep);
+			}
+		}
+		return sb.toString();
 	}
 
 }

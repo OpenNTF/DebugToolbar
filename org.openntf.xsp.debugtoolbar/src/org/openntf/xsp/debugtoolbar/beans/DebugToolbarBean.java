@@ -4,7 +4,7 @@ package org.openntf.xsp.debugtoolbar.beans;
  * <<
  * 
  * XPages Debug Toolbar
- * Copyright 2012,2013,2014 Mark Leusink http://linqed.eu
+ * Copyright 2012-2016 Mark Leusink http://linqed.eu
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this 
  * file except in compliance with the License. You may obtain a copy of the License at
@@ -24,7 +24,6 @@ import java.io.StringWriter;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -207,7 +206,7 @@ public class DebugToolbarBean implements Serializable {
 
 	}
 
-	// retrieve an instance of this toolbar class
+	// retrieve an instance of the toolbar bean
 	public static DebugToolbarBean get() {
 		return (DebugToolbarBean) DebugToolbarUtils.resolveVariable(BEAN_NAME);
 	}
@@ -300,7 +299,7 @@ public class DebugToolbarBean implements Serializable {
 	public void init(boolean defaultCollapsed) {
 		this.init(defaultCollapsed, null);
 	}
-
+	
 	public boolean isDesigner() {
 		return this.accessLevel >= ACL.LEVEL_DESIGNER;
 	}
@@ -539,7 +538,7 @@ public class DebugToolbarBean implements Serializable {
 
 	}
 
-	private void log(Throwable throwable, String msgContext) {
+	public void log(Throwable throwable, String msgContext) {
 
 		if (toolbarVisible || logEnabled) { // abort if toolbar not visible/ no
 											// external logging enabled
@@ -580,6 +579,9 @@ public class DebugToolbarBean implements Serializable {
 		}
 	}
 
+	/*
+	 * different functions to send different types of message to the toolbar
+	 */
 	public void info(Object msg) {
 		this.log(msg, null, Message.TYPE_INFO);
 	}
@@ -636,7 +638,7 @@ public class DebugToolbarBean implements Serializable {
 
 	// return a string representation of the expression
 	public String getInspectorExpression() {
-		return DebugToolbarBean.join(inspectorExpression);
+		return DebugToolbarUtils.join(inspectorExpression, ".");
 	}
 	
 	public boolean hasInspectorExpression() {
@@ -1026,36 +1028,34 @@ public class DebugToolbarBean implements Serializable {
 	// walk the node tree and collect all component ids
 	@SuppressWarnings("unchecked")
 	private void getComponentChildren(UIComponent component, String prefix) {
-
-		List<UIComponent> children = component.getChildren();
-
+	
+		Iterator<UIComponent> children = component.getFacetsAndChildren();
+		
 		if (inspectorComponentIdsOptions.size() > 0 && !inspectorSortAlphabetic) {
 			prefix += "- ";
 		}
 
-		if (children.size() > 0) {
+		while (children.hasNext()) {
 
-			for (UIComponent childNode : children) {
-				String id = childNode.getId();
+			UIComponent childNode = children.next();
+
+			String id = childNode.getId();
+
+			if (id != null && !"debugToolbar".equals(id)) { // don't add (children of) debug toolbar
+
+				if (!id.startsWith("_") || inspectorShowHiddenComponents) {
+					// add to list
+					inspectorComponentIdsOptions.add(prefix + id + " ("
+							+ childNode.getClass().getSimpleName() + ")|" + id);
+				}
 				
-				if (id != null) {
-
-					if (!"debugToolbar".equals(id)) { // don't add (children of)
-														// debug toolbar)
-
-						if (!id.startsWith("_") || inspectorShowHiddenComponents) {
-							// add to list
-							inspectorComponentIdsOptions.add(prefix + id + " (" + childNode.getClass().getSimpleName() + ")|" + id);
-						}
-					}
-				}
-
-				if (!"debugToolbar".equals(id)) {
-					getComponentChildren(childNode, prefix);
-				}
 			}
 
+			if (!"debugToolbar".equals(id)) {
+				getComponentChildren(childNode, prefix);
+			}
 		}
+
 	}
 
 	public boolean isInspectorSortAlphabetic() {
@@ -1346,20 +1346,6 @@ public class DebugToolbarBean implements Serializable {
 			dbCurrent = (Database) DebugToolbarUtils.resolveVariable("database");
 		}
 		return dbCurrent;
-	}
-
-	private static String join(Collection<String> c) {
-
-		StringBuilder sb = new StringBuilder();
-		Iterator<String> it = c.iterator();
-		while (it.hasNext()) {
-			sb.append(it.next());
-
-			if (it.hasNext()) {
-				sb.append(".");
-			}
-		}
-		return sb.toString();
 	}
 
 	public static List<String> getCanonicalNames(Class<?>[] classCollection) {
