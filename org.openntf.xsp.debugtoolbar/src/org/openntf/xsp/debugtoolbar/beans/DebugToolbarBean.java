@@ -21,6 +21,8 @@ package org.openntf.xsp.debugtoolbar.beans;
 import java.io.PrintWriter;
 import java.io.Serializable;
 import java.io.StringWriter;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,14 +32,15 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.TreeMap;
 import java.util.Vector;
-import java.util.Map.Entry;
+import java.util.logging.Level;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.faces.component.UIComponent;
 import javax.faces.model.SelectItemGroup;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -50,28 +53,25 @@ import org.openntf.xsp.debugtoolbar.modules.FilesModule;
 import org.openntf.xsp.debugtoolbar.objectdumper.DumperFactory;
 import org.openntf.xsp.debugtoolbar.objectdumper.IObjectDumper;
 
-import lotus.domino.ACL;
-import lotus.domino.Database;
-import lotus.domino.Name;
-import lotus.domino.NoteCollection;
-import lotus.domino.Session;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.logging.Level;
-
-import lotus.domino.Document;
-import lotus.domino.NotesException;
-
 import com.ibm.commons.util.StringUtil;
 import com.ibm.designer.runtime.directory.DirectoryUser;
+import com.ibm.xsp.context.FacesContextEx;
 import com.ibm.xsp.designer.context.XSPContext;
+
+import lotus.domino.ACL;
+import lotus.domino.Database;
+import lotus.domino.Document;
+import lotus.domino.Name;
+import lotus.domino.NoteCollection;
+import lotus.domino.NotesException;
+import lotus.domino.Session;
 
 public class DebugToolbarBean implements Serializable {
 
 	private static final long serialVersionUID = 6348127836747732428L;
 
 	public static final String BEAN_NAME = "dBar";
+	private static final String XSP_PROP_PREFIX = "org.openntf.debugtoolbar.";
 	private static final String SYSOUT_PREFIX = "[dBar] ";
 
 	private static final String DEFAULT_TOOLBAR_COLOR = "#161E7A";
@@ -135,7 +135,7 @@ public class DebugToolbarBean implements Serializable {
 	private transient Session session;
 	private String currentDbFilePath;
 	private String currentDbTitle;
-	private String serverName;
+	private String currentServer;
 
 	private int accessLevel;
 
@@ -147,9 +147,10 @@ public class DebugToolbarBean implements Serializable {
 
 	// variables for external log database
 	private String logDbPath; // path to the (OpenLog) database
-	private boolean logEnabled; // enable/ disable persistent logging
+	private boolean logEnabled;
 	private int logLevel; // level of messages to log
-	private boolean logDbValid;
+	
+	private boolean logDbValid = true;
 	private transient Database dbLog;
 
 	private static int LEVEL_ERROR = 0;
@@ -184,13 +185,17 @@ public class DebugToolbarBean implements Serializable {
 			inspectorShowHiddenComponents = false;
 			inspectorComponentIdsOptions = new ArrayList<String>();
 			inspectorExpression = new ArrayList<String>();
-
-			logEnabled = false;
-
+			
+			logDbPath = getXspProperty("logDbPath");
+			String _logToDb = getXspProperty("logToDb");
+			logEnabled = StringUtil.isNotEmpty(logDbPath) && !"false".equals(_logToDb);
+			
+			logLevel = LEVEL_DEBUG;		//default log level
+			
 			dbCurrent = getCurrentDatabase();
 			currentDbFilePath = dbCurrent.getFilePath();
 			currentDbTitle = dbCurrent.getTitle();
-			serverName = dbCurrent.getServer();
+			currentServer = dbCurrent.getServer();
 
 			accessLevel = dbCurrent.getCurrentAccessLevel();
 
@@ -1110,24 +1115,21 @@ public class DebugToolbarBean implements Serializable {
 	/*************************************
 	 * EXTERNAL DB LOGGING
 	 ************************************/
+	
+	//returns the value of a variable in the local (to the nsf) xsp.properties files
+	private String getXspProperty( final String propertyName ) {
+		String val = "";
+		try {
+			val = ((FacesContextEx) FacesContext.getCurrentInstance()).getProperty(XSP_PROP_PREFIX + propertyName); 
+		} catch (Throwable t) {
+			t.printStackTrace();
+		}
+		
+		return val;
+	}
 
 	public String getLogDbPath() {
 		return logDbPath;
-	}
-
-	public void setLogDbPath(String to) {
-
-		try {
-			this.logDbValid = true; // reset
-
-			if (to.equals("current")) {
-				this.logDbPath = getCurrentDatabase().getFilePath();
-			} else {
-				this.logDbPath = to;
-			}
-		} catch (NotesException e) {
-			e.printStackTrace();
-		}
 	}
 
 	public boolean getLogDbValid() {
@@ -1136,10 +1138,6 @@ public class DebugToolbarBean implements Serializable {
 
 	public boolean isLogEnabled() {
 		return logEnabled;
-	}
-
-	public void setLogEnabled(boolean logDbEnabled) {
-		this.logEnabled = logDbEnabled;
 	}
 
 	public String getLogLevel() {
@@ -1151,11 +1149,12 @@ public class DebugToolbarBean implements Serializable {
 			return "debug";
 		} else if (logLevel == LEVEL_INFO) {
 			return "info";
-		} else {
+		} else {	
 			return "?";
 		}
 	}
 
+	//set the 'log level' (error, warn, info, debug, all)
 	public void setLogLevel(String level) {
 
 		// check for valid input
@@ -1167,8 +1166,6 @@ public class DebugToolbarBean implements Serializable {
 			logLevel = LEVEL_WARN;
 		} else if (level.equals("error")) {
 			logLevel = LEVEL_ERROR;
-		} else {
-			logLevel = LEVEL_ERROR; // default if no valid level set
 		}
 
 	}
@@ -1205,20 +1202,21 @@ public class DebugToolbarBean implements Serializable {
 
 			if (dbLog == null || DebugToolbarBean.isRecycled(dbLog)) {
 
-				dbLog = getSession().getDatabase(serverName, logDbPath);
-
-				if (dbLog == null) { // still null: mark as invalid
-					logDbValid = false;
+				if ( logDbPath.equalsIgnoreCase("current") ) {
+					dbLog = getSession().getCurrentDatabase();
+				} else {
+					dbLog = getSession().getDatabase(currentServer, logDbPath);
 				}
 
-				if (!dbLog.isOpen()) { // database object could not be opened:
-										// mark as invalid
+				if (dbLog == null || !dbLog.isOpen()) { // still null: mark as invalid
+					System.out.println(SYSOUT_PREFIX + "Invalid log database path: " + logDbPath);
 					dbLog = null;
 					logDbValid = false;
 				}
-
 			}
+			
 		} catch (Exception e) {
+			System.out.println(SYSOUT_PREFIX + "Error while retrieving log database (at " + logDbPath + "):");
 			e.printStackTrace();
 		}
 
@@ -1227,7 +1225,7 @@ public class DebugToolbarBean implements Serializable {
 
 	// create a document in an external log database
 	private void createLogDocument(Message message, boolean isError, Level severity) {
-
+		
 		if (!logEnabled) {
 			return;
 		}
@@ -1253,14 +1251,14 @@ public class DebugToolbarBean implements Serializable {
 
 		try {
 
-			getLogDb();
+			Database dbLog = getLogDb();
 
 			// abort if log db could not be opened/ not specified
-			if (!logDbValid) {
+			if (dbLog == null) {
 				return;
 			}
 
-			docLog = getLogDb().createDocument();
+			docLog = dbLog.createDocument();
 
 			docLog.replaceItemValue("Form", "LogEvent");
 			docLog.replaceItemValue("LogAgentLanguage", "XPages");
@@ -1287,7 +1285,7 @@ public class DebugToolbarBean implements Serializable {
 			docLog.replaceItemValue("LogEventType", (isError ? "Error" : "Event"));
 			docLog.replaceItemValue("LogMessage", message.getDetails());
 			docLog.replaceItemValue("LogFromDatabase", currentDbFilePath);
-			docLog.replaceItemValue("LogFromServer", serverName);
+			docLog.replaceItemValue("LogFromServer", currentServer);
 
 			String fromPage = message.getFromPage();
 			if (fromPage == null) {
@@ -1304,8 +1302,9 @@ public class DebugToolbarBean implements Serializable {
 			docLog.replaceItemValue("LogClientVersion", notesVersion);
 
 			docLog.save(true);
-
+		
 		} catch (Exception e) {
+			System.out.println(SYSOUT_PREFIX + "Error while writing to log document:");
 			e.printStackTrace();
 		} finally {
 			try {
