@@ -55,90 +55,92 @@ public class Message implements Serializable {
 	private boolean showStackTrace = false;
 	
 	public Message(Object obj, String context, String type) {
-		this.text = getMessageText(obj);
-		this.details = this.text;
-		this.type = (type==null ? TYPE_INFO : type);
+		
 		this.context = context;
 		this.date = new Date();
-	}
-	
-	public Message(Throwable error, String context) {
+		this.type = (type==null ? TYPE_INFO : type);
 		
-		StringBuilder sbHTML = new StringBuilder();
-		StringBuilder sbDetails = new StringBuilder();
-		
-		if (error instanceof NotesException) {		//add error id
-			errorId = ((NotesException) error).id;
-			summary = ((NotesException) error).text;
-			sbHTML.append( summary + " (" + errorId + ")");
-		} else {
-			summary = error.toString();
-			sbHTML.append( error.toString() );
-		}
-		sbDetails.append( summary );
-		
-		StackTraceElement[] stes = error.getStackTrace();
-		errorLine = stes[0].getLineNumber();
-		errorMethod = stes[0].getMethodName();
-		errorClassName = stes[0].getClassName();
-		
-		if (error.getClass().getName().equals( "javax.faces.FacesException") ) {
+		if ( obj instanceof Throwable) {
 			
-			sbHTML.append("<table cellpadding=\"0\" cellspacing=\"0\" class=\"errorDetails\"><tbody><tr><td colspan=\"2\"><b><u>Error details</u></b></td></tr>");
-			sbDetails.append("\n\nError details\n\n");
-		
-			javax.faces.FacesException fE = (javax.faces.FacesException) error;
+			StringBuilder sbHTML = new StringBuilder();
+			StringBuilder sbDetails = new StringBuilder();
 			
-			if ( fE.getCause().getClass().getName().equals( "com.ibm.xsp.exception.EvaluationExceptionEx") ) {
+			if (obj instanceof NotesException) {		//add error id
+				errorId = ((NotesException) obj).id;
+				summary = ((NotesException) obj).text;
+				sbHTML.append( summary + " (" + errorId + ")");
+			} else {
+				summary = obj.toString();
+				sbHTML.append( obj.toString() );
+			}
+			sbDetails.append( summary );
+			
+			StackTraceElement[] stEls = ((Throwable)obj).getStackTrace();
+			errorLine = stEls[0].getLineNumber();
+			errorMethod = stEls[0].getMethodName();
+			errorClassName = stEls[0].getClassName();
+			
+			if (obj.getClass().getName().equals( "javax.faces.FacesException") ) {
 				
-				com.ibm.xsp.exception.EvaluationExceptionEx evEx = (com.ibm.xsp.exception.EvaluationExceptionEx) fE.getCause();
+				sbHTML.append("<table cellpadding=\"0\" cellspacing=\"0\" class=\"errorDetails\"><tbody><tr><td colspan=\"2\"><b><u>Error details</u></b></td></tr>");
+				sbDetails.append("\n\nError details\n\n");
+			
+				javax.faces.FacesException fE = (javax.faces.FacesException) obj;
 				
-				if ( evEx.getCause().getClass().getName().equals("com.ibm.jscript.InterpretException") ) {
+				if ( fE.getCause().getClass().getName().equals( "com.ibm.xsp.exception.EvaluationExceptionEx") ) {
 					
-					com.ibm.jscript.InterpretException iEx = (com.ibm.jscript.InterpretException) evEx.getCause();
+					com.ibm.xsp.exception.EvaluationExceptionEx evEx = (com.ibm.xsp.exception.EvaluationExceptionEx) fE.getCause();
 					
-					sbHTML.append("<tr><td><b>Message:</b></td><td style=\"color: black;\">" + iEx.getMessage() + "</td></tr>");
-					sbHTML.append("<tr><td><b>JavaScript code:</b></td><td style=\"color: black;\">" + iEx.getExpressionText().replace("\n", "<br />") + "</td></tr>");
+					if ( evEx.getCause().getClass().getName().equals("com.ibm.jscript.InterpretException") ) {
+						
+						com.ibm.jscript.InterpretException iEx = (com.ibm.jscript.InterpretException) evEx.getCause();
+						
+						sbHTML.append("<tr><td><b>Message:</b></td><td style=\"color: black;\">" + iEx.getMessage() + "</td></tr>");
+						sbHTML.append("<tr><td><b>JavaScript code:</b></td><td style=\"color: black;\">" + iEx.getExpressionText().replace("\n", "<br />") + "</td></tr>");
+						
+						sbDetails.append("Message: " + iEx.getMessage() + "\n\n" );
+						sbDetails.append("JavaScript code:\n\n" + iEx.getExpressionText() + "\n\n");
+						
+					}
 					
-					sbDetails.append("Message: " + iEx.getMessage() + "\n\n" );
-					sbDetails.append("JavaScript code:\n\n" + iEx.getExpressionText() + "\n\n");
+					sbHTML.append("<tr><td><b>Caused by component:</b></td><td style=\"color: black;\">" + evEx.getErrorComponentId() + "</td></tr>");
+					sbHTML.append("<tr><td><b>Property:</b></td><td style=\"color: black;\">" + evEx.getErrorPropertyId() + "</td></tr>" );
 					
+					sbDetails.append("Caused by component: " + evEx.getErrorComponentId() + "\n");
+					sbDetails.append("Property: " + evEx.getErrorPropertyId() + "\n" );
 				}
 				
-				sbHTML.append("<tr><td><b>Caused by component:</b></td><td style=\"color: black;\">" + evEx.getErrorComponentId() + "</td></tr>");
-				sbHTML.append("<tr><td><b>Property:</b></td><td style=\"color: black;\">" + evEx.getErrorPropertyId() + "</td></tr>" );
+				XSPContext xspContext = XSPContext.getXSPContext(FacesContext.getCurrentInstance());
+				String [] historyUrls = xspContext.getHistoryUrls();
+				fromPage = historyUrls[historyUrls.length-1];
 				
-				sbDetails.append("Caused by component: " + evEx.getErrorComponentId() + "\n");
-				sbDetails.append("Property: " + evEx.getErrorPropertyId() + "\n" );
+				if (fromPage.indexOf("?")>-1) {
+					fromPage = fromPage.substring(0, fromPage.indexOf("?"));
+				}
+				if (fromPage.indexOf("/")==0) {
+					fromPage = fromPage.substring(1);
+				}
+				
+				sbHTML.append("<tr><td><b>In page:</b></td><td><a href=\"" + FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath() + "/" + fromPage + "\">" + fromPage + "</a></td></tr>");
+				sbHTML.append("</tbody></table>");
+				
+				sbDetails.append("In page: " + fromPage);
 			}
+						
+			//store stacktrace elements
+			stackTrace = new Vector<String>();
+			for (StackTraceElement element : stEls) {
+				stackTrace.add( element.toString() );
+			} 
 			
-			XSPContext xspContext = XSPContext.getXSPContext(FacesContext.getCurrentInstance());
-			String [] historyUrls = xspContext.getHistoryUrls();
-			fromPage = historyUrls[historyUrls.length-1];
+			this.details = sbDetails.toString();
+			this.text = sbHTML.toString();
 			
-			if (fromPage.indexOf("?")>-1) {
-				fromPage = fromPage.substring(0, fromPage.indexOf("?"));
-			}
-			if (fromPage.indexOf("/")==0) {
-				fromPage = fromPage.substring(1);
-			}
-			
-			sbHTML.append("<tr><td><b>In page:</b></td><td><a href=\"" + FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath() + "/" + fromPage + "\">" + fromPage + "</a></td></tr>");
-			sbHTML.append("</tbody></table>");
-			
-			sbDetails.append("In page: " + fromPage);
-		}
+		} else {
 		
-		this.details = sbDetails.toString();
-		this.text = sbHTML.toString();
-		this.type = TYPE_ERROR;
-		this.context = context;
-		this.date = new Date();
+			this.text = getMessageText(obj);
+			this.details = this.text;
 		
-		//store stacktrace elements in a Vector
-		stackTrace = new Vector<String>();
-		for (StackTraceElement element : error.getStackTrace()) {
-			stackTrace.add( element.toString() );
 		}
 	}
 	

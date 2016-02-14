@@ -72,6 +72,7 @@ public class DebugToolbarBean implements Serializable {
 	private static final long serialVersionUID = 6348127836747732428L;
 
 	public static final String BEAN_NAME = "dBar";
+	private static final String SYSOUT_PREFIX = "[dBar] ";
 
 	private static final String DEFAULT_TOOLBAR_COLOR = "#161E7A";
 
@@ -201,6 +202,7 @@ public class DebugToolbarBean implements Serializable {
 
 		} catch (Exception e) {
 
+			System.out.println(SYSOUT_PREFIX + "Error while initializing:");
 			e.printStackTrace();
 		}
 
@@ -538,12 +540,13 @@ public class DebugToolbarBean implements Serializable {
 
 	}
 
+	@Deprecated
 	public void log(Throwable throwable, String msgContext) {
 
 		if (toolbarVisible || logEnabled) { // abort if toolbar not visible/ no
 											// external logging enabled
 
-			Message message = new Message(throwable, msgContext);
+			Message message = new Message(throwable, msgContext, Message.TYPE_ERROR);
 
 			addMessageToToolbar(message);
 
@@ -574,14 +577,15 @@ public class DebugToolbarBean implements Serializable {
 		} catch (Exception e) {
 
 			// error while logging to the toolbar: log to console
-			System.err.println("(DebugToolbarBean) error while logging: " + e.getMessage());
-			System.out.println("(DebugToolbarBean) " + message.getText());
+			System.err.println(SYSOUT_PREFIX + "error while logging: " + e.getMessage());
+			System.out.println(SYSOUT_PREFIX + message.getText());
 		}
 	}
 
 	/*
 	 * different functions to send different types of message to the toolbar
 	 */
+	
 	public void info(Object msg) {
 		this.log(msg, null, Message.TYPE_INFO);
 	}
@@ -606,20 +610,12 @@ public class DebugToolbarBean implements Serializable {
 		this.log(msg, msgContext, Message.TYPE_WARNING);
 	}
 
-	public void error(Throwable error) {
-		this.log(error, null);
+	public void error(Object msg, String msgContext) {
+		this.log(msg, msgContext, Message.TYPE_ERROR);
 	}
 
-	public void error(Throwable error, String msgContext) {
-		this.log(error, msgContext);
-	}
-
-	public void error(Object error) {
-		this.error(error, null);
-	}
-
-	public void error(Object error, String msgContext) {
-		this.log(error, msgContext, Message.TYPE_ERROR);
+	public void error(Object msg) {
+		this.log(msg, null, Message.TYPE_ERROR);
 	}
 
 	public void addDivider() {
